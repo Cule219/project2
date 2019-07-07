@@ -14,14 +14,19 @@ mongoose
 
 
 const url = 
-// 'https://newsapi.org/v2/sources?apiKey=d27e647a6e484e358a50c1089f09ecae' // link for Source
 'https://newsapi.org/v2/top-headlines?' + 'country=us&' + 'apiKey=d27e647a6e484e358a50c1089f09ecae'; //link for rand Articles
 
-axios(url).then((response)=>{
+const source = 
+'https://newsapi.org/v2/sources?apiKey=d27e647a6e484e358a50c1089f09ecae' // link for Source
+
+axios(url).then(response=>{
   Article.insertMany(response.data.articles)
-  // Source.insertMany(response.data.sources)
   .then(data =>console.log(data.length)).catch(err=>console.log(err));
 })
+axios(source).then(response=>{
+  Source.insertMany(response.data.sources)
+  .then(data => console.log(data.length)).catch(err=>console.log(err));
+});
 
 // var url = 'https://newsapi.org/v2/top-headlines?' +
 //           'sources=bbc-news&' +
