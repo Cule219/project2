@@ -75,11 +75,8 @@ app.use(flash());
 require('./passport')(app);
     
 
-const index = require('./routes/index');
-app.use('/', index);
+app.use('/', require('./routes/index'));
+app.use('/auth', require('./routes/auth'));
 
-const authRoutes = require('./routes/auth');
-app.use('/auth', authRoutes);
-      
 
 module.exports = app;
