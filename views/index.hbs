@@ -1,2 +1,11 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+{{!-- <h1>{{title}}</h1> --}}
+{{!-- <p>Welcome to {{title}}</p> --}}
+
+<ul>
+{{#each data}}
+  {{!-- <h3>{{this.title}}</h3> --}}
+  <li><a href="{{this.url}}">{{this.title}}</a></li>
+{{else}}
+  <p class="empty">No content</p>
+{{/each}}
+</ul>
