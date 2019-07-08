@@ -2,14 +2,22 @@ const mongoose = require('mongoose');
 const Schema   = mongoose.Schema;
 
 const articleSchema = new Schema({
-  source: Object,
+  source: {
+    type: Schema.Types.ObjectId,
+    ref: "Source"
+  },
   author: String,
   title: String,
   description: String,
   url: String,
   urlToImage: String,
   publishedAt: Date,
-  content: String
+  content: String,
+  rating: String,
+  comments: {
+    type: [Schema.Types.ObjectId],
+    ref: "Comment"
+  }
 });
 
 module.exports = mongoose.model('Article', articleSchema);

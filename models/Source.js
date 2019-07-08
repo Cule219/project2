@@ -20,7 +20,19 @@ const sourceSchema = new Schema({
     // "cz", "de", "eg", "fr", "gb", "gr", "hk", "hu", "id", "ie", "il", "in", "it",
     // "jp", "kr", "lt", "lv", "ma", "mx", "my", "ng", "nl", "no", "nz", "ph", "pl", 
     // "pt", "ro", "rs", "ru", "sa", "se", "sg", "si", "sk", "th", "tr", "tw", "ua", "us", "ve", "za"] // "pk" "es"
-  }
+  },
+  reputation: Number,
+  comments: {
+    type: [Schema.Types.ObjectId],
+    ref: "Comment"
+  },
+  reviews: {
+    type: [Schema.Types.ObjectId],
+    ref: "Review"
+  },
+  politicalBias: String,
+  fundingSources: Array,
+  profileImg: String
 });
 
 module.exports = mongoose.model('Source', sourceSchema);

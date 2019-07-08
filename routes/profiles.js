@@ -13,4 +13,18 @@ router.get('profile/user/:id', (req, res) => {
   res.render('profile/userProfile', { user })
 })
 
+
+router.get('/userProfile/:id', (req, res, next) => {
+  User.find({'_id': req.params.id}).then(data => {
+    res.render('profile/userProfile', {data});
+  });
+});
+
+router.get('/source/:id', (req, res) =>{
+  Source.find({'id': req.params.id}).then(data =>{
+    res.render('companyProfile', {data});
+  });
+});
+
+
 module.exports = router

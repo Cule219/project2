@@ -5,24 +5,4 @@ body {
 a {
   color: #00B7FF; }
 
-.signup-button {
-  width: 150px;
-  padding: 10px;
-  background-color: #00B7FF;
-  border: 3px solid #00B7FF;
-  color: white;
-  border-radius: 30px;
-  text-transform: uppercase;
-}
-
-.signup-button:hover {
-  background-color: rgb(4, 114, 158);
-  -webkit-box-shadow: 1px 2px 2px 0px rgba(0,0,0,0.25);
-  -moz-box-shadow: 1px 2px 2px 0px rgba(0,0,0,0.25);
-  box-shadow: 1px 2px 2px 0px rgba(0,0,0,0.25);
-}
-
-.signup-button:visited {
-  background-color: white;
-  color: #00B7FF;
-}
+/*# sourceMappingURL=style.css.map */
