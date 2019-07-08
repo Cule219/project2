@@ -1,4 +1,4 @@
-<h2>Signup</h2>
+{{!-- <h2>Signup</h2>
 
 <form action="/auth/signup" method="POST" id="form-container">
   <label for="username">Username</label>
@@ -21,4 +21,14 @@
     Do you already have an account?
     <a href="/auth/login">Login</a>
   </p>
-</form>
+</form> --}}
+
+<div class='auth-container'>
+  <button class='auth-button FB-auth'>Register with Facebook</button>
+  <button class='auth-button LI-auth'>Register with Linkedin</button>
+  <button class='auth-button GO-auth'>Register with Google</button>
+  <button class='auth-button EM-auth'>Register with Email</button>
+  {{#if message }}
+    <div class="error-message">{{ message }}</div>
+  {{/if}}
+</div>

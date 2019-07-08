@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css?family=DM+Serif+Display&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{title}}</title>
@@ -9,13 +10,24 @@
 </head>
 <body>
 
-  <nav>
+  {{!-- <nav>
     <a href="/">Home</a>
     <a href="/auth/login">Login</a>
     <a href="/auth/signup">Signup</a>
     <a href="/auth/logout">Logout</a>
-  </nav>
+  </nav> --}}
 
+  <nav>
+    <h1>Opinion.</h1>
+    <button class='collapsible'>
+        <div class='menu-icon'></div>
+        <div class='menu-icon'></div>
+        <div class='menu-icon'></div>
+    </button>
+  </nav>
+  
+  <hr />
+  
   {{{body}}}
 
   <script src="/javascripts/script.js"></script>
