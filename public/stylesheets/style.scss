@@ -1,8 +1,157 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; 
 }
 
-a {
-  color: #00B7FF;
+h1 {
+  font-size: 3.2em;
+  margin: 0;
+  font-family: 'DM Serif Display', serif;
+}
+
+h2 {
+  font-family: 'DM Serif Display', serif;
+  margin: 0;
+  font-size: 2.5em;
+}
+
+h3 {
+  font-family: 'DM Serif Display', serif;
+  margin: 0;
+  font-size: 1.5em;
+  font-weight: 300;
+}
+
+nav {
+  display: flex;
+  padding-bottom: 20px;
+}
+
+/* Navigation */
+
+.collapsible {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  border: none;
+  margin-left: auto;
+  padding-top: 10px;
+  outline: none;
+}
+
+.menu-icon {
+  border-bottom: 4px solid darkgray;
+  width: 32px;
+  padding: 4px;
+}
+
+/* Signin & Login pages */
+
+.auth-container {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  padding-top: 60px;
+}
+
+.auth-button {
+  display: block;
+  width: 300px;
+  padding: 10px;
+  border: 3px solid black;
+  border-radius: 50px;
+  margin: 10px;
+  font-size: 1.1em;
+  font-weight: 500;
+}
+
+.FB-auth {
+  border: 3px solid rgb(63, 96, 184)
+}
+
+.FB-auth:hover {
+  color: white;
+  background-color: rgb(63, 96, 184)
+}
+
+.LI-auth {
+  border: 3px solid rgb(0, 116, 187)
+}
+
+.LI-auth:hover {
+  color: white;
+  background-color: rgb(0, 116, 187)
+}
+
+.GO-auth {
+  border: 3px solid rgb(255, 190, 0)
+}
+
+.GO-auth:hover {
+  color: white;
+  background-color: rgb(255, 190, 0)
+}
+
+.EM-auth {
+  border: 3px solid rgb(18, 32, 62)
+}
+
+.EM-auth:hover {
+  color: white;
+  background-color: rgb(18, 32, 62);
+}
+
+.auth-separator {
+  margin: 50px;
+  width: 250px;
+  border-bottom: 1px solid rgb(153, 153, 153)
+}
+
+.auth-separator + p {
+  font-size: 0.9em;
+}
+
+.auth-container a {
+  padding-top: 40px;
+  font-size: 1.2em;
+  color: black;
+}
+
+/* User Profile Page */
+
+.user-profile-container {
+
+  h1 {
+    margin: 50px 0;
+  }
+
+  h2 {
+    margin-top: 60px;
+  }
+
+  .user-profile-header {
+    display: flex;
+    margin: 40px 0;
+  }
+
+  .user-profile-header-content {
+    margin: 0 auto;
+  }
+
+  .user-contributed-reviews {
+    padding: 20px;
+    display: flex;
+
+    * {
+      margin: auto 0;
+    }
+
+    .user-profile-content {
+      display: flex;
+      flex-direction: column;
+      margin-left: 10px;
+      max-width: 200px;
+    }
+  }
+
 }

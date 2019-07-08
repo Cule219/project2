@@ -8,20 +8,13 @@ const NewsAPI   = require('newsapi');
 const newsapi = new NewsAPI('d27e647a6e484e358a50c1089f09ecae');
 
 
-router.get('profile/source/:id', (req, res) => {
+router.get('/profile/source/:id', (req, res) => {
   const { source } = req.params
 
   res.render('homepages/sources/:id', { source })
 })
 
-router.get('profile/user/:id', (req, res) => {
-  const { user } = req.params
-
-  res.render('profile/userProfile', { user })
-})
-
-
-router.get('/user/:id', (req, res, next) => {
+router.get('/userProfile/:id', (req, res, next) => {
   User.find({'_id': req.params.id}).then(data => {
     res.render('profile/user', {data});
   });
@@ -36,6 +29,10 @@ router.get('/source/:id', (req, res) =>{
 });
   
 
+router.get('/profile/user',(req, res) => {
+  const { user } = req.params
+  res.render('profile/user')
+})
 
 module.exports = router
 

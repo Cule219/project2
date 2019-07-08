@@ -1,14 +1,8 @@
+const express     = require("express");
+const passport    = require('passport');
+const router      = express.Router();
+const User        = require("../models/User");
 
-
-
-
-const loginCheck = () => {
-  return (req, res, next) => {
-    if (req.isAuthenticated()) next();
-    else res.redirect("/login");
-  };
-};
-router.use(loginCheck());
 
 const checksRole = role => {
   return (req, res, next) => {
@@ -19,3 +13,19 @@ const checksRole = role => {
     }
   };
 };
+
+const loginCheck = () => {
+  return (req, res, next) => {
+    if (req.isAuthenticated()) next();
+    else res.redirect("/login");
+  };
+};
+
+router.use(loginCheck());
+
+
+router.get('/profile/user',(req, res) => {
+  const { user } = req.params
+
+  res.render('profile/user')
+})

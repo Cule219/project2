@@ -1,5 +1,5 @@
 
-<h2>Login</h2>
+{{!-- <h2>Login</h2>
 
 <form action="/auth/login" method="POST" id="form-container">
   <label for="username">Username</label>
@@ -24,12 +24,19 @@
   </p>
 </form>
 
-<hr />
+<hr /> --}}
+<div class='auth-container'>
+  <button class='auth-button FB-auth'>Sign in with Facebook</button>
+  <button class='auth-button GO-auth'>Sign in with Google</button>
+  <button class='auth-button LI-auth'>Sign in with Linkedin</button>
+  <button class='auth-button EM-auth'>Sign in with Email</button>
+  {{#if message }}
+    <div class="error-message">{{ message }}</div>
+  {{/if}}
 
-<h1>Opinion</h1>
-<hr />
+  <div class='auth-separator'></div>
 
-<button class='signin-button'>Sign in with Facebook</button>
-<button class='signin-button'>Sign in with Linkedin</button>
-<button class='signin-button'>Sign in with Google</button>
-<button class='signin-button'>Sign in with Email</button>
+  <p>OR</p>
+
+  <a href='auth/signup'>REGISTER</a>
+</div>
