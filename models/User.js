@@ -3,6 +3,9 @@ const Schema   = mongoose.Schema;
 
 const userSchema = new Schema({
   username: String,
+  // name: {familyName: String, firstName: String},
+  googleId: String,
+  facebookId: String,
   password: String,
   description: String,
   profileImg: String, //look into file upload

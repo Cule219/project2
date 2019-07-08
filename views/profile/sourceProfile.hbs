@@ -1,22 +1,3 @@
-{{#each data}}
-<h1>Name: <a href="{{this.url}}">{{this.name}}</a></h1>
-<p>{{this.category}}</p><br>
-<p>{{this.description}}</p>
-
-
-
-<a href="/homepages/sources">see all companies</a>
-
-
-<h1>Related articles: </h1>
-<ol>
-  {{#each articles}}
-    <li><a href="{{this.url}}">{{this.title}}</a></li>
-  {{/each}}
-</ol>
-
-<hr>
-
 <div class='profile-container'>
 
   <h1>Company Profile</h1>
@@ -24,9 +5,9 @@
     <div class='profile-header'>
       <img src='https://liquidcinemavr.com/wp-content/uploads/2019/03/bbc-logo.jpg' height='200px'>
       <div class="profile-header-content">
-        <h2>{{this.name}}</h2>
-        <h3>{{this.reputation}}</h3>
-        <a href="{{this.url}}">{{this.id}}</a>
+        <h2>BBC</h2>
+        <h3>Rating: 4.8</h3>
+        <a href='bbc.co.uk'>bbc.co.uk</a>
       </div>
     </div>
 
@@ -37,11 +18,15 @@
     </div>
 
     <h2>Description</h2>
-    {{this.description}}
+    <p>The BBC are widely regarded as the UK's top and most reliable news sources with a strong legacy of upstanding reporting with emphasis on social issues and telling the stories of those around the world who might not have the chance to be heard.</p>
+    <p>However, due to their political relationships and prestigous nature, the organisation can demonstrate certain political leanings.</p>
+    <p>Overall, the BBC is one of the more reliable UK news sources but one must be cautious of the organisation's relationships with senior members of the UK's leading political parties.</p>
 
     <h2>Polticial Bias</h2>
-    {{this.politicalBias}}
-    
+    <p>The BBC has historically been a centre-right organisation. It's a publically funded, urban organisation with a higher proportion of young people and ethnic minorities.</p>
+    <p>Therefore it tends to hold a liberal bias and, whilst it aligns with the Liberal Party ideals, it also closely allies with the Tories.</p>
+    <p>Writers can often flex their own political opinions and agendas so it's best to be aware. </p>
+
     <h2>Sources of Funding in 2018</h2>
     <p><strong>UK Government Funding: </strong>$56 million</p>
     <p><em>Source: UK Government Public Expenditure Report 2018</em></p>
@@ -62,4 +47,3 @@
     </div>
 
 </div>
-{{/each }}

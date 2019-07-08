@@ -4,15 +4,16 @@ const Source    = require('../models/Source');
 const Articles  = require('../models/Article');
 const NewsAPI   = require('newsapi');
 
-
 const newsapi = new NewsAPI('d27e647a6e484e358a50c1089f09ecae');
 
-
-router.get('/profile/source/:id', (req, res) => {
-  const { source } = req.params
-
-  res.render('homepages/sources/:id', { source })
-})
+router.get('/source/:id', (req, res) =>{
+  Source.find({'id': req.params.id}).then(data =>{
+    Articles.find({'source.id': req.params.id}).then(articles =>{
+      console.log(data)
+      res.render('profile/source', {data, articles});
+    });
+  }).catch(err=>console.log(err));
+});
 
 router.get('/userProfile/:id', (req, res, next) => {
   User.find({'_id': req.params.id}).then(data => {
@@ -20,22 +21,19 @@ router.get('/userProfile/:id', (req, res, next) => {
   });
 });
 
-router.get('/source/:id', (req, res) =>{
-  Source.find({'id': req.params.id}).then(data =>{
-    Articles.find({'source.id': req.params.id}).then(articles =>{
-      res.render('profile/source', {data, articles});
-    });
-  }).catch(err=>console.log(err));
-});
-  
-
 router.get('/profile/user',(req, res) => {
   const { user } = req.params
   res.render('profile/user')
 })
 
-module.exports = router
+router.get('/profile/source/:id', (req, res) => {
+  const { source } = req.params
 
+  res.render('homepages/sources/:id', { source })
+})
+
+
+module.exports = router
 
 
 // router.get('/source/:id', (req, res) =>{

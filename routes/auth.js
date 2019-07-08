@@ -5,6 +5,7 @@ const User        = require("../models/User");
 const Source      = require('../models/Source');
 const Article     = require('../models/Article');
 
+
 // Bcrypt to encrypt passwords
 const bcrypt      = require("bcrypt");
 const bcryptSalt  = 10;
@@ -61,6 +62,26 @@ router.get("/logout", (req, res) => {
   req.logout();
   res.redirect("/");
 });
+
+//google auth
+router.get('/google',
+  passport.authenticate('google', { scope: ['profile'] }));
+
+router.get('/google/callback', 
+  passport.authenticate('google', { failureRedirect: '/login' }),
+  function(req, res) {
+    res.redirect('/');
+  });
+
+//fb auth
+router.get('/facebook',
+passport.authenticate('facebook'));
+
+router.get('/facebook/callback',
+  passport.authenticate('facebook', { failureRedirect: '/login' }),
+  function(req, res) {
+    res.redirect('/');
+  });
 
 
 module.exports = router;
