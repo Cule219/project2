@@ -1,5 +1,12 @@
-const express = require('express')
-const router = express.Router();
+const express   = require('express')
+const router    = express.Router();
+const Source    = require('../models/Source');
+const Articles  = require('../models/Article');
+const NewsAPI   = require('newsapi');
+
+
+const newsapi = new NewsAPI('d27e647a6e484e358a50c1089f09ecae');
+
 
 router.get('profile/source/:id', (req, res) => {
   const { source } = req.params
@@ -14,17 +21,50 @@ router.get('profile/user/:id', (req, res) => {
 })
 
 
-router.get('/userProfile/:id', (req, res, next) => {
+router.get('/user/:id', (req, res, next) => {
   User.find({'_id': req.params.id}).then(data => {
-    res.render('profile/userProfile', {data});
+    res.render('profile/user', {data});
   });
 });
 
 router.get('/source/:id', (req, res) =>{
   Source.find({'id': req.params.id}).then(data =>{
-    res.render('companyProfile', {data});
-  });
+    Articles.find({'source.id': req.params.id}).then(articles =>{
+      res.render('profile/source', {data, articles});
+    });
+  }).catch(err=>console.log(err));
 });
+  
 
 
 module.exports = router
+
+
+
+// router.get('/source/:id', (req, res) =>{
+//   newsapi.v2.topHeadlines({
+//     sources: req.params.id, // id
+//     // q: 'bitcoin',
+//     // category: 'business',
+//     language: 'en',
+//     // country: 'us'
+//   }).then(response => {
+//     let articles = response.articles;
+//     articles.forEach((element, index) => {
+//       Articles.findOne({title: element.title}), (err, article) =>{
+//         if(article === null){
+//           console.log(article);
+//           Articles.insertOne({source, author, title, description, url, urlToImage, publishedAt, content} = element);
+//         }
+//         else{
+//           articles.splice(index, 1, element);
+//         }
+//       }
+//     });
+//     Articles.find
+//     Source.find({'id': req.params.id}).then(data =>{
+//       res.render('profile/source', {data, articles});
+//     });
+//   }).catch(err=>(console.log(err)));
+  
+// });

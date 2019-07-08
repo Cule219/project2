@@ -22,3 +22,5 @@ const reviewSchema = new Schema({
     enum: ['mainDescription','politicalBias', 'fundingSources']
   }
 });
+
+module.exports = ('Review', reviewSchema);

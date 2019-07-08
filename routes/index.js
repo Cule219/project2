@@ -1,11 +1,8 @@
 const express = require('express');
 const router  = express.Router();
 const Article = require('../models/Article');
-const Source = require('../models/Source');
-const NewsAPI = require('newsapi');
 
 
-const newsapi = new NewsAPI('d27e647a6e484e358a50c1089f09ecae');
 
 /* GET home page */
 router.get('/', (req, res, next) => {
@@ -14,16 +11,8 @@ router.get('/', (req, res, next) => {
   }).catch(err=>console.log(err));
 });
 
-// newsapi.v2.topHeadlines({
-//   // sources: 'bbc-news,the-verge',
-//   // q: 'bitcoin',
-//   // category: 'business',
-//   language: 'en',
-//   // country: 'us'
-// }).then(response => {
-//   console.log(response);
-// });
 module.exports = router;
+
 
 
 //{ source: [Object],

@@ -31,3 +31,9 @@ axios(source).then(response=>{
 // var url = 'https://newsapi.org/v2/top-headlines?' +
 //           'sources=bbc-news&' +
 //           'apiKey=d27e647a6e484e358a50c1089f09ecae';
+
+function seedDB(source, category){
+  
+} 
+
+module.exports = seedDB();

@@ -17,3 +17,5 @@ const commentSchema = Schema({
   },
   rating: String
 });
+
+module.exports = ('Comment', commentSchema);

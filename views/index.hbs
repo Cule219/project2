@@ -2,7 +2,7 @@
 {{#each data}}
 {{#if this.source.id}}
   <li><a href="{{this.url}}">{{this.title}}</a></li>
-  <a href="/source/{{this.source.id}}">{{this.source.name}}</a><br />
+  <a href="profile/source/{{this.source.id}}">{{this.source.name}}</a><br />
 {{/if}}
 {{else}}
   <p class="empty">No content</p>

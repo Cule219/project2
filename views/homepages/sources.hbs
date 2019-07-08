@@ -1,1 +1,9 @@
 <h1>List of all news sources</h1>
+
+{{#each data}}
+<div style= 'display: flex'>
+  <h1>Name: <a href="{{this.url}}">{{this.name}}</a></h1>
+  <p>{{this.category}}</p><br>
+  <p>{{this.description}}</p>
+</div>
+{{/each }}
