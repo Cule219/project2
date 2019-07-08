@@ -19,10 +19,13 @@ router.get('/userProfile/:id', (req, res, next) => {
   });
 });
 
-router.get('/source/:id', (req, res) =>{
-  Source.find({'id': req.params.id}).then(data =>{
-    res.render('companyProfile', {data});
-  });
+router.get('/profile/source', (req, res) =>{
+  // test route for styling while DB doesn't have data
+  res.render('profile/sourceProfile')
+
+  // Source.find({'id': req.params.id}).then(data =>{
+  //   res.render('sourceProfile', {data});
+  // });
 });
 
 

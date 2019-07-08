@@ -1,6 +1,7 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  overflow-x: hidden; }
 
 h1 {
   font-size: 3.2em;
@@ -95,29 +96,126 @@ nav {
   font-size: 1.2em;
   color: black; }
 
-/* User Profile Page */
-.user-profile-container h1 {
+/* Profile Page */
+.profile-container h1 {
   margin: 50px 0; }
 
-.user-profile-container h2 {
+.profile-container h2 {
   margin-top: 60px; }
 
-.user-profile-container .user-profile-header {
+.profile-container .profile-header {
   display: flex;
-  margin: 40px 0; }
+  margin: 40px 10px 5px; }
 
-.user-profile-container .user-profile-header-content {
-  margin: 0 auto; }
+.profile-container .profile-header-content {
+  margin: 0 30px; }
 
-.user-profile-container .user-contributed-reviews {
+.profile-container .company-properties {
+  display: flex;
+  justify-content: space-around;
+  color: darkgray;
+  margin: 0px 10px;
+  font-size: 0.95m; }
+
+.profile-container .contributed-reviews {
   padding: 20px;
   display: flex; }
-  .user-profile-container .user-contributed-reviews * {
+  .profile-container .contributed-reviews * {
     margin: auto 0; }
-  .user-profile-container .user-contributed-reviews .user-profile-content {
+  .profile-container .contributed-reviews .profile-content {
     display: flex;
     flex-direction: column;
     margin-left: 10px;
     max-width: 200px; }
+
+a {
+  text-decoration: none;
+  color: #232323;
+  transition: color 0.3s ease; }
+
+a:hover {
+  color: tomato; }
+
+#menuToggle {
+  display: block;
+  position: absolute;
+  top: 80px;
+  right: 80px;
+  z-index: 1;
+  -webkit-user-select: none;
+  user-select: none; }
+
+#menuToggle input {
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  cursor: pointer;
+  opacity: 0;
+  z-index: 2;
+  -webkit-touch-callout: none; }
+
+#menuToggle span {
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  background: #cdcdcd;
+  border-radius: 3px;
+  z-index: 1;
+  transform-origin: 4px 0px;
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease; }
+
+#menuToggle span:first-child {
+  transform-origin: 0% 0%; }
+
+#menuToggle span:nth-last-child(2) {
+  transform-origin: 0% 100%; }
+
+#menuToggle input:checked ~ span {
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #232323; }
+
+#menuToggle input:checked ~ span:nth-last-child(3) {
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2); }
+
+#menuToggle input:checked ~ span:nth-last-child(2) {
+  opacity: 1;
+  transform: rotate(-45deg) translate(0, -1px); }
+
+/*
+ * Make this absolute positioned
+ * at the top left of the screen
+ */
+#menu {
+  position: absolute;
+  width: 300px;
+  margin: -100px 0 0 0;
+  padding: 50px;
+  padding-top: 125px;
+  right: -100px;
+  background: #ededed;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  /* to stop flickering of text in safari */
+  transform-origin: 0% 0%;
+  transform: translate(100%, 0);
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1); }
+
+#menu li {
+  padding: 10px 0;
+  font-size: 22px; }
+
+/*
+ * And let's fade it in from the left
+ */
+#menuToggle input:checked ~ ul {
+  transform: scale(1, 1);
+  opacity: 1; }
 
 /*# sourceMappingURL=style.css.map */
