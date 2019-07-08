@@ -6,6 +6,7 @@ const userSchema = new Schema({
   // name: {familyName: String, firstName: String},
   googleId: String,
   facebookId: String,
+  githubId: String,
   password: String,
   description: String,
   profileImg: String, //look into file upload

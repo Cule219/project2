@@ -4,6 +4,7 @@ require('./serializers');
 require('./localStrategy');
 require('./googleStrategy');
 require('./facebookStrategy');
+require('./githubStrategy');
 
 module.exports = (app)  => {
   app.use(passport.initialize());

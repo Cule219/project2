@@ -10,15 +10,13 @@ passport.use(new GoogleStrategy({
 function(accessToken, refreshToken, profile, cb) {
   User.findOne({ googleId: profile.id })
         .then(user => {
-          console.log(profile);
           if (user) return cb(null, user);
           return User.create(
             { 
             googleId: profile.id,
             profileImg: PushSubscriptionOptions.value,
             username: displayName
-            }
-          ).then(newUser => {
+            }).then(newUser => {
             return cb(null, newUser);
           });
         })
