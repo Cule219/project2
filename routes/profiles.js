@@ -26,4 +26,20 @@ router.get('/profile/user',(req, res) => {
   res.render('profile/user')
 })
 
+<<<<<<< HEAD
+=======
+router.get('/profile/source/:id', (req, res) => {
+  const { source } = req.params
+
+  res.render('homepages/sources/:id', { source })
+})
+
+// test route just for styling 
+router.get('/profile/source', (req, res) => {
+  const { source } = req.params
+
+  res.render('homepages/sources')
+})
+
+>>>>>>> 58513dea2de65d7fce570445dcf2c42d200bb17c
 module.exports = router
