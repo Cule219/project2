@@ -6,6 +6,9 @@ const articleSchema = new Schema({
     id: String,
     name: String
   },
+  // category: {
+  //   type: String,
+  // },
   author: String,
   title: String,
   description: String,
