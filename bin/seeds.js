@@ -23,12 +23,16 @@ let users = [
     username: "alice",
     password: bcrypt.hashSync("alice", bcrypt.genSaltSync(bcryptSalt)),
     description: 'sup ma dudes',
-    role: 'mod'
+    role: 'mod',
+    profileImg: 'https://d1jiktx90t87hr.cloudfront.net/223/wp-content/uploads/2016/09/michelle-prince-profile-img.png',
+    reputation: 15
   },
   {
     username: "bob",
     password: bcrypt.hashSync("bob", bcrypt.genSaltSync(bcryptSalt)),
-    role: 'user'
+    role: 'user',
+    profileImg: 'https://www.martinezlawcenter.com/wp-content/uploads/2016/12/profile-img.jpg',
+    reputation: 5
   }
 ]
 
@@ -48,7 +52,6 @@ User.deleteMany()
   mongoose.disconnect()
   throw err
 })
-
 
 //seed for DB
 const axios       = require('axios');

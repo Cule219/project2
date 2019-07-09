@@ -24,11 +24,16 @@
 </form> --}}
 
 <div class='auth-container'>
-  <button class='auth-button FB-auth'>Register with Facebook</button>
-  <button class='auth-button GO-auth'>Register with Google</button>
-  <button class='auth-button LI-auth'>Register with Linkedin</button>
-  <button class='auth-button EM-auth'>Register with Email</button>
+
+<h1>Sign up.</h1>
+
+  <button class='auth-button FB-auth'><a href='#'>Register with Facebook</a></button>
+  <button class='auth-button GO-auth'><a href='#'>Register with Google</a></button>
+  <button class='auth-button LI-auth'><a href='#'>Register with Linkedin</a></button>
+  <button class='auth-button EM-auth'><a href='#'>Register with Email</a></button>
   {{#if message }}
     <div class="error-message">{{ message }}</div>
   {{/if}}
+
 </div>
+

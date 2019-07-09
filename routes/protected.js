@@ -21,9 +21,7 @@ const loginCheck = () => {
     else res.redirect("/login");
   };
 };
-
 router.use(loginCheck());
-
 
 router.post('/article/comment', (req, res, next) => {
   let articleId = req.headers.referer.match(/[^\/]\w*$/)[0];
@@ -36,14 +34,5 @@ router.post('/article/comment', (req, res, next) => {
 }).catch(
     err =>console.log(err));
 });
-
-router.get('/article/comments', (req, res, next) => {
-  console.log('sup')
-  console.log(req.params);
-  // Comment.find({article: ObjectId()}).then(data => {
-
-  // })
-});
-
 
 module.exports = router;

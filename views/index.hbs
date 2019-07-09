@@ -1,18 +1,45 @@
 {{!-- this is a test file --}}
-<ul>
-{{#each data}}
-{{#if this.source.id}}
-  <li><a href="/article/{{this._id}}">{{this.title}}</a> - <a href="{{this.url}}">Go to source</a></li>
-  <a href="/source/{{this.source.id}}">{{this.source.name}}</a><br />
-{{/if}}
-{{else}}
-  <p class="empty">No content</p>
-{{/each}}
-</ul>
+
+<h1>Top stories.</h1>
+
+<div class='homepage-container'>
+
+  <div class='first-story-container'>
+    <img src='{{first.urlToImage}}' width='100%'>
+    <div class='first-story-content'>
+      <h2>{{first.title}}</h2>
+      <p>{{first.publishedAt}}</p>
+    </div>
+
+  </div>
+
+  <hr />
+
+  {{!-- {{#each data}}
+  {{#if this.source.id}}
+    <img src='{{this.urlToImage}}' height='100px'>
+    <a href="{{this.url}}">{{this.title}}</a>
+    <a href="/source/{{this.source.id}}">{{this.source.name}}</a><br />
+   --}}
+
+  {{#each data}}
+  {{#if this.source.id}}
+  <div class='stories-container'>
+    <div class='stories-img-container'>
+      <a href='/article/{{this._id}}'><img src='{{this.urlToImage}}' alt='news-image'></a>
+    </div>
+    <div class='stories-content'>
+      <h3>{{this.title}}</h3>
+      <h6>{{this.publishedAt}}</h6>
+    </div>
+    <hr />
+  </div>  
+  {{/if}}
+  {{else}}
+    <p class="empty">No content</p>
+  {{/each}}
 
 
-<a href="/category/sport">Category: Sport</a><br>
+</div>
 
 
-  <a href="/profile/user/5d23b38e352987414486e963">User</a><br>
-  <a href="/profile/user/5d236cac225af00646d00d94">Some other user</a><br>

@@ -7,34 +7,36 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{title}}</title>
   <link rel="stylesheet" href="/stylesheets/style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
-<div class='nav-header'>
-<nav role='navigation'>
+
+<nav>
 
   <h1>Opinion.</h1>
 
-  <div id="menuToggle">
-  
-    <input type="checkbox" />
 
-    <span></span>
-    <span></span>
-    <span></span>
-    
-    <ul id="menu">
-      <a href="/"><li>Home</li></a>
-      <a href="/auth/login"><li>Login</li></a>
-      <a href="/auth/signup"><li>Signup</li></a>
-      <a href="/auth/logout"><li>Logout</li></a>
-    </ul>
+<div id="myNav" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <div class="overlay-content">
+      <a href="/">Home</a>
+      <a href="/auth/login">Login</a>
+      <a href="/auth/signup">Signup</a>
+      <a href="/auth/logout">Logout</a>
+      <a href='/profile/user'>User Profile</a>
+      <a href='/homepages/sources'>All Sources</a>
+      <a href='/profile/sourceProfile'>Company Profile</a>
+      <a href='/homepages/article'>Sample Article</a>
+  </div>
+</div>
+
+<span onclick="openNav()">&#9776;</span>
+
 </nav>
 
   <hr />
 
-  </div>
   
   {{{body}}}
 

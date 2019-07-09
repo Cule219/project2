@@ -20,10 +20,11 @@ router.get('/profile/user/:id',(req, res) => {
   });
 })
 
-//Pauls test route
-router.get('/profile/user',(req, res) => {
-  const { user } = req.params
-  res.render('profile/user')
+// test route just for styling 
+router.get('/profile/source', (req, res) => {
+  const { source } = req.params
+
+  res.render('homepages/sources')
 })
 
 module.exports = router
