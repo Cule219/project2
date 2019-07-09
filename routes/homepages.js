@@ -1,6 +1,7 @@
 const express = require('express')
 const router  = express.Router()
 const Source  = require('../models/Source');
+const Article = require('../models/Article')
 
 router.get('/homepages/sources', (req, res) => {
   Source.find({}).then(data => {
@@ -12,5 +13,21 @@ router.get('/homepages/sources', (req, res) => {
 router.get('/homepages/article', (req, res) => {
   res.render('homepages/article')
 })
+
+router.get('/homepages/article/:id', (req, res) => {
+  const { id } = req.params
+
+  Article.find({ _id }).then(article => {
+    console.log(article)
+    res.render('homepages/article', { article })
+  })
+})
+
+router.get('/article/:articleId', (req, res, next) => {
+  console.log()
+  Article.findById({_id: req.params.articleId}).then(data =>{
+    res.render('homepages/article', {data});
+  }).catch(err=>console.log(err));
+ });
 
 module.exports = router

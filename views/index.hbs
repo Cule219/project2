@@ -26,7 +26,7 @@
   {{#if this.source.id}}
   <div class='stories-container'>
     <div class='stories-img-container'>
-      <img src='{{this.urlToImage}}' alt='news-image'>
+      <a href='/article/{{this._id}}'><img src='{{this.urlToImage}}' alt='news-image'></a>
     </div>
     <div class='stories-content'>
       <h3>{{this.title}}</h3>
