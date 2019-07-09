@@ -2,7 +2,7 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; 
   overflow-x: hidden;
-  max-width: 700px;
+  max-width: 650px;
   margin: 0 auto;
 }
 
@@ -27,7 +27,15 @@ h3 {
 
 nav {
   display: flex;
+  justify-content: space-between;
   padding-bottom: 20px;
+
+}
+
+nav span {
+  font-size: 30px;
+  cursor: pointer;
+  padding: 15px 15px 0 0;
 }
 
 .like-button {
@@ -71,6 +79,247 @@ nav h1 {
   padding: 4px;
 }
 
+
+/* Profile Page */
+
+.profile-container {
+
+  h2 {
+    margin-top: 60px;
+  }
+
+  .profile-header {
+    display: flex;
+    margin: 40px 10px 5px;
+  }
+
+  .profile-header img {
+    border-radius: 3px;
+  }
+
+  .profile-header-content {
+    margin: 0 30px;
+  }
+
+  .company-properties {
+    display: flex;
+    justify-content: space-around;
+    color: darkgray;
+    margin: 0px 10px;
+    font-size: 0.95m;
+  }
+
+  .contributed-reviews {
+    padding: 20px;
+    display: flex;
+
+    * {
+      margin: auto 0;
+    }
+
+    .profile-content {
+      display: flex;
+      flex-direction: column;
+      margin-left: 10px;
+      max-width: 200px;
+    }
+  }
+
+}
+
+
+
+/* Menu */
+
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.95);
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+.overlay-content {
+  font-family: 'DM Serif Display', serif;
+  position: relative;
+  top: 15%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.overlay a {
+  font-size: 1.2em;
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #c2c2c2;
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+  color: #f1f1f1;
+}
+
+.overlay-content a:hover {
+  text-decoration: underline;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+  font-size: 40px;
+  top: 15px;
+  right: 35px;
+  }
+}
+
+
+// List of all sources
+
+.sources-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.source-item {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 200px;
+}
+
+.source-item h3 {
+  margin: 10px;
+}
+
+// New article page
+
+.article-content {
+
+  h1 {
+    margin-bottom: 0;
+  }
+
+  img {
+    margin-top: 30px;
+  }
+  
+  hr {
+  margin: 40px 0;
+  }
+}
+
+.article-source-info {
+  background-color: #eee;
+  border-radius: 3px;
+  margin: 50px 0;
+  padding: 15px;
+  
+  h3 {
+    margin: 30px 0 15px;
+  }
+}
+
+.article-redirect {
+  outline: none;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 30px;
+  color: white;
+  background-color: rgb(0, 116, 187);
+  font-size: 0.9em;
+  text-transform: uppercase
+}
+
+.comment-container {
+
+  h2 {
+    margin-bottom: 20px;
+  }
+
+  .article-comment {
+    display: flex;
+    align-items: center;
+  }
+
+  .article-comment img {
+    margin: 15px;
+    border-radius: 2px;
+  }
+
+  p {
+    margin: 2px;
+  }
+
+  input {
+    width: 100%;
+    margin: 15px;
+    background-color: #eee;
+    width: 95%;
+    padding: 8px 0 8px 8px;
+    border-radius: 3px;
+    border: none;
+    outline: none;
+    font-size: 0.95em;
+  }
+}
+
+// homepage
+
+.homepage-container {
+  
+  h1 {
+    margin: 0;
+  }
+
+  hr {
+    margin: 50px 0;
+  }
+}
+
+.stories-container {
+  margin: 50px 0;
+
+  .stories-content {
+    height: 180px;
+  }
+
+  hr {
+    margin: 0;
+    border-color:#f5f4f4;
+  }
+
+  .stories-img-container {
+    float: right;
+    object-fit: cover;
+    margin-left: 20px;
+    width: 200px;
+    height: 180px;
+  }
+
+  .stories-img-container img {
+    width: 100%;
+    height: auto;
+  }
+
+}
+
+
 /* Signin & Login pages */
 
 .auth-container {
@@ -93,6 +342,10 @@ nav h1 {
   margin: 10px;
   font-size: 1.1em;
   font-weight: 500;
+}
+
+.auth-button a {
+  text-decoration: none;
 }
 
 .FB-auth {
@@ -145,276 +398,4 @@ nav h1 {
   padding-top: 40px;
   font-size: 1.2em;
   color: black;
-}
-
-/* Profile Page */
-
-.profile-container {
-
-  h2 {
-    margin-top: 60px;
-  }
-
-  .profile-header {
-    display: flex;
-    margin: 40px 10px 5px;
-  }
-
-  .profile-header img {
-    border-radius: 3px;
-  }
-
-  .profile-header-content {
-    margin: 0 30px;
-  }
-
-  .company-properties {
-    display: flex;
-    justify-content: space-around;
-    color: darkgray;
-    margin: 0px 10px;
-    font-size: 0.95m;
-  }
-
-  .contributed-reviews {
-    padding: 20px;
-    display: flex;
-
-    * {
-      margin: auto 0;
-    }
-
-    .profile-content {
-      display: flex;
-      flex-direction: column;
-      margin-left: 10px;
-      max-width: 200px;
-    }
-  }
-
-}
-
-.nav-header {
-  // position: relative;
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-
-a {
-  text-decoration: none;
-  color: #232323;
-  
-  transition: color 0.3s ease;
-}
-
-a:hover {
-  color: tomato;
-}
-
-#menuToggle
-{
-  display: block;
-  position: absolute;
-  top: 80px;
-  right: 80px;
-  
-  z-index: 1;
-  
-  -webkit-user-select: none;
-  user-select: none;
-}
-
-#menuToggle input {
-  display: block;
-  width: 40px;
-  height: 32px;
-  position: absolute;
-  top: -7px;
-  left: -5px;
-  
-  cursor: pointer;
-  
-  opacity: 0;
-  z-index: 2; 
-  
-  -webkit-touch-callout: none;
-}
-
-#menuToggle span {
-  display: block;
-  width: 33px;
-  height: 4px;
-  margin-bottom: 5px;
-  position: relative;
-  
-  background: #cdcdcd;
-  border-radius: 3px;
-  
-  z-index: 1;
-  
-  transform-origin: 4px 0px;
-  
-  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
-              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
-              opacity 0.55s ease;
-}
-
-#menuToggle span:first-child {
-  transform-origin: 0% 0%;
-}
-
-#menuToggle span:nth-last-child(2) {
-  transform-origin: 0% 100%;
-}
-
-#menuToggle input:checked ~ span {
-  opacity: 1;
-  transform: rotate(45deg) translate(-2px, -1px);
-  background: #232323;
-}
-
-#menuToggle input:checked ~ span:nth-last-child(3) {
-  opacity: 0;
-  transform: rotate(0deg) scale(0.2, 0.2);
-}
-
-#menuToggle input:checked ~ span:nth-last-child(2) {
-  opacity: 1;
-  transform: rotate(-45deg) translate(0, -1px);
-}
-
-/*
- * Make this absolute positioned
- * at the top left of the screen
- */
-#menu
-{
-  position: absolute;
-  width: 150px;
-  height: 100vh;
-  margin: -110px 0 0 0;
-  padding: 50px;
-  padding-top: 125px;
-  right: -100px;
-  
-  background: #f8f8f8;
-  list-style-type: none;
-  -webkit-font-smoothing: antialiased;
-  /* to stop flickering of text in safari */
-  
-  transform-origin: 0% 0%;
-  transform: translate(100%, 0);
-  
-  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
-  box-shadow: 0 0 5px 5px #f8f8f8;
-}
-
-#menu li
-{
-  padding: 10px 0;
-  font-size: 22px;
-}
-
-/*
- * And let's fade it in from the left
- */
-#menuToggle input:checked ~ ul
-{
-  transform: scale(1.0, 1.0);
-  opacity: 1;
-}
-
-// List of all sources
-
-.sources-container {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-}
-
-.source-item {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  width: 200px;
-}
-
-.source-item h3 {
-  margin: 10px;
-}
-
-// New article page
-
-.article-content {
-
-  h1 {
-    margin-bottom: 0;
-  }
-
-  img {
-    margin-top: 30px;
-  }
-  
-  hr {
-  margin: 40px 0;
-  }
-
-}
-
-.article-source-info {
-  background-color: #eee;
-  border-radius: 3px;
-  margin: 50px 0;
-  padding: 15px;
-  
-  h3 {
-    margin: 30px 0 15px;
-  }
-
-}
-
-.article-redirect {
-  outline: none;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 30px;
-  color: white;
-  background-color: rgb(0, 116, 187);
-  font-size: 0.9em;
-  text-transform: uppercase
-}
-
-.comment-container {
-
-  h2 {
-    margin-bottom: 20px;
-  }
-
-  .article-comment {
-    display: flex;
-    align-items: center;
-  }
-
-  .article-comment img {
-    margin: 15px;
-    border-radius: 2px;
-  }
-
-  p {
-    margin: 2px;
-  }
-
-  input {
-    width: 100%;
-    margin: 15px;
-    background-color: #eee;
-    width: 95%;
-    padding: 8px 0 8px 8px;
-    border-radius: 3px;
-    border: none;
-    outline: none;
-    font-size: 0.95em;
-  }
-
 }

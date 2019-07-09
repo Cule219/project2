@@ -2,7 +2,7 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   overflow-x: hidden;
-  max-width: 700px;
+  max-width: 650px;
   margin: 0 auto; }
 
 h1 {
@@ -23,7 +23,13 @@ h3 {
 
 nav {
   display: flex;
+  justify-content: space-between;
   padding-bottom: 20px; }
+
+nav span {
+  font-size: 30px;
+  cursor: pointer;
+  padding: 15px 15px 0 0; }
 
 .like-button {
   color: #2d63ff;
@@ -59,66 +65,6 @@ nav h1 {
   width: 32px;
   padding: 4px; }
 
-/* Signin & Login pages */
-.auth-container {
-  display: flex;
-  flex-flow: column wrap;
-  align-items: center;
-  padding-top: 60px; }
-  .auth-container h1 {
-    margin-top: 0; }
-
-.auth-button {
-  display: block;
-  width: 300px;
-  padding: 10px;
-  border: 3px solid black;
-  border-radius: 50px;
-  margin: 10px;
-  font-size: 1.1em;
-  font-weight: 500; }
-
-.FB-auth {
-  border: 3px solid #3f60b8; }
-
-.FB-auth:hover {
-  color: white;
-  background-color: #3f60b8; }
-
-.LI-auth {
-  border: 3px solid #0074bb; }
-
-.LI-auth:hover {
-  color: white;
-  background-color: #0074bb; }
-
-.GO-auth {
-  border: 3px solid #ffbe00; }
-
-.GO-auth:hover {
-  color: white;
-  background-color: #ffbe00; }
-
-.EM-auth {
-  border: 3px solid #12203e; }
-
-.EM-auth:hover {
-  color: white;
-  background-color: #12203e; }
-
-.auth-separator {
-  margin: 50px;
-  width: 250px;
-  border-bottom: 1px solid #999999; }
-
-.auth-separator + p {
-  font-size: 0.9em; }
-
-.auth-container a {
-  padding-top: 40px;
-  font-size: 1.2em;
-  color: black; }
-
 /* Profile Page */
 .profile-container h2 {
   margin-top: 60px; }
@@ -151,101 +97,55 @@ nav h1 {
     margin-left: 10px;
     max-width: 200px; }
 
-.nav-header {
-  max-width: 700px;
-  margin: 0 auto; }
-
-a {
-  text-decoration: none;
-  color: #232323;
-  transition: color 0.3s ease; }
-
-a:hover {
-  color: tomato; }
-
-#menuToggle {
-  display: block;
-  position: absolute;
-  top: 80px;
-  right: 80px;
+/* Menu */
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
   z-index: 1;
-  -webkit-user-select: none;
-  user-select: none; }
+  top: 0;
+  left: 0;
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.95);
+  overflow-x: hidden;
+  transition: 0.5s; }
 
-#menuToggle input {
-  display: block;
-  width: 40px;
-  height: 32px;
-  position: absolute;
-  top: -7px;
-  left: -5px;
-  cursor: pointer;
-  opacity: 0;
-  z-index: 2;
-  -webkit-touch-callout: none; }
-
-#menuToggle span {
-  display: block;
-  width: 33px;
-  height: 4px;
-  margin-bottom: 5px;
+.overlay-content {
+  font-family: 'DM Serif Display', serif;
   position: relative;
-  background: #cdcdcd;
-  border-radius: 3px;
-  z-index: 1;
-  transform-origin: 4px 0px;
-  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease; }
+  top: 15%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px; }
 
-#menuToggle span:first-child {
-  transform-origin: 0% 0%; }
+.overlay a {
+  font-size: 1.2em;
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #c2c2c2;
+  display: block;
+  transition: 0.3s; }
 
-#menuToggle span:nth-last-child(2) {
-  transform-origin: 0% 100%; }
+.overlay a:hover, .overlay a:focus {
+  color: #f1f1f1; }
 
-#menuToggle input:checked ~ span {
-  opacity: 1;
-  transform: rotate(45deg) translate(-2px, -1px);
-  background: #232323; }
+.overlay-content a:hover {
+  text-decoration: underline; }
 
-#menuToggle input:checked ~ span:nth-last-child(3) {
-  opacity: 0;
-  transform: rotate(0deg) scale(0.2, 0.2); }
-
-#menuToggle input:checked ~ span:nth-last-child(2) {
-  opacity: 1;
-  transform: rotate(-45deg) translate(0, -1px); }
-
-/*
- * Make this absolute positioned
- * at the top left of the screen
- */
-#menu {
+.overlay .closebtn {
   position: absolute;
-  width: 150px;
-  height: 100vh;
-  margin: -110px 0 0 0;
-  padding: 50px;
-  padding-top: 125px;
-  right: -100px;
-  background: #f8f8f8;
-  list-style-type: none;
-  -webkit-font-smoothing: antialiased;
-  /* to stop flickering of text in safari */
-  transform-origin: 0% 0%;
-  transform: translate(100%, 0);
-  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
-  box-shadow: 0 0 5px 5px #f8f8f8; }
+  top: 20px;
+  right: 45px;
+  font-size: 60px; }
 
-#menu li {
-  padding: 10px 0;
-  font-size: 22px; }
-
-/*
- * And let's fade it in from the left
- */
-#menuToggle input:checked ~ ul {
-  transform: scale(1, 1);
-  opacity: 1; }
+@media screen and (max-height: 450px) {
+  .overlay a {
+    font-size: 20px; }
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px; } }
 
 .sources-container {
   display: flex;
@@ -312,5 +212,91 @@ a:hover {
   border: none;
   outline: none;
   font-size: 0.95em; }
+
+.homepage-container h1 {
+  margin: 0; }
+
+.homepage-container hr {
+  margin: 50px 0; }
+
+.stories-container {
+  margin: 50px 0; }
+  .stories-container .stories-content {
+    height: 180px; }
+  .stories-container hr {
+    margin: 0;
+    border-color: #f5f4f4; }
+  .stories-container .stories-img-container {
+    float: right;
+    object-fit: cover;
+    margin-left: 20px;
+    width: 200px;
+    height: 180px; }
+  .stories-container .stories-img-container img {
+    width: 100%;
+    height: auto; }
+
+/* Signin & Login pages */
+.auth-container {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  padding-top: 60px; }
+  .auth-container h1 {
+    margin-top: 0; }
+
+.auth-button {
+  display: block;
+  width: 300px;
+  padding: 10px;
+  border: 3px solid black;
+  border-radius: 50px;
+  margin: 10px;
+  font-size: 1.1em;
+  font-weight: 500; }
+
+.auth-button a {
+  text-decoration: none; }
+
+.FB-auth {
+  border: 3px solid #3f60b8; }
+
+.FB-auth:hover {
+  color: white;
+  background-color: #3f60b8; }
+
+.LI-auth {
+  border: 3px solid #0074bb; }
+
+.LI-auth:hover {
+  color: white;
+  background-color: #0074bb; }
+
+.GO-auth {
+  border: 3px solid #ffbe00; }
+
+.GO-auth:hover {
+  color: white;
+  background-color: #ffbe00; }
+
+.EM-auth {
+  border: 3px solid #12203e; }
+
+.EM-auth:hover {
+  color: white;
+  background-color: #12203e; }
+
+.auth-separator {
+  margin: 50px;
+  width: 250px;
+  border-bottom: 1px solid #999999; }
+
+.auth-separator + p {
+  font-size: 0.9em; }
+
+.auth-container a {
+  padding-top: 40px;
+  font-size: 1.2em;
+  color: black; }
 
 /*# sourceMappingURL=style.css.map */

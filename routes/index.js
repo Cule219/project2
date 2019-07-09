@@ -6,9 +6,13 @@ const Article = require('../models/Article');
 /* GET home page */
 router.get('/', (req, res, next) => {
   Article.find({}).then(data =>{
-    res.render('index', {data});
+    // data.forEach(el => el.publishedAt = )
+    console.log(data[0].publishedAt)
+    let first = data.pop();
+    console.log(data[4].title)
+    res.render('index', {data, first});
   }).catch(err=>console.log(err));
-});
+ });
 
 module.exports = router;
 
