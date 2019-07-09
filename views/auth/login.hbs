@@ -26,10 +26,13 @@
 
 <hr /> --}}
 <div class='auth-container'>
+
+<h1>Login.</h1>
+
   <button class='auth-button FB-auth'><a href="/auth/facebook">Sign in with Facebook</a></button>
   <button class='auth-button GO-auth'><a href="/auth/google">Sign in with Google</a></button>
   <button class='auth-button LI-auth'><a href="/auth/github">Sign in with Linkedin</a></button>
-  <button class='auth-button EM-auth'>Sign in with Email</button>
+  <button class='auth-button EM-auth'><a href='#'>Sign in with Email</a></button>
   {{#if message }}
     <div class="error-message">{{ message }}</div>
   {{/if}}
@@ -38,5 +41,5 @@
 
   <p>OR</p>
 
-  <a href='auth/signup'>REGISTER</a>
+  <a href='auth/signup'><h4>REGISTER</h4></a>
 </div>

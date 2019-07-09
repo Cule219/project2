@@ -25,6 +25,22 @@ nav {
   display: flex;
   padding-bottom: 20px; }
 
+.like-button {
+  color: #2d63ff;
+  border: 2px solid #2d63ff;
+  border-radius: 5px;
+  display: inline;
+  margin: 5px;
+  outline: none;
+  font-size: 1em; }
+
+.like-button:hover {
+  color: white;
+  background-color: #2d63ff; }
+
+.like-button:active {
+  background-color: black; }
+
 /* Navigation */
 nav h1 {
   margin: 0; }
@@ -49,6 +65,8 @@ nav h1 {
   flex-flow: column wrap;
   align-items: center;
   padding-top: 60px; }
+  .auth-container h1 {
+    margin-top: 0; }
 
 .auth-button {
   display: block;
@@ -108,6 +126,9 @@ nav h1 {
 .profile-container .profile-header {
   display: flex;
   margin: 40px 10px 5px; }
+
+.profile-container .profile-header img {
+  border-radius: 3px; }
 
 .profile-container .profile-header-content {
   margin: 0 30px; }
@@ -239,5 +260,57 @@ a:hover {
 
 .source-item h3 {
   margin: 10px; }
+
+.article-content h1 {
+  margin-bottom: 0; }
+
+.article-content img {
+  margin-top: 30px; }
+
+.article-content hr {
+  margin: 40px 0; }
+
+.article-source-info {
+  background-color: #eee;
+  border-radius: 3px;
+  margin: 50px 0;
+  padding: 15px; }
+  .article-source-info h3 {
+    margin: 30px 0 15px; }
+
+.article-redirect {
+  outline: none;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 30px;
+  color: white;
+  background-color: #0074bb;
+  font-size: 0.9em;
+  text-transform: uppercase; }
+
+.comment-container h2 {
+  margin-bottom: 20px; }
+
+.comment-container .article-comment {
+  display: flex;
+  align-items: center; }
+
+.comment-container .article-comment img {
+  margin: 15px;
+  border-radius: 2px; }
+
+.comment-container p {
+  margin: 2px; }
+
+.comment-container input {
+  width: 100%;
+  margin: 15px;
+  background-color: #eee;
+  width: 95%;
+  padding: 8px 0 8px 8px;
+  border-radius: 3px;
+  border: none;
+  outline: none;
+  font-size: 0.95em; }
 
 /*# sourceMappingURL=style.css.map */
