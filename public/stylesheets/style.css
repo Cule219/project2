@@ -1,11 +1,13 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  overflow-x: hidden; }
+  overflow-x: hidden;
+  max-width: 700px;
+  margin: 0 auto; }
 
 h1 {
   font-size: 3.2em;
-  margin: 0;
+  margin: 50px 0;
   font-family: 'DM Serif Display', serif; }
 
 h2 {
@@ -24,6 +26,9 @@ nav {
   padding-bottom: 20px; }
 
 /* Navigation */
+nav h1 {
+  margin: 0; }
+
 .collapsible {
   display: flex;
   flex-direction: column;
@@ -97,9 +102,6 @@ nav {
   color: black; }
 
 /* Profile Page */
-.profile-container h1 {
-  margin: 50px 0; }
-
 .profile-container h2 {
   margin-top: 60px; }
 
@@ -127,6 +129,10 @@ nav {
     flex-direction: column;
     margin-left: 10px;
     max-width: 200px; }
+
+.nav-header {
+  max-width: 700px;
+  margin: 0 auto; }
 
 a {
   text-decoration: none;
@@ -194,18 +200,20 @@ a:hover {
  */
 #menu {
   position: absolute;
-  width: 300px;
-  margin: -100px 0 0 0;
+  width: 150px;
+  height: 100vh;
+  margin: -110px 0 0 0;
   padding: 50px;
   padding-top: 125px;
   right: -100px;
-  background: #ededed;
+  background: #f8f8f8;
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
   /* to stop flickering of text in safari */
   transform-origin: 0% 0%;
   transform: translate(100%, 0);
-  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1); }
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  box-shadow: 0 0 5px 5px #f8f8f8; }
 
 #menu li {
   padding: 10px 0;
@@ -217,5 +225,19 @@ a:hover {
 #menuToggle input:checked ~ ul {
   transform: scale(1, 1);
   opacity: 1; }
+
+.sources-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around; }
+
+.source-item {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 200px; }
+
+.source-item h3 {
+  margin: 10px; }
 
 /*# sourceMappingURL=style.css.map */

@@ -32,6 +32,12 @@ router.get('/profile/source/:id', (req, res) => {
   res.render('homepages/sources/:id', { source })
 })
 
+// test route just for styling 
+router.get('/profile/source', (req, res) => {
+  const { source } = req.params
+
+  res.render('homepages/sources')
+})
 
 module.exports = router
 

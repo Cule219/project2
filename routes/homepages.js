@@ -8,4 +8,9 @@ router.get('/homepages/sources', (req, res) => {
   }).catch(err => console.log(err));
 })
 
+// test route for styling
+router.get('/homepages/article', (req, res) => {
+  res.render('homepages/article')
+})
+
 module.exports = router
