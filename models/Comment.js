@@ -9,6 +9,18 @@ const commentSchema = Schema({
   author: {
     type: Schema.Types.ObjectId,
     ref: "User"
+  },
+  article: {
+    type: Schema.Types.ObjectId,
+    ref: "Article"
+  },
+  source: {
+    type: Schema.Types.ObjectId,
+    ref: "Source"
+  },
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: "User"
   }
 }, {
   timestamps: {
@@ -18,4 +30,4 @@ const commentSchema = Schema({
   rating: String
 });
 
-module.exports = ('Comment', commentSchema);
+module.exports = mongoose.model('Comment', commentSchema);

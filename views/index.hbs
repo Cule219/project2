@@ -2,7 +2,7 @@
 <ul>
 {{#each data}}
 {{#if this.source.id}}
-  <li><a href="{{this.url}}">{{this.title}}</a></li>
+  <li><a href="/article/{{this._id}}">{{this.title}}</a> - <a href="{{this.url}}">Go to source</a></li>
   <a href="/source/{{this.source.id}}">{{this.source.name}}</a><br />
 {{/if}}
 {{else}}
@@ -12,7 +12,6 @@
 
 
 <a href="/category/sport">Category: Sport</a><br>
-<a href="/profile/user">check it out</a><br>
 
 
   <a href="/profile/user/5d23b38e352987414486e963">User</a><br>

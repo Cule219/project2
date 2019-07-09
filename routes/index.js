@@ -6,11 +6,16 @@ const Article = require('../models/Article');
 /* GET home page */
 router.get('/', (req, res, next) => {
   Article.find({}).then(data =>{
-    res.render('index', {data});
+    let first = data.pop();
+    res.render('index', {data, first});
   }).catch(err=>console.log(err));
 });
 
 module.exports = router;
+
+
+
+
 
 
 //this was used for category - obsolite atm

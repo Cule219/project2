@@ -1,5 +1,14 @@
-document.addEventListener('DOMContentLoaded', () => {
+// const charactersAPI = new APIHandler("http://localhost:3000")
 
-  console.log('IronGenerator JS imported successfully!');
+let button = document.getElementById('comment');
+button.addEventListener('click', ()=>{
+  document.getElementById('new-comment').innerHTML = '';
+  getComments();
+})
 
-}, false);
+
+function getComments(url){
+  axios.get(`http://localhost:3000/article/comments`).then(resonse => {
+    console.log(response);
+  });
+}
