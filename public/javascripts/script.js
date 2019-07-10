@@ -18,9 +18,11 @@ document.getElementById('new-comment').addEventListener('keypress', (e)=>{
     axios.post(url, {comment: inputComment}).then(data=>{
       newComment(data);
     });
+    inputComment.value = '';
   }
 });
-//have an  input added as the last element of article-comments
+
+//this renders each comment
 const newComment = (data) => {
   let container             = document.getElementsByClassName('comment-container')[0];
   

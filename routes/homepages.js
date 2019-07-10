@@ -1,10 +1,8 @@
-const express = require('express')
-const router  = express.Router()
-const Source  = require('../models/Source');
-const Article = require('../models/Article')
-const Comment     = require('../models/Comment');
-const axios = require('axios')
-const Comment = require('../models/Comment');
+const express   = require('express')
+const router    = express.Router();
+const Source    = require('../models/Source');
+const Article   = require('../models/Article');
+const Comment   = require('../models/Comment');
 
 router.get('/homepages/sources', (req, res) => {
   Source.find({}).then(data => {

@@ -11,8 +11,10 @@ const axios       = require('axios');
 const Article     = require('../models/Article');
 const Source      = require('../models/Source');
 const Review      = require('../models/Review');
+const Comment     = require('../models/Comment');
 
 const bcryptSalt = 10;
+
 
 mongoose
   .connect('mongodb://localhost/project2', {useNewUrlParser: true})
@@ -22,6 +24,9 @@ mongoose
   .catch(err => {
     console.error('Error connecting to mongo', err)
   });
+
+
+// Comment.deleteMany({}).then(data=>console.log(data.length))
 
 let users = [
   {
