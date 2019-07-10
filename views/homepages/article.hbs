@@ -1,7 +1,10 @@
 <div class='article-content'>
 <h1>{{article.title}}</h1>
 <h3>{{article.source.name}}</h3>
-<p><em>Source rating: </em>4.5</p>
+<p><em>Source reputation: </em>4.5</p>
+<form action='/article/{{article.id}}' method='POST'>
+  <button type='submit'>Like</button>
+</form>
 
 <img src='{{article.urlToImage}}' width='100%'>
 
@@ -11,24 +14,15 @@
   <h2>About this source...</h2>
 
   <h3>Description</h3>
-    <p>The BBC are widely regarded as the UK's top and most reliable news sources with a strong legacy of upstanding reporting with emphasis on social issues and telling the stories of those around the world who might not have the chance to be heard.</p>
-    <p>However, due to their political relationships and prestigous nature, the organisation can demonstrate certain political leanings.</p>
-    <p>Overall, the BBC is one of the more reliable UK news sources but one must be cautious of the organisation's relationships with senior members of the UK's leading political parties.</p>
+    <p>{{source.description}}</p>
 
     <h3>Polticial Bias</h3>
-    <p>The BBC has historically been a centre-right organisation. It's a publically funded, urban organisation with a higher proportion of young people and ethnic minorities.</p>
-    <p>Therefore it tends to hold a liberal bias and, whilst it aligns with the Liberal Party ideals, it also closely allies with the Tories.</p>
-    <p>Writers can often flex their own political opinions and agendas so it's best to be aware. </p>
+    <p>{{source.politicalBias}}</p>
 
     <h3>Sources of Funding in 2018</h3>
-    <p><strong>UK Government Funding: </strong>$56 million</p>
-    <p><em>Source: UK Government Public Expenditure Report 2018</em></p>
-    <p><strong>Advertising Revenue: </strong>$26 million</p>
-    <p><em>Source: BBC Public Accounts 2018</em></p>
-    <p><strong>Liberal Party: </strong>$3 million</p>
-    <p><em>Source: Liberal Party 2018 Spending Overview</em></p>
-    <p><strong>Private Investors: </strong>$1.6 million</p>
-    <p><em>Source: BBC Public Accounts 2018</em></p>
+    {{#each source.fundingSources}}
+    <p>{{this}}</p>
+    {{/each}}
 
   <br />
   <a href='/source/{{article.source.id}}'>Go to profile to edit description.</a>

@@ -32,7 +32,8 @@ const sourceSchema = new Schema({
   },
   politicalBias: String,
   fundingSources: [String],
-  profileImg: String
+  profileImg: String,
+  rating: Number
 });
 
 module.exports = mongoose.model('Source', sourceSchema);

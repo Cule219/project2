@@ -13,7 +13,7 @@ const articleSchema = new Schema({
   urlToImage: String,
   publishedAt: Date,
   content: String,
-  rating: String,
+  rating: Number,
   comments: {
     type: [Schema.Types.ObjectId],
     ref: "Comment"

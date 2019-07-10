@@ -3,6 +3,7 @@ const router  = express.Router()
 const Source  = require('../models/Source');
 const Article = require('../models/Article')
 const Comment     = require('../models/Comment');
+const axios = require('axios')
 
 router.get('/homepages/sources', (req, res) => {
   Source.find({}).then(data => {
@@ -11,8 +12,11 @@ router.get('/homepages/sources', (req, res) => {
 })
 
 router.get('/article/:articleId', (req, res, next) => {
-  Article.findById({_id: req.params.articleId}).populate('comments').then(article =>{
-    res.render('homepages/article', {article});
+  Article.findById({ _id: req.params.articleId }).populate('comments').then(article =>{
+    Source.find({ 'id': article.source.id }).then(source => {
+      source = source[0]
+      res.render('homepages/article', { article, source });
+    })
   }).catch(err=>console.log(err));
 });
 
