@@ -32,7 +32,10 @@ const sourceSchema = new Schema({
   },
   politicalBias: String,
   fundingSources: [String],
-  profileImg: String,
+  profileImg: {
+    type: String,
+    default: 'https://www.americanaircraftsales.com/wp-content/uploads/2016/09/no-profile-img.jpg'
+  },
   rating: Number
 });
 

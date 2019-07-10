@@ -12,8 +12,15 @@
           name='username'
           form='user-edit-profile'
           cols='20'
-          rows='1'
-          >{{data.username}}</textarea>
+          rows='1'>{{data.username}}
+          </textarea>
+
+        <textarea 
+          name='profileImg'
+          form='user-edit-profile'
+          cols='20'
+          rows='1'>Image URL
+          </textarea>
 
       <h3>{{data.role}}</h3>
       <h3>Rating: {{data.reputation}}</h3>
@@ -22,11 +29,11 @@
   </div>
   <div class='profile-content'>
     <h2>Description</h2>
-    <textarea name='description' form='user-edit-profile' cols="86" rows ="10">{{data.description}}</textarea>
+    <textarea name='description' form='user-edit-profile' rows ="10">{{data.description}}</textarea>
 
     <p>{{user.reviews}}</p>
 
-    <button type='submit'>Submit</button>
+    <button class='like-button big-like' type='submit'>Submit</button>
     </form>
     
     <h2>Contributed Reviews</h2> 

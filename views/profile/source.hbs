@@ -8,14 +8,13 @@
         <h2>{{data.name}}</h2>
         <h3>Rating: 4.8</h3>
         <a href='{{data.url}}'>{{data.url}}</a>
+        {{#if user}}
+        <a href='/source/{{data.id}}/edit' class='edit-button' style='display:block;'>Edit profile</a>
+        {{/if}}
+
       </div>
     </div>
 
-    <div class="company-properties">
-      <p>Category: <em>{{data.category}}</em></p>
-      <p>Country: <em>{{data.country}}</em></p>
-      <p>Language: <em>{{data.language}}</em></p>
-    </div>
 
     <h2>Description</h2>
     <p>{{data.description}}</p>
@@ -32,15 +31,9 @@
 
     <p>{{data.id}}</p>
 
-
-    {{#if user}}
-    <a href='/source/{{data.id}}/edit'>Edit description</a>
-    {{else}}
-    <h3><a href='/auth/login'>Login to edit descriptions</a></h3>
-    {{/if}}
-
     <h2>Recent Articles</h2>
     <div class='contributed-reviews'>
+    {{#if articles}}
       {{#each articles}}
       <div class='recent-articles-img-container'>
         <img src='{{this.urlToImage}}' height='80px' width='80px'>
@@ -49,6 +42,10 @@
         <p><strong>{{this.title}}</strong></p>
       </div>
       {{/each}}
+
+    {{else}}
+      <h3>No recent articles</h3>
+    {{/if}}
     </div>
 
 </div>

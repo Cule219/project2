@@ -17,8 +17,8 @@ router.get('/article/:articleId', (req, res, next) => {
     article.title = article.title.substring(0, article.title.lastIndexOf('-'))
     article.publishDate = article.publishedAt.toDateString()
 
-    Source.find({ 'id': article.source.id }).then(source => {
-      source = source[0]
+    Source.findOne({ 'id': article.source.id }).then(source => {
+      console.log(source)
       res.render('homepages/article', { article, source, user: req.user });
     })
   }).catch(err=>console.log(err));

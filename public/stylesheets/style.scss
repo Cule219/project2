@@ -62,7 +62,10 @@ a {
   font-size: 1.3em;
 }
 
-
+.link {
+  margin: 10px 0;
+  color: rgb(45, 99, 255)
+}
 
 
 /* Navigation */
@@ -148,13 +151,9 @@ nav h1 {
 
 
 
-// homepage
+// Homepage
 
 .homepage-container {
-  
-  h1 {
-    margin: 0;
-  }
 
   hr {
     margin: 50px 0;
@@ -163,9 +162,12 @@ nav h1 {
   .first-story-container {
     .first-story-content {
       h2 {
+        margin-top: 20px;
+      }
+      h4 {
         a {
           text-decoration: none;
-          color: black;
+          color: #5e5c5c;
         }
       }
     }
@@ -177,6 +179,12 @@ nav h1 {
 
   .stories-content {
     height: 180px;
+
+    h4 {
+      a {
+      color: #5e5c5c;
+      }
+    }
   }
 
   hr {
@@ -255,15 +263,20 @@ nav h1 {
   }
 
   .profile-header-content {
+    padding-left: 20px;
     margin: 0 30px;
-  }
 
-  .company-properties {
-    display: flex;
-    justify-content: space-around;
-    color: darkgray;
-    margin: 0px 10px;
-    font-size: 0.95m;
+    .edit-button {
+      color: rgb(45, 99, 255);
+      border: 2px solid rgb(45, 99, 255);
+      border-radius: 5px;
+      margin-top: 10px;
+      outline: none;
+      font-size: 1em;
+      padding: 2px 5px;
+      width: 80px;
+      }
+
   }
 
   .contributed-reviews {
@@ -282,7 +295,19 @@ nav h1 {
   }
 }
 
+textarea {
+  border-radius: 5px;
+  border: none;
+  background-color: #efefef;
+  margin: 10px 0;
+  padding: 10px;
+  font-size: 1.1em;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 
+  width: 100%;
+}
 
 
 
@@ -328,8 +353,13 @@ nav h1 {
 
   .article-title-content {
     display: flex;
-    justify-content: space-between
+    justify-content: space-between;
   }
+}
+
+.redirect-container {
+  display: flex;
+  justify-content: center;
 }
 
 .article-source-info {
@@ -341,15 +371,24 @@ nav h1 {
   h3 {
     margin: 30px 0 15px;
   }
+
+  .source-description-title {
+    display: flex;
+    justify-content: space-between;
+
+    .edit-source-button {
+      padding: 8px 15px;
+    }
+  }
 }
 
 .article-redirect {
-  margin: auto;
+  margin: 0 auto;
   cursor: pointer;
   outline: none;
   border: none;
   padding: 12px 20px;
-  border-radius: 30px;
+  border-radius: 5px;
   color: rgb(45, 99, 255);
   border: 3px solid rgb(45, 99, 255);
   font-size: 0.9em;
@@ -370,6 +409,10 @@ nav h1 {
 
   h2 {
     margin-bottom: 20px;
+  }
+
+  h3 {
+    margin: 20px 0;
   }
 
   .article-comment {
@@ -426,6 +469,7 @@ nav h1 {
 
 
 .auth-button {
+  cursor: pointer;
   display: block;
   width: 300px;
   padding: 10px;
@@ -498,7 +542,7 @@ nav h1 {
   object-fit: cover;
   margin-left: 20px;
   width: 200px;
-  height: 180px;
+  height: 100px;
 }
 
 .recent-articles-img-container img {

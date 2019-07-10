@@ -1,13 +1,13 @@
 <div class='article-content'>
-<h1>{{article.title}}</h1>
-<a href='/source/{{article.source.id}}'><h3>{{article.source.name}}</h3></a>
-    <p><em>Source reputation: </em>4.5</p>
+  <h1>{{article.title}}</h1>
+  <a href='/source/{{article.source.id}}'><h3>{{article.source.name}}</h3></a>
+  
     <div class='article-title-content'>
-    <p>{{article.publishDate}}</p>
-    <form action='/article/{{article.id}}' method='POST'>
+      <p><em>Source reputation: </em>{{source.reputation}}</p>
       <button class='like-button big-like' type='submit' id='like-button'>Like</button>
-    </form>
-  </div>
+    </div>
+
+    <p>{{article.publishDate}}</p>
 
 
 <img src='{{article.urlToImage}}' width='100%'>
@@ -15,7 +15,14 @@
 <p>{{article.description}}</p>
 
 <div class='article-source-info'>
+  <div class='source-description-title'>
   <h2>About this source...</h2>
+  {{#if user}}
+  <a href='/source/{{article.id}}/edit' class='like-button edit-source-button'>Edit</a>
+  {{else}}
+  <a href='/auth/login' class='like-button edit-source-button'>Login to edit</a>
+  {{/if}}
+  </div>
 
   <h3>Description</h3>
     <p>{{source.description}}</p>
@@ -29,12 +36,11 @@
     {{/each}}
 
   <br />
-  <a href='/source/{{article.source.id}}'>Go to profile to edit description.</a>
-
 </div>
 
+<div class='redirect-container'>
 <a href='{{article.url}}'><button class='article-redirect'>Go to article</button></a>
-
+</div>
 <hr />
 
 <div class='comment-container'>
@@ -49,7 +55,7 @@
     id="new-comment"
   >
   {{else}}
-  <h3><a href='/auth/login'>Login to write a comment</a></h3>
+  <h3><a href='/auth/login'>Login <span class='link'>here</span> to join the discussion.</a></h3>
   {{/if}}
 
   <div class='article-comment'>

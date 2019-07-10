@@ -5,7 +5,7 @@ const User              = require('../models/User');
 passport.use(new GitHubStrategy({
   clientID: 'Iv1.8a5c9b2c57e1734e',//GITHUB_CLIENT_ID,
   clientSecret: 'fb2629852475cf7606a89a2376de89ddc0beb860',//GITHUB_CLIENT_SECRET,
-  callbackURL: "http://127.0.0.1:3000/auth/github/callback"
+  callbackURL: "http://localhost:3000/auth/github/callback"
 },
 function(accessToken, refreshToken, profile, cb) {
   User.findOne({ githubId: profile.id })
