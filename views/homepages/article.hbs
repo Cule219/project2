@@ -1,10 +1,9 @@
 <div class='article-content'>
 <h1>{{article.title}}</h1>
 <h3>{{article.source.name}}</h3>
-<p><em>Source reputation: </em>4.5</p>
-<form action='/article/{{article.id}}' method='POST'>
-  <button type='submit'>Like</button>
-</form>
+<p><em>Source reputation: </em>{{article.rating}}</p>
+  {{!have a f for like/dislike changing}}
+  <button type='submit' id='like-button'>Like</button>
 
 <img src='{{article.urlToImage}}' width='100%'>
 
@@ -42,16 +41,17 @@
     placeholder='Write a comment...'
     id="new-comment"
   >
+  {{#each article.comments}}
   <div class='article-comment'>
-    <img src='../images/sample-headshot.jpg' height='100px'>
+    <img src='{{this.author.profileImg}}' height='100px'>
     <div class='article-comment-content'>
-      <h3>Anthony King</h3>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis neque consectetur nostrum maiores explicabo labore asperiores voluptate accusamus eligendi quo.</p>
-      <p><em>Rating: </em>4.5</p>
+      <h3>{{this.author.username}}</h3>
+      <p>{{this.content}}</p>
+      <p><em>Rating: </em>{{this.rating}}</p>
       <button class='like-button'>Like</button>
     </div>
   </div>
-
+  {{/each}}
 </div>
 
 </div>

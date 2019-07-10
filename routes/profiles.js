@@ -9,7 +9,6 @@ router.get('/source/:id', (req, res) => {
   Source.find({'id': req.params.id}).then(data =>{
     Articles.find({'source.id': req.params.id}).then(articles =>{
       data = data[0]
-
       res.render('profile/sourceProfile', { data, articles });
     });
   }).catch(err=>console.log(err));
@@ -19,7 +18,6 @@ router.get('/source/:id/edit', (req, res) => {
   Source.find({ 'id': req.params.id }).then(data => {
     Articles.find({'source.id': req.params.id}).then(articles =>{
       data = data[0]
-
       res.render('profile/editSourceProfile', { data, articles });
     });
   }).catch(err => console.log(err))

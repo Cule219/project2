@@ -18,14 +18,14 @@ const userSchema = new Schema({
     type: String,
     enum: ['user', 'mod', 'admin']
   },
-  comments: {
-    type: [Schema.Types.ObjectId],
+  comments: [{
+    type: Schema.Types.ObjectId,
     ref: "Comment"
-  },
-  reviews: {
-    type: [Schema.Types.ObjectId],
+  }],
+  reviews: [{
+    type: Schema.Types.ObjectId,
     ref: "Review"
-  }
+  }]
 }, {
   timestamps: {
     createdAt: 'created_at',

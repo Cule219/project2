@@ -11,7 +11,10 @@ function closeNav() {
 let url = 'http://localhost:3000/article/comment';
 
 
-document.getElementById('new-comment').addEventListener('keypress', (e)=>{
+let com = document.getElementById('new-comment');
+
+if(com != undefined){
+com.addEventListener('keypress', (e)=>{
   let key = e.which || e.keyCode;
   if (key === 13) {
     let inputComment = document.getElementById('new-comment').value;
@@ -20,7 +23,7 @@ document.getElementById('new-comment').addEventListener('keypress', (e)=>{
     });
     inputComment.value = '';
   }
-});
+});}
 
 //this renders each comment
 const newComment = (data) => {
@@ -54,4 +57,13 @@ const newComment = (data) => {
   commentContent.appendChild(likeButton);
   articleComment.appendChild(commentContent);
   container.appendChild(articleComment);  
+}
+
+let likeButton = document.getElementById('like-button');
+if(likeButton !== undefined){
+  likeButton.addEventListener('click', (e) => {
+    axios.patch('http://localhost:3000/article/').then(data => {
+      console.log(data)
+    })
+  })
 }

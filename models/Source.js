@@ -22,14 +22,10 @@ const sourceSchema = new Schema({
     // "pt", "ro", "rs", "ru", "sa", "se", "sg", "si", "sk", "th", "tr", "tw", "ua", "us", "ve", "za"] // "pk" "es"
   },
   reputation: Number,
-  comments: {
-    type: [Schema.Types.ObjectId],
+  comments: [{
+    type: Schema.Types.ObjectId,
     ref: "Comment"
-  },
-  reviews: {
-    type: [Schema.Types.ObjectId],
-    ref: "Review"
-  },
+  }],
   politicalBias: String,
   fundingSources: [String],
   profileImg: String,

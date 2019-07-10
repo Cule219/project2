@@ -13,11 +13,18 @@ const articleSchema = new Schema({
   urlToImage: String,
   publishedAt: Date,
   content: String,
-  rating: Number,
-  comments: {
-    type: [Schema.Types.ObjectId],
+  rating: {
+    type:Number,
+    default: 0
+  },//this needs to be changed prior to Friday
+  ratings: [{
+    type: Schema.Types.ObjectId,
+    ref: "User"
+  }],
+  comments: [{
+    type: Schema.Types.ObjectId,
     ref: "Comment"
-  }
+  }]
 });
 
 module.exports = mongoose.model('Article', articleSchema);
