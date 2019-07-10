@@ -1,7 +1,7 @@
-const express = require('express');
-const router  = express.Router();
-const Article = require('../models/Article');
-
+const express     = require('express');
+const router      = express.Router();
+const Article     = require('../models/Article');
+const Handlebars  = require('handlebars');
 
 /* GET home page */
 router.get('/', (req, res, next) => {

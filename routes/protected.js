@@ -25,12 +25,16 @@ router.use(loginCheck());
 
 router.post('/article/comment', (req, res, next) => {
   let articleId = req.headers.referer.match(/[^\/]\w*$/)[0];
+  console.log(articleId);
+  let userId = req.session.passport.user
   Comment.create({
     content: req.body.comment,
-    author: req.session.passport.user,
+    author: userId,
     article: articleId
   }).then(data => {
-    res.status(204).send();
+    User.find({_id: userId}).then(user=>{
+      res.status(200).send({data, user});
+    });
 }).catch(
     err =>console.log(err));
 });

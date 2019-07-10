@@ -36,7 +36,12 @@
 <div class='comment-container'>
 
   <h2>Comments</h2>
-
+  <input 
+    type='text' 
+    name='comment'
+    placeholder='Write a comment...'
+    id="new-comment"
+  >
   <div class='article-comment'>
     <img src='../images/sample-headshot.jpg' height='100px'>
     <div class='article-comment-content'>
@@ -46,16 +51,6 @@
       <button class='like-button'>Like</button>
     </div>
   </div>
-
-  <form action='/article/comment' id="comment"method='POST'>
-    <input 
-      type='text' 
-      name='comment'
-      placeholder='Write a comment...'
-      id="new-comment"
-    >
-    <button type="submit">post</button>
-  </form>
 
 </div>
 
