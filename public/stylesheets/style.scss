@@ -417,3 +417,24 @@ nav h1 {
   font-size: 1.2em;
   color: black;
 }
+
+
+// Source profile img
+
+.contributed-reviews {
+  display: flex;
+  align-items: center;
+}
+
+.recent-articles-img-container {
+  float: right;
+  object-fit: cover;
+  margin-left: 20px;
+  width: 200px;
+  height: 180px;
+}
+
+.recent-articles-img-container img {
+  width: 100%;
+  height: auto;
+}

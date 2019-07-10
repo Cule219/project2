@@ -8,9 +8,9 @@ const bcrypt = require("bcrypt");
 const User = require("../models/User");
 
 const axios       = require('axios');
-const Article     = require('./Article');
-const Source      = require('./Source');
-const Review      = require('./Review');
+const Article     = require('../models/Article');
+const Source      = require('../models/Source');
+const Review      = require('../models/Review');
 
 const bcryptSalt = 10;
 
@@ -56,8 +56,8 @@ let sources = [
     reputation: 4.3,
     comments: [],
     profileImg: `https://liquidcinemavr.com/wp-content/uploads/2019/03/bbc-logo.jpg`,
-    politicalBias = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-    fundingSources = [
+    politicalBias: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+    fundingSources: [
       'UK Government Funding: $56 million - Source: UK Government Public Expenditure Report 2018',
       'Advertising Revenue: $26 million - Source: BBC Public Accounts 2018',
       'Liberal Party: $3 million - Source: Liberal Party 2018 Spending Overview',
@@ -76,8 +76,8 @@ let sources = [
     reputation: 4.2,
     comments: [],
     profileImg: `https://s.abcnews.com/assets/beta/assets/abcn_images/abcnews_pearl_stacked.png`,
-    politicalBias = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-    fundingSources = [
+    politicalBias: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+    fundingSources: [
       'UK Government Funding: $56 million - Source: UK Government Public Expenditure Report 2018',
       'Advertising Revenue: $26 million - Source: BBC Public Accounts 2018',
       'Liberal Party: $3 million - Source: Liberal Party 2018 Spending Overview',
@@ -95,8 +95,8 @@ let sources = [
     reputation: 4.1,
     comments: [],
     profileImg: `https://s.abcnews.com/assets/beta/assets/abcn_images/abcnews_pearl_stacked.png`,
-    politicalBias = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-    fundingSources = [
+    politicalBias: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+    fundingSources: [
       'UK Government Funding: $56 million - Source: UK Government Public Expenditure Report 2018',
       'Advertising Revenue: $26 million - Source: BBC Public Accounts 2018',
       'Liberal Party: $3 million - Source: Liberal Party 2018 Spending Overview',
@@ -142,14 +142,14 @@ Source.deleteMany()
   console.log(data.map(u => u._id));
 })
 
-Review.deleteMany()
-.then(() => {
-  return Review.create(reviews)
-})
-.then(data => {
-  console.log(`${data.length} review created with the following id:`);
-  console.log(data.map(u => u._id));
-})
+// Review.deleteMany()
+// .then(() => {
+//   return Review.create(reviews)
+// })
+// .then(data => {
+//   console.log(`${data.length} review created with the following id:`);
+//   console.log(data.map(u => u._id));
+// })
 
 //seed with API data
 const seedAPI = () => {
@@ -176,5 +176,5 @@ const seedAPI = () => {
   });
 }
 
-module.exports = seedDB();
+module.exports;
 
