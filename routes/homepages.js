@@ -24,9 +24,9 @@ router.get('/homepages/article/:id', (req, res) => {
 })
 
 router.get('/article/:articleId', (req, res, next) => {
-  console.log()
-  Article.findById({_id: req.params.articleId}).then(data =>{
-    res.render('homepages/article', {data});
+  console.log(req.params)
+  Article.findById({_id: req.params.articleId}).then(article =>{
+    res.render('homepages/article', { article });
   }).catch(err=>console.log(err));
  });
 

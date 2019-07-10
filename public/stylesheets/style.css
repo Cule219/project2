@@ -219,6 +219,10 @@ nav h1 {
 .homepage-container hr {
   margin: 50px 0; }
 
+.homepage-container .first-story-container .first-story-content h2 a {
+  text-decoration: none;
+  color: black; }
+
 .stories-container {
   margin: 50px 0; }
   .stories-container .stories-content {
@@ -226,6 +230,9 @@ nav h1 {
   .stories-container hr {
     margin: 0;
     border-color: #f5f4f4; }
+  .stories-container h3 a {
+    text-decoration: none;
+    color: black; }
   .stories-container .stories-img-container {
     float: right;
     object-fit: cover;

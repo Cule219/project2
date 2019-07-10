@@ -1,14 +1,11 @@
-
-{{article.title}}
-
 <div class='article-content'>
-<h1>Ambassador 'has PM's full support' despite Trump criticism</h1>
-<h3>BBC</h3>
+<h1>{{article.title}}</h1>
+<h3>{{article.source.id}}</h3>
 <p><em>Source rating: </em>4.5</p>
 
-<img src='https://ichef.bbci.co.uk/news/736/cpsprodpb/CD59/production/_107796525_trump_darroch.jpg' width='100%'>
+<img src='{{article.urlToImage}}' width='100%'>
 
-<p>Downing Street has reaffirmed its "full support" for the UK's ambassador to the US after Donald Trump said he will no longer work with him.</p>
+<p>{{article.description}}</p>
 
 <div class='article-source-info'>
   <h2>About this source...</h2>
@@ -38,7 +35,7 @@
 
 </div>
 
-<button class='article-redirect'>Go to source</button>
+<button class='article-redirect'><a href='{{article.url}}'>Go to source</a></button>
 
 <hr />
 

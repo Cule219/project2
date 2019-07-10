@@ -290,6 +290,17 @@ nav h1 {
   hr {
     margin: 50px 0;
   }
+
+  .first-story-container {
+    .first-story-content {
+      h2 {
+        a {
+          text-decoration: none;
+          color: black;
+        }
+      }
+    }
+  }
 }
 
 .stories-container {
@@ -302,6 +313,13 @@ nav h1 {
   hr {
     margin: 0;
     border-color:#f5f4f4;
+  }
+
+  h3 {
+    a {
+      text-decoration: none;
+      color: black;
+    }
   }
 
   .stories-img-container {
