@@ -48,12 +48,13 @@ let users = [
     reputation: 5
   }
 ]
+
+
 let sources = [
   {
     id: "bbc-news",
     name: "BBC News",
-    description: `Use BBC News for up-to-the-minute news, breaking news, video, audio and feature stories. BBC News provides trusted World and UK news as well as local and regional perspectives. 
-                  Also entertainment, business, science, technology and health news`,
+    description: 'The BBC are widely regarded as the UK\'s top and most reliable news sources with a strong legacy of upstanding reporting with emphasis on social issues and telling the stories of those around the world who might not have the chance to be heard. However, due to their political relationships and prestigous nature, the organisation can demonstrate certain political leanings. Overall, the BBC is one of the more reliable UK news sources but one must be cautious of the organisation\'s relationships with senior members of the UK\'s leading political parties.',
     url: "www.bbc.co.uk/news",
     category: "general",
     language: "en",
@@ -61,7 +62,7 @@ let sources = [
     reputation: 4.3,
     comments: [],
     profileImg: `https://liquidcinemavr.com/wp-content/uploads/2019/03/bbc-logo.jpg`,
-    politicalBias: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+    politicalBias: "The BBC has historically been a centre-right organisation. It's a publically funded, urban organisation with a higher proportion of young people and ethnic minorities. Therefore it tends to hold a liberal bias and, whilst it aligns with the Liberal Party ideals, it also closely allies with the Tories. Writers can often flex their own political opinions and agendas so it's best to be aware.",
     fundingSources: [
       'UK Government Funding: $56 million - Source: UK Government Public Expenditure Report 2018',
       'Advertising Revenue: $26 million - Source: BBC Public Accounts 2018',
@@ -72,40 +73,53 @@ let sources = [
   {
     id: "abc-news",
     name: "ABC News",
-    description: `Your trusted source for breaking news, analysis, 
-    exclusive interviews, headlines, and videos at ABCNews.com.`,
-    url: "https://abcnews.go.com",
+    description: "ABC, the American Broadcasting Corporation, is one of the most prominent names in the American national broadcasting sphere and is known around the global. It is also present in the Australian continent under the alias Australian Broadcasting Corporation. It is known across the country and as a host for famous shows such as the Jimmy Kimmel show. ",
+    url: "www.abcnews.go.com",
     category: "general",
     language: "en",
     country: "us",
     reputation: 4.2,
     comments: [],
     profileImg: `https://s.abcnews.com/assets/beta/assets/abcn_images/abcnews_pearl_stacked.png`,
-    politicalBias: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+    politicalBias: "ABC is one of America's leading media corporations and, as such, is suspecible to the ever pervading influence, and push and pull, of mainstream American politics. Traditionally, ABC holds a centre left swing with a left leaning and liberal view on many convtroversial topics. The broadcasting network's host of hosts and representatives deliberately reinforces this left leaning political stance to appease the viewing audience.",
     fundingSources: [
-      'UK Government Funding: $56 million - Source: UK Government Public Expenditure Report 2018',
-      'Advertising Revenue: $26 million - Source: BBC Public Accounts 2018',
-      'Liberal Party: $3 million - Source: Liberal Party 2018 Spending Overview',
-      'Private Investors: $1.6 million - Source: BBC Public Accounts 2018'
+      'Private Investment: $30 million - Source: ABC Inc Income Report 2018',
+      'Advertising Revenue: $29 million - Source: ABC Inc Income Report 2018',
+      'National Broadcasting Grant: $15 million - Source: ABC Inc Income Report 2018',
   ]},
   {
     id: "business-insider",
     name: "Business Insider",
-    description: `Business Insider is a fast-growing business site with deep financial, media, tech, and other industry verticals. 
-    Launched in 2007, the site is now the largest business news site on the web.`,
-    url: "http://www.businessinsider.com",
+    description: `Business Insider is a fast-growing business site with deep financial, media, tech, and other industry verticals. Launched in 2007, the site is now the largest business news site on the web. Business Insider has typically focused on a more forward thinking and innovative audience than traditional print media, appealing to this base through the savvy use of social media to gather and retain new readers. Lucrative spending on media focused advertising avenues has reinforced this drive and thus given Business Insider the image of a media source who challenges normal thinking.`,
+    url: "www.businessinsider.com",
     category: "business",
     language: "en",
     country: "us",
     reputation: 4.1,
     comments: [],
-    profileImg: `https://s.abcnews.com/assets/beta/assets/abcn_images/abcnews_pearl_stacked.png`,
-    politicalBias: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+    profileImg: `https://amp.businessinsider.com/images/597a0306b50ab126008b4b46-750-342.png`,
+    politicalBias: 'Business Insider is a privately held corporation and, as such, is more susceptible to the political leanings of it\'s leaders. Therefore readers should be aware that the company owners, Brian Anthony and Chris Gunning, are staunchly left-wing and liberal thinkers. This can be conveyed through the leanings of the content that is present in both the print and online editions of Business Insider.',
     fundingSources: [
-      'UK Government Funding: $56 million - Source: UK Government Public Expenditure Report 2018',
-      'Advertising Revenue: $26 million - Source: BBC Public Accounts 2018',
-      'Liberal Party: $3 million - Source: Liberal Party 2018 Spending Overview',
-      'Private Investors: $1.6 million - Source: BBC Public Accounts 2018'
+      'Private Investmnet: $70 million - Source: Business Insider Annual Report 2018',
+      'Advertising Revenue: $26 million - Source: Business Insider Annual Report 2018',
+      'Anonymous Sources: $1.7 million - Source: Business Insider Annual Report 2018',
+    ]},
+    {
+      id: "abc-news",
+      name: "ABC News",
+      description: "ABC, the American Broadcasting Corporation, is one of the most prominent names in the American national broadcasting sphere and is known around the global. It is also present in the Australian continent under the alias Australian Broadcasting Corporation. It is known across the country and as a host for famous shows such as the Jimmy Kimmel show. ",
+      url: "www.abcnews.go.com",
+      category: "general",
+      language: "en",
+      country: "us",
+      reputation: 4.2,
+      comments: [],
+      profileImg: `https://s.abcnews.com/assets/beta/assets/abcn_images/abcnews_pearl_stacked.png`,
+      politicalBias: "ABC is one of America's leading media corporations and, as such, is suspecible to the ever pervading influence, and push and pull, of mainstream American politics. Traditionally, ABC holds a centre left swing with a left leaning and liberal view on many convtroversial topics. The broadcasting network's host of hosts and representatives deliberately reinforces this left leaning political stance to appease the viewing audience.",
+      fundingSources: [
+        'Private Investment: $30 million - Source: ABC Inc Income Report 2018',
+        'Advertising Revenue: $29 million - Source: ABC Inc Income Report 2018',
+        'National Broadcasting Grant: $15 million - Source: ABC Inc Income Report 2018',
     ]}
 ];
 let userId; User.find({}).then(data => userId = data[0]._id).catch(err=>console.log(err));

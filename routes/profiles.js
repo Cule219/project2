@@ -6,8 +6,14 @@ const User      = require('../models/User');
 
 
 router.get('/source/:id', (req, res) => {
+<<<<<<< HEAD
+  Source.findOne({'id': req.params.id}).then(data =>{
+    Articles.find({'source.id': req.params.id}).then(articles =>{
+      articles = articles.splice(0, 2)
+=======
   Source.find({'id': req.params.id}).then(data =>{
     Articles.findOne({'source.id': req.params.id}).then(articles =>{
+>>>>>>> eaf70d6eb51c323681c564ac8c1815d7d4c9c3ed
       res.render('profile/source', { data, articles, user: req.user });
     });
   }).catch(err=>console.log(err));
@@ -50,17 +56,17 @@ router.get('/user/:id',(req, res) => {
 router.get('/user/:id/edit', (req, res) => {
   User.findById({_id: req.params.id}).then(data => {
     let user = false; if(req.params.id == req.user._id) user = true;
+    data.username = data.username.trim()
     res.render('profile/editUser', {data, user});
   });
 })
 
 router.post('/user/:id', (req, res) => {
 
-  
-
   User.updateOne({ '_id': req.params.id}, {
     'username': req.body.username,
-    'description': req.body.description
+    'description': req.body.description,
+    'profileImg': req.body.profileImg
   }).then(data => {
     User.find({ '_id': req.params.id}).then(data => {
         data = data[0]
