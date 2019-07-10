@@ -8,7 +8,7 @@ function closeNav() {
   document.getElementsByClassName('overlay-content')[0].style.display = 'none';
 }
 
-let url = 'http://localhost:3000/article/comment';
+let url = 'http://localhost:3000/comment';
 
 
 let com = document.getElementById('new-comment');
@@ -42,11 +42,11 @@ const newComment = (data) => {
   
 
   let h3Name                = document.createElement('h3');
-  h3Name.innerHTML          = data.data.user[0].username; //This too
+  h3Name.innerHTML          = data.data.user[0].username;
   let descriptionUser       = document.createElement('p');
   descriptionUser.innerHTML = data.data.data.content;
   let ratingUser            = document.createElement('p');
-  ratingUser.innerHTML      = `<em>Rating: </em>${data.data.data.rating || 0}`//This 3
+  ratingUser.innerHTML      = `<em>Rating: </em>${data.data.data.rating || 0}`;
   let likeButton            = document.createElement('button');
   likeButton.innerHTML      = 'Like';
   likeButton.classList      = 'like-button';

@@ -14,7 +14,6 @@ router.get('/source/:id', (req, res) => {
 });
 
 router.get('/source/:id/edit', (req, res) => {
-  console.log(req.params.id)
   Source.find({ 'id': req.params.id }).then(data => {
     Articles.findOne({'source.id': req.params.id}).then(articles =>{
       res.render('profile/editSource', { data, articles, user: req.user });

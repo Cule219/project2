@@ -25,18 +25,22 @@ const loginCheck = () => {
 };
 router.use(loginCheck());
 
-router.post('/article/comment', (req, res, next) => {
+
+
+router.post('/comment', (req, res, next) => {
   let articleId = req.headers.referer.match(/[^\/]\w*$/)[0];
+  console.log(req.headers.referer);
   let userId = req.session.passport.user
   Comment.create({
     content: req.body.comment,
     author: userId,
     article: mongoose.Types.ObjectId(articleId)
   }).then(data => {
+    //this needs to be done with post middleware
     Article.findByIdAndUpdate(
       mongoose.Types.ObjectId(articleId), 
       {$push: {'comments': mongoose.Types.ObjectId(data._id)}
-    }).then(data => console.log(data));
+    }).then(data => console.log(data.length));
     User.find({_id: userId}).then(user=>{
       res.status(200).send({data, user});
     });
