@@ -9,7 +9,10 @@ const userSchema = new Schema({
   githubId: String,
   password: String,
   description: String,
-  profileImg: String, //look into file upload
+  profileImg: {
+    type: String,
+    default: 'https://www.americanaircraftsales.com/wp-content/uploads/2016/09/no-profile-img.jpg'
+  }, //look into file upload
   reputation: Number,
   role: {
     type: String,

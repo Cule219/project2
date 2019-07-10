@@ -2,7 +2,8 @@ const express     = require("express");
 const passport    = require('passport');
 const router      = express.Router();
 const User        = require("../models/User");
-
+const Comment     = require('../models/Comment');
+//w5d3
 
 const checksRole = role => {
   return (req, res, next) => {
@@ -20,12 +21,18 @@ const loginCheck = () => {
     else res.redirect("/login");
   };
 };
-
 router.use(loginCheck());
 
+router.post('/article/comment', (req, res, next) => {
+  let articleId = req.headers.referer.match(/[^\/]\w*$/)[0];
+  Comment.create({
+    content: req.body.comment,
+    author: req.session.passport.user,
+    article: articleId
+  }).then(data => {
+    res.status(204).send();
+}).catch(
+    err =>console.log(err));
+});
 
-router.get('/profile/user',(req, res) => {
-  const { user } = req.params
-
-  res.render('profile/user')
-})
+module.exports = router;

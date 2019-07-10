@@ -31,19 +31,8 @@ const sourceSchema = new Schema({
     ref: "Review"
   },
   politicalBias: String,
-  fundingSources: Array,
+  fundingSources: [String],
   profileImg: String
 });
 
 module.exports = mongoose.model('Source', sourceSchema);
-
-
-//single source: response.data.sources
-// { id: 'abc-news',
-//   name: 'ABC News',
-//   description:
-//    'Your trusted source for breaking news, analysis, exclusive interviews, headlines, and videos at ABCNews.com.',
-//   url: 'https://abcnews.go.com',
-//   category: 'general',
-//   language: 'en',
-//   country: 'us' }

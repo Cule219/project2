@@ -31,7 +31,7 @@
     <p><em>Source: BBC Public Accounts 2018</em></p>
 
   <br />
-  <a href='homepages/profile'>Go to profile to edit description.</a>
+  <a href='/source/{{article.source.id}}'>Go to profile to edit description.</a>
 
 </div>
 
@@ -53,12 +53,14 @@
     </div>
   </div>
 
-  <form action='/' method='POST'>
+  <form action='/article/comment' id="comment"method='POST'>
     <input 
       type='text' 
       name='comment'
       placeholder='Write a comment...'
+      id="new-comment"
     >
+    <button type="submit">post</button>
   </form>
 
 </div>
