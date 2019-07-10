@@ -48,23 +48,15 @@ router.post('/comment', (req, res, next) => {
     err =>console.log(err));
 });
 
-// router.post('/user/comment', (req, res, next) => {
-//   let userId = req.headers.referer.match(/[^\/]\w*$/)[0];
-//   let userId = req.session.passport.user
-//   Comment.create({
-//     content: req.body.comment,
-//     author: userId,
-//     article: mongoose.Types.ObjectId(articleId)
-//   }).then(data => {
-//     Article.findByIdAndUpdate(
-//       mongoose.Types.ObjectId(articleId), 
-//       {comments: mongoose.Types.ObjectId(userId)
-//     });
-//     User.find({_id: userId}).then(user=>{
-//       res.status(200).send({data, user});
-//     });
-// }).catch(
-//     err =>console.log(err));
-// });
+//use /\w+/ regex match here
+router.get('/article', (req, res, next)=>{
+  let articleId = req.headers.referer.match(/[^\/]\w*$/)[0];
+  let userId    = req.session.passport.user;
+  Article.findById(mongoose.Types.ObjectId(articleId),
+    ).then(data => {
+      console.log(data);
+      // res.status(200).send(data);
+  })
+});
 
 module.exports = router;

@@ -6,14 +6,8 @@ const User      = require('../models/User');
 
 
 router.get('/source/:id', (req, res) => {
-<<<<<<< HEAD
-  Source.findOne({'id': req.params.id}).then(data =>{
-    Articles.find({'source.id': req.params.id}).then(articles =>{
-      articles = articles.splice(0, 2)
-=======
   Source.find({'id': req.params.id}).then(data =>{
     Articles.findOne({'source.id': req.params.id}).then(articles =>{
->>>>>>> eaf70d6eb51c323681c564ac8c1815d7d4c9c3ed
       res.render('profile/source', { data, articles, user: req.user });
     });
   }).catch(err=>console.log(err));

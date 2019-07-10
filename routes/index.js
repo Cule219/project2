@@ -15,17 +15,6 @@ router.get('/', (req, res, next) => {
   }).catch(err=>console.log(err));
  });
 
-//use /\w+/ regex match here
-router.patch('/article', (req, res, next)=>{
-  console.log('got here')
-  let articleId = req.headers.referer.match(/[^\/]\w*$/)[0];
-  let userId    = req.session.passport.user;
-  Article.findByIdAndUpdate(mongoose.Types.ObjectId(articleId),
-    {$set:{ratings: mongoose.Types.ObjectId(userId)}}//, $set:{rating: 1}
-    ).then(data => {
-      
-      res.status(200).send(data);
-  })
-});
+
 
 module.exports = router;
