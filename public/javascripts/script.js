@@ -8,10 +8,10 @@ function closeNav() {
   document.getElementsByClassName('overlay-content')[0].style.display = 'none';
 }
 
-let url = 'http://localhost:3000/comments';
-axios.get(url).then(response => {
-  console.log(response);
-});
+// let url = 'http://localhost:3000/comments';
+// axios.get(url).then(response => {
+//   console.log(response);
+// });
 
 document.getElementById('comment').addEventListener('submit', (e)=>{
   console.log(e);

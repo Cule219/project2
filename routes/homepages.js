@@ -11,8 +11,8 @@ router.get('/homepages/sources', (req, res) => {
 })
 
 router.get('/article/:articleId', (req, res, next) => {
-  Article.findById({_id: req.params.articleId}).populate('comments').then(data =>{
-    res.render('homepages/article', {data});
+  Article.findById({_id: req.params.articleId}).populate('comments').then(article =>{
+    res.render('homepages/article', {article});
   }).catch(err=>console.log(err));
 });
 
@@ -25,9 +25,21 @@ router.get('/homepages/article', (req, res) => {
 router.get('/comments', (req, res, next) => {
   let articleId = req.headers.referer.match(/[^\/]\w*$/)[0];
   Comment.find({article: (articleId)}).then(data => {
-  console.log(data);
+    res.render(homepages/article);
   return res.status(204).send();
   })
 });
 
 module.exports = router;
+
+
+
+
+// router.get('/homepages/article/:id', (req, res) => {
+//   const { id } = req.params
+
+//   Article.find({ _id }).then(article => {
+//     console.log(article)
+//     res.render('homepages/article', { article })
+//   })
+// })

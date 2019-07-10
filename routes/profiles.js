@@ -8,7 +8,7 @@ const User      = require('../models/User');
 router.get('/source/:id', (req, res) =>{
   Source.find({'id': req.params.id}).then(data =>{
     Articles.find({'source.id': req.params.id}).then(articles =>{
-      res.render('profile/source', {data, articles});
+      res.render('profile/sourceProfile', {data, articles});
     });
   }).catch(err=>console.log(err));
 });
