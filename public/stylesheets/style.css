@@ -45,6 +45,10 @@ a {
 .like-button:active {
   background-color: black; }
 
+.big-like {
+  padding: 5px 15px;
+  font-size: 1.3em; }
+
 /* Navigation */
 nav {
   display: flex;
@@ -208,6 +212,10 @@ nav h1 {
 .article-content hr {
   margin: 40px 0; }
 
+.article-content .article-title-content {
+  display: flex;
+  justify-content: space-between; }
+
 .article-source-info {
   background-color: #eee;
   border-radius: 3px;
@@ -217,14 +225,24 @@ nav h1 {
     margin: 30px 0 15px; }
 
 .article-redirect {
+  margin: auto;
+  cursor: pointer;
   outline: none;
   border: none;
   padding: 12px 20px;
   border-radius: 30px;
-  color: white;
-  background-color: #0074bb;
+  color: #2d63ff;
+  border: 3px solid #2d63ff;
   font-size: 0.9em;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  font-weight: 600; }
+
+.article-redirect:hover {
+  background-color: #2d63ff;
+  color: white; }
+
+.article-redirect:active {
+  background-color: #0e1e4e; }
 
 .comment-container h2 {
   margin-bottom: 20px; }
