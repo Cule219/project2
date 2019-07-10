@@ -10,23 +10,23 @@ router.get('/source/:id', (req, res) => {
     Articles.find({'source.id': req.params.id}).then(articles =>{
       data = data[0]
 
-      res.render('profile/sourceProfile', { data, articles });
+      res.render('profile/source', { data, articles, user: req.user });
     });
   }).catch(err=>console.log(err));
 });
 
 router.get('/source/:id/edit', (req, res) => {
+  console.log(req.params.id)
   Source.find({ 'id': req.params.id }).then(data => {
     Articles.find({'source.id': req.params.id}).then(articles =>{
       data = data[0]
 
-      res.render('profile/editSourceProfile', { data, articles });
+      res.render('profile/editSource', { data, articles, user: req.user });
     });
   }).catch(err => console.log(err))
 })
 
-router.post('/profile/:id', (req, res) => {
-  console.log('req body: ' + req.body.description)
+router.post('/source/:id', (req, res) => {
 
   Source.updateOne({ 'id': req.params.id}, {
     'description': req.body.description,
@@ -38,26 +38,41 @@ router.post('/profile/:id', (req, res) => {
       Articles.find({'source.id': req.params.id}).then(articles =>{
         data = data[0]
   
-        res.render('profile/sourceProfile', { data, articles });
+        res.render('profile/source', { data, articles, user: req.user });
       });
     })
   }).catch(err => console.log(err))
 })
 
 
-router.get('/profile/user/:id',(req, res) => {
+router.get('/user/:id',(req, res) => {
   User.findById({_id: req.params.id}).then(data => {
-    let user = false; if(req.params.id == req.user._id) user =true;
+    let user = false; if(req.params.id == req.user._id) user = true;
     res.render('profile/user', {data, user});
   });
 })
 
+router.get('/user/:id/edit', (req, res) => {
+  User.findById({_id: req.params.id}).then(data => {
+    let user = false; if(req.params.id == req.user._id) user = true;
+    res.render('profile/editUser', {data, user});
+  });
+})
 
-// test route just for styling 
-router.get('/profile/source', (req, res) => {
-  const { source } = req.params
+router.post('/user/:id', (req, res) => {
 
-  res.render('profile/sourceProfile')
+  
+
+  User.updateOne({ '_id': req.params.id}, {
+    'username': req.body.username,
+    'description': req.body.description
+  }).then(data => {
+    User.find({ '_id': req.params.id}).then(data => {
+        data = data[0]
+  
+        res.render('profile/user', { data, user: req.user });
+    })
+  }).catch(err => console.log(err))
 })
 
 

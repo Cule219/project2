@@ -3,9 +3,9 @@
 <div class='homepage-container'>
 
   <div class='first-story-container'>
-    <a href='/article/{{this._id}}'><img src='{{first.urlToImage}}' width='100%'></a>
+    <a href='/article/{{first._id}}'><img src='{{first.urlToImage}}' width='100%'></a>
     <div class='first-story-content'>
-      <h2>{{title first.title}}</h2>
+      <h2><a href='/article/{{first._id}}'>{{title first.title}}</a></h2>
       <p>{{first.publishedAt}}</p>
     </div>
 

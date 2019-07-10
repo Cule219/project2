@@ -15,7 +15,7 @@ router.get('/article/:articleId', (req, res, next) => {
   Article.findById({ _id: req.params.articleId }).populate('comments').then(article =>{
     Source.find({ 'id': article.source.id }).then(source => {
       source = source[0]
-      res.render('homepages/article', { article, source });
+      res.render('homepages/article', { article, source, user: req.user });
     })
   }).catch(err=>console.log(err));
 });

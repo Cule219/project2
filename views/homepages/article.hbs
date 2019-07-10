@@ -36,12 +36,18 @@
 <div class='comment-container'>
 
   <h2>Comments</h2>
+
+  {{#if user}}
   <input 
     type='text' 
     name='comment'
-    placeholder='Write a comment...'
+    placeholder='Join the discussion...'
     id="new-comment"
   >
+  {{else}}
+  <h3><a href='/auth/login'>Login to write a comment</a></h3>
+  {{/if}}
+
   <div class='article-comment'>
     <img src='../images/sample-headshot.jpg' height='100px'>
     <div class='article-comment-content'>
