@@ -13,6 +13,10 @@ router.get('/homepages/sources', (req, res) => {
 
 router.get('/article/:articleId', (req, res, next) => {
   Article.findById({ _id: req.params.articleId }).populate('comments').then(article =>{
+    
+    article.title = article.title.substring(0, article.title.lastIndexOf('-'))
+    article.publishDate = article.publishedAt.toDateString()
+
     Source.find({ 'id': article.source.id }).then(source => {
       source = source[0]
       res.render('homepages/article', { article, source, user: req.user });
@@ -33,12 +37,13 @@ router.get('/comments', (req, res, next) => {
   })
 });
 
-router.get('/article/:articleId', (req, res, next) => {
-  console.log(req.params)
-  Article.findById({_id: req.params.articleId}).then(article =>{
-    res.render('homepages/article', { article });
-  }).catch(err=>console.log(err));
- });
+// router.get('/article/:articleId', (req, res, next) => {
+//   Article.findById({_id: req.params.articleId}).then(article =>{
+//     article.publishDate = article.publishedAt.toDateString()
+//     console.log(article)
+//     res.render('homepages/article', { article });
+//   }).catch(err=>console.log(err));
+//  });
 
  
 

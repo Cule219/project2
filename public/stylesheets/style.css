@@ -21,6 +21,13 @@ h3 {
   font-size: 1.5em;
   font-weight: 300; }
 
+h4 {
+  font-size: 1.1em; }
+
+a {
+  text-decoration: none;
+  color: black; }
+
 /* Like button */
 .like-button {
   color: #2d63ff;
@@ -101,6 +108,51 @@ nav h1 {
     font-size: 40px;
     top: 15px;
     right: 35px; } }
+
+.homepage-container h1 {
+  margin: 0; }
+
+.homepage-container hr {
+  margin: 50px 0; }
+
+.homepage-container .first-story-container .first-story-content h2 a {
+  text-decoration: none;
+  color: black; }
+
+.stories-container {
+  margin: 50px 0; }
+  .stories-container .stories-content {
+    height: 180px; }
+  .stories-container hr {
+    margin: 0;
+    border-color: #f5f4f4; }
+  .stories-container h3 a {
+    text-decoration: none;
+    color: black; }
+  .stories-container .stories-img-container {
+    float: right;
+    object-fit: cover;
+    margin-left: 20px;
+    width: 200px;
+    height: 180px; }
+    .stories-container .stories-img-container img {
+      width: 100%;
+      height: auto; }
+  @media screen and (max-width: 700px) {
+    .stories-container h3 {
+      font-size: 1.2em; }
+    .stories-container .stories-img-container {
+      width: 180px; } }
+  @media screen and (max-width: 570px) {
+    .stories-container p, .stories-container h6 {
+      margin: 10px 0; }
+    .stories-container .stories-img-container {
+      width: 160px; } }
+  @media screen and (max-width: 500px) {
+    .stories-container .stories-img-container {
+      float: none;
+      height: 120px;
+      margin: 0 auto; } }
 
 /* Profile Page */
 .profile-container h2 {
@@ -198,36 +250,6 @@ nav h1 {
   border: none;
   outline: none;
   font-size: 0.95em; }
-
-.homepage-container h1 {
-  margin: 0; }
-
-.homepage-container hr {
-  margin: 50px 0; }
-
-.homepage-container .first-story-container .first-story-content h2 a {
-  text-decoration: none;
-  color: black; }
-
-.stories-container {
-  margin: 50px 0; }
-  .stories-container .stories-content {
-    height: 180px; }
-  .stories-container hr {
-    margin: 0;
-    border-color: #f5f4f4; }
-  .stories-container h3 a {
-    text-decoration: none;
-    color: black; }
-  .stories-container .stories-img-container {
-    float: right;
-    object-fit: cover;
-    margin-left: 20px;
-    width: 200px;
-    height: 180px; }
-    .stories-container .stories-img-container img {
-      width: 100%;
-      height: auto; }
 
 /* Signin & Login pages */
 .auth-container {
