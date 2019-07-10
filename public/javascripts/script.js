@@ -53,3 +53,11 @@ const newComment = (data) => {
   articleComment.appendChild(commentContent);
   container.appendChild(articleComment);  
 }
+
+
+document.getElementById('like-button').addEventListener('click', () => {
+  console.log('working')
+  axios.post('http://localhost:3000/article/').then(data => {
+    console.log(req.session)
+  })
+})

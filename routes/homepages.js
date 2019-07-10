@@ -4,7 +4,6 @@ const Source  = require('../models/Source');
 const Article = require('../models/Article')
 const Comment     = require('../models/Comment');
 const axios = require('axios')
-const Comment = require('../models/Comment');
 
 router.get('/homepages/sources', (req, res) => {
   Source.find({}).then(data => {
@@ -40,6 +39,8 @@ router.get('/article/:articleId', (req, res, next) => {
     res.render('homepages/article', { article });
   }).catch(err=>console.log(err));
  });
+
  
+
 module.exports = router;
 
