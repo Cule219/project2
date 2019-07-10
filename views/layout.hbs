@@ -5,7 +5,7 @@
   <link href="https://fonts.googleapis.com/css?family=DM+Serif+Display&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>{{title}}</title>
+  <title>Opinion.</title>
   <link rel="stylesheet" href="/stylesheets/style.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -16,17 +16,19 @@
 
   <h1>Opinion.</h1>
 
-
 <div id="myNav" class="overlay">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <div class="overlay-content">
       <a href="/">Home</a>
+      <a href='/homepages/sources'>All Sources</a>
+      {{#if user}}
+      <a href='/user/{{user._id}}'>Profile</a>
+      <a href="/auth/logout">Logout</a>
+      {{else}}
       <a href="/auth/login">Login</a>
       <a href="/auth/signup">Signup</a>
-      <a href="/auth/logout">Logout</a>
-      <a href='/profile/user'>User Profile</a>
-      <a href='/homepages/sources'>All Sources</a>
-      <a href='/profile/sourceProfile'>Company Profile</a>
+      {{/if}}
+      <div class='menu-underline'></div>
   </div>
 </div>
 

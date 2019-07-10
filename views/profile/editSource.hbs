@@ -17,20 +17,22 @@
       <p>Language: <em>{{data.language}}</em></p>
     </div>
 
+    <form action='/source/{{data.id}}' method='POST' id='source-edit-profile'>
+
     <h2>Description</h2>
-    <p>{{data.description}}</p>
+    <textarea name='description' form='source-edit-profile' cols="86" rows ="10">{{data.description}}</textarea>
 
     <h2>Polticial Bias</h2>
-    <p>{{data.politicalBias}}</p>
+    <textarea name='politicalBias' form='source-edit-profile' cols="86" rows ="10">{{data.politicalBias}}</textarea>
 
 
     <h2>Sources of Funding in 2018</h2>
-    {{#each data.fundingSources}}
-    <p>{{this}}</p>
+    <textarea name='fundingSources' form='source-edit-profile' cols="86" rows ="10">{{data.politicalBias}}</textarea>
 
-    {{/each}}
 
-    <a href='/source/{{data.id}}/edit'>Edit description</a>
+    <button type='submit'>Submit</button>
+
+    </form>
  
 
     <h2>Recent Articles</h2>

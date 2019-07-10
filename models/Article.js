@@ -12,6 +12,7 @@ const articleSchema = new Schema({
   url: String,
   urlToImage: String,
   publishedAt: Date,
+  publishDate: String,
   content: String,
   rating: {
     type:Number,

@@ -10,14 +10,19 @@ router.get('/homepages/sources', (req, res) => {
 })
 
 router.get('/article/:articleId', (req, res, next) => {
-  Article.findById({ _id: req.params.articleId })
-  .populate({path: 'comments', populate: {path: 'author'}}).then(article =>{
+  Article.findById({ _id: req.params.articleId }).populate({path: 'comments', populate: {path: 'author'}}).then(article =>{
+    article.title = article.title.substring(0, article.title.lastIndexOf('-'))
+    article.publishDate = article.publishedAt.toDateString()
     Source.findOne({ 'id': article.source.id }).then(source => {
-      res.render('homepages/article', {article, source});
+      res.render('homepages/article', { article, source, user: req.user });
     })
   }).catch(err=>console.log(err));
 });
- 
+
+// test route for styling
+router.get('/homepages/article', (req, res) => {
+  res.render('homepages/article')
+})
 
 module.exports = router;
 

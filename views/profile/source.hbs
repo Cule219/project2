@@ -1,63 +1,54 @@
-<h1>Name: <a href="{{this.url}}">{{data.name}}</a></h1>
-<p>{{data.category}}</p><br>
-<p>{{data.description}}</p>
-
-
-
-<a href="/homepages/sources">see all companies</a>
-
-
-<h1>Related articles: </h1>
-<ol>
-  {{#each articles}}
-    <li><a href="{{this.url}}">{{this.title}}</a></li>
-  {{/each}}
-</ol>
-
-<hr>
-
 <div class='profile-container'>
 
-  <h1>Company Profile</h1>
+  <h1>Company Profile.</h1>
 
     <div class='profile-header'>
-      <img src='https://liquidcinemavr.com/wp-content/uploads/2019/03/bbc-logo.jpg' height='200px'>
+      <img src='{{data.profileImg}}' height='200px'>
       <div class="profile-header-content">
-        <h2>{{this.name}}</h2>
-        <h3>{{this.reputation}}</h3>
-        <a href="{{this.url}}">{{this.id}}</a>
+        <h2>{{data.name}}</h2>
+        <h3>Rating: 4.8</h3>
+        <a href='{{data.url}}'>{{data.url}}</a>
       </div>
     </div>
 
     <div class="company-properties">
-      <p>Category: <em>General</em></p>
-      <p>Country: <em>UK</em></p>
-      <p>Language: <em>EN</em></p>
+      <p>Category: <em>{{data.category}}</em></p>
+      <p>Country: <em>{{data.country}}</em></p>
+      <p>Language: <em>{{data.language}}</em></p>
     </div>
 
     <h2>Description</h2>
-    {{this.description}}
+    <p>{{data.description}}</p>
 
     <h2>Polticial Bias</h2>
-    {{this.politicalBias}}
-    
+    <p>{{data.politicalBias}}</p>
+
+
     <h2>Sources of Funding in 2018</h2>
-    <p><strong>UK Government Funding: </strong>$56 million</p>
-    <p><em>Source: UK Government Public Expenditure Report 2018</em></p>
-    <p><strong>Advertising Revenue: </strong>$26 million</p>
-    <p><em>Source: BBC Public Accounts 2018</em></p>
-    <p><strong>Liberal Party: </strong>$3 million</p>
-    <p><em>Source: Liberal Party 2018 Spending Overview</em></p>
-    <p><strong>Private Investors: </strong>$1.6 million</p>
-    <p><em>Source: BBC Public Accounts 2018</em></p>
+    {{#each data.fundingSources}}
+    <p>{{this}}</p>
+
+    {{/each}}
+
+    <p>{{data.id}}</p>
+
+
+    {{#if user}}
+    <a href='/source/{{data.id}}/edit'>Edit description</a>
+    {{else}}
+    <h3><a href='/auth/login'>Login to edit descriptions</a></h3>
+    {{/if}}
 
     <h2>Recent Articles</h2>
     <div class='contributed-reviews'>
-      <img src='https://www.aljazeera.com/mritems/imagecache/mbdxxlarge/mritems/Images/2019/5/18/19465020e67448568d269c83b9e853f8_18.jpg' height='80px' width='80px'>
-      <div class='profile-content'>
-        <p><strong>Venezuela opposition to resume Norway-backed talks</strong></p>
-        <p><em>Rating:</em> 3.4</p>
+      {{#each articles}}
+      <div class='recent-articles-img-container'>
+        <img src='{{this.urlToImage}}' height='80px' width='80px'>
       </div>
+      <div class='profile-content'>
+        <p><strong>{{this.title}}</strong></p>
+      </div>
+      {{/each}}
     </div>
 
 </div>

@@ -21,16 +21,14 @@ h3 {
   font-size: 1.5em;
   font-weight: 300; }
 
-nav {
-  display: flex;
-  justify-content: space-between;
-  padding-bottom: 20px; }
+h4 {
+  font-size: 1.1em; }
 
-nav span {
-  font-size: 30px;
-  cursor: pointer;
-  padding: 15px 15px 0 0; }
+a {
+  text-decoration: none;
+  color: black; }
 
+/* Like button */
 .like-button {
   color: #2d63ff;
   border: 2px solid #2d63ff;
@@ -47,55 +45,23 @@ nav span {
 .like-button:active {
   background-color: black; }
 
+.big-like {
+  padding: 5px 15px;
+  font-size: 1.3em; }
+
 /* Navigation */
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px; }
+
+nav span {
+  font-size: 30px;
+  cursor: pointer;
+  padding: 10px 15px 0 0; }
+
 nav h1 {
   margin: 0; }
-
-.collapsible {
-  display: flex;
-  flex-direction: column;
-  cursor: pointer;
-  border: none;
-  margin-left: auto;
-  padding-top: 10px;
-  outline: none; }
-
-.menu-icon {
-  border-bottom: 4px solid darkgray;
-  width: 32px;
-  padding: 4px; }
-
-/* Profile Page */
-.profile-container h2 {
-  margin-top: 60px; }
-
-.profile-container .profile-header {
-  display: flex;
-  margin: 40px 10px 5px; }
-
-.profile-container .profile-header img {
-  border-radius: 3px; }
-
-.profile-container .profile-header-content {
-  margin: 0 30px; }
-
-.profile-container .company-properties {
-  display: flex;
-  justify-content: space-around;
-  color: darkgray;
-  margin: 0px 10px;
-  font-size: 0.95m; }
-
-.profile-container .contributed-reviews {
-  padding: 20px;
-  display: flex; }
-  .profile-container .contributed-reviews * {
-    margin: auto 0; }
-  .profile-container .contributed-reviews .profile-content {
-    display: flex;
-    flex-direction: column;
-    margin-left: 10px;
-    max-width: 200px; }
 
 /* Menu */
 .overlay {
@@ -147,72 +113,6 @@ nav h1 {
     top: 15px;
     right: 35px; } }
 
-.sources-container {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around; }
-
-.source-item {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  width: 200px; }
-
-.source-item h3 {
-  margin: 10px; }
-
-.article-content h1 {
-  margin-bottom: 0; }
-
-.article-content img {
-  margin-top: 30px; }
-
-.article-content hr {
-  margin: 40px 0; }
-
-.article-source-info {
-  background-color: #eee;
-  border-radius: 3px;
-  margin: 50px 0;
-  padding: 15px; }
-  .article-source-info h3 {
-    margin: 30px 0 15px; }
-
-.article-redirect {
-  outline: none;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 30px;
-  color: white;
-  background-color: #0074bb;
-  font-size: 0.9em;
-  text-transform: uppercase; }
-
-.comment-container h2 {
-  margin-bottom: 20px; }
-
-.comment-container .article-comment {
-  display: flex;
-  align-items: center; }
-
-.comment-container .article-comment img {
-  margin: 15px;
-  border-radius: 2px; }
-
-.comment-container p {
-  margin: 2px; }
-
-.comment-container input {
-  width: 100%;
-  margin: 15px;
-  background-color: #eee;
-  width: 95%;
-  padding: 8px 0 8px 8px;
-  border-radius: 3px;
-  border: none;
-  outline: none;
-  font-size: 0.95em; }
-
 .homepage-container h1 {
   margin: 0; }
 
@@ -239,9 +139,135 @@ nav h1 {
     margin-left: 20px;
     width: 200px;
     height: 180px; }
-  .stories-container .stories-img-container img {
-    width: 100%;
-    height: auto; }
+    .stories-container .stories-img-container img {
+      width: 100%;
+      height: auto; }
+  @media screen and (max-width: 700px) {
+    .stories-container h3 {
+      font-size: 1.2em; }
+    .stories-container .stories-img-container {
+      width: 180px; } }
+  @media screen and (max-width: 570px) {
+    .stories-container p, .stories-container h6 {
+      margin: 10px 0; }
+    .stories-container .stories-img-container {
+      width: 160px; } }
+  @media screen and (max-width: 500px) {
+    .stories-container .stories-img-container {
+      float: none;
+      height: 120px;
+      margin: 0 auto; } }
+
+/* Profile Page */
+.profile-container h2 {
+  margin-top: 60px; }
+
+.profile-container .profile-header {
+  display: flex;
+  margin: 40px 10px 5px; }
+
+.profile-container .profile-header img {
+  border-radius: 3px; }
+
+.profile-container .profile-header-content {
+  margin: 0 30px; }
+
+.profile-container .company-properties {
+  display: flex;
+  justify-content: space-around;
+  color: darkgray;
+  margin: 0px 10px;
+  font-size: 0.95m; }
+
+.profile-container .contributed-reviews {
+  padding: 20px;
+  display: flex; }
+  .profile-container .contributed-reviews * {
+    margin: auto 0; }
+  .profile-container .contributed-reviews .profile-content {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    max-width: 200px; }
+
+.sources-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around; }
+
+.source-item {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 200px; }
+  .source-item h3 {
+    margin: 10px; }
+
+.article-content h1 {
+  margin-bottom: 0; }
+
+.article-content img {
+  margin-top: 30px; }
+
+.article-content hr {
+  margin: 40px 0; }
+
+.article-content .article-title-content {
+  display: flex;
+  justify-content: space-between; }
+
+.article-source-info {
+  background-color: #eee;
+  border-radius: 3px;
+  margin: 50px 0;
+  padding: 15px; }
+  .article-source-info h3 {
+    margin: 30px 0 15px; }
+
+.article-redirect {
+  margin: auto;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 30px;
+  color: #2d63ff;
+  border: 3px solid #2d63ff;
+  font-size: 0.9em;
+  text-transform: uppercase;
+  font-weight: 600; }
+
+.article-redirect:hover {
+  background-color: #2d63ff;
+  color: white; }
+
+.article-redirect:active {
+  background-color: #0e1e4e; }
+
+.comment-container h2 {
+  margin-bottom: 20px; }
+
+.comment-container .article-comment {
+  display: flex;
+  align-items: center; }
+
+.comment-container .article-comment img {
+  margin: 15px;
+  border-radius: 2px; }
+
+.comment-container p {
+  margin: 2px; }
+
+.comment-container input {
+  width: 100%;
+  margin: 15px;
+  background-color: #eee;
+  width: 95%;
+  padding: 8px 0 8px 8px;
+  border-radius: 3px;
+  border: none;
+  outline: none;
+  font-size: 0.95em; }
 
 /* Signin & Login pages */
 .auth-container {
@@ -251,6 +277,10 @@ nav h1 {
   padding-top: 60px; }
   .auth-container h1 {
     margin-top: 0; }
+  .auth-container a {
+    text-decoration: none;
+    padding-top: 20px;
+    font-size: 1.2em; }
 
 .auth-button {
   display: block;
@@ -258,12 +288,9 @@ nav h1 {
   padding: 10px;
   border: 3px solid black;
   border-radius: 50px;
-  margin: 10px;
+  margin: 0px;
   font-size: 1.1em;
   font-weight: 500; }
-
-.auth-button a {
-  text-decoration: none; }
 
 .FB-auth {
   border: 3px solid #3f60b8; }
@@ -301,11 +328,6 @@ nav h1 {
 .auth-separator + p {
   font-size: 0.9em; }
 
-.auth-container a {
-  padding-top: 40px;
-  font-size: 1.2em;
-  color: black; }
-
 .contributed-reviews {
   display: flex;
   align-items: center; }
@@ -320,5 +342,10 @@ nav h1 {
 .recent-articles-img-container img {
   width: 100%;
   height: auto; }
+
+.menu-underline {
+  margin: 50px auto;
+  width: 200px;
+  border-bottom: 2px solid #c2c2c2; }
 
 /*# sourceMappingURL=style.css.map */
