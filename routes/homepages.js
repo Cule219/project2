@@ -2,7 +2,7 @@ const express = require('express')
 const router  = express.Router()
 const Source  = require('../models/Source');
 const Article = require('../models/Article')
-const Comment     = require('../models/Comment');
+const Comment = require('../models/Comment');
 
 router.get('/homepages/sources', (req, res) => {
   Source.find({}).then(data => {
@@ -21,25 +21,13 @@ router.get('/homepages/article', (req, res) => {
   res.render('homepages/article')
 })
 
-//testing all comments route
+//testing all comments route - will be used for rendering
 router.get('/comments', (req, res, next) => {
   let articleId = req.headers.referer.match(/[^\/]\w*$/)[0];
   Comment.find({article: (articleId)}).then(data => {
-    res.render(homepages/article);
-  return res.status(204).send();
+    return res.status(200).json(data);
   })
 });
 
 module.exports = router;
 
-
-
-
-// router.get('/homepages/article/:id', (req, res) => {
-//   const { id } = req.params
-
-//   Article.find({ _id }).then(article => {
-//     console.log(article)
-//     res.render('homepages/article', { article })
-//   })
-// })

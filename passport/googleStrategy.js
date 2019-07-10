@@ -14,8 +14,8 @@ function(accessToken, refreshToken, profile, cb) {
           return User.create(
             { 
             googleId: profile.id,
-            profileImg: PushSubscriptionOptions.value,
-            username: displayName
+            profileImg: profile.photos.value,
+            username: profile.displayName
             }).then(newUser => {
             return cb(null, newUser);
           });
