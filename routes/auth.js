@@ -90,7 +90,6 @@ router.get('/github',
 router.get('/github/callback', 
   passport.authenticate('github', { failureRedirect: '/login' }),
   function(req, res) {
-    // Successful authentication, redirect home.
     res.redirect('/');
 });
 

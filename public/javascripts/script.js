@@ -11,16 +11,21 @@ function closeNav() {
 let url = 'http://localhost:3000/article/comment';
 
 
-document.getElementById('new-comment').addEventListener('keypress', (e)=>{
+let com = document.getElementById('new-comment');
+
+if(com != undefined){
+com.addEventListener('keypress', (e)=>{
   let key = e.which || e.keyCode;
   if (key === 13) {
     let inputComment = document.getElementById('new-comment').value;
     axios.post(url, {comment: inputComment}).then(data=>{
       newComment(data);
     });
+    inputComment.value = '';
   }
-});
-//have an  input added as the last element of article-comments
+});}
+
+//this renders each comment
 const newComment = (data) => {
   let container             = document.getElementsByClassName('comment-container')[0];
   
@@ -54,10 +59,11 @@ const newComment = (data) => {
   container.appendChild(articleComment);  
 }
 
-
-document.getElementById('like-button').addEventListener('click', () => {
-  console.log('working')
-  axios.post('http://localhost:3000/article/').then(data => {
-    console.log(req.session)
+let likeButton = document.getElementById('like-button');
+if(likeButton !== undefined){
+  likeButton.addEventListener('click', (e) => {
+    axios.patch('http://localhost:3000/article/').then(data => {
+      console.log(data)
+    })
   })
-})
+}

@@ -3,11 +3,17 @@
   <a href='/source/{{article.source.id}}'><h3>{{article.source.name}}</h3></a>
   
     <div class='article-title-content'>
+<<<<<<< HEAD
       <p><em>Source reputation: </em>{{source.reputation}}</p>
       <button class='like-button big-like' type='submit' id='like-button'>Like</button>
     </div>
 
     <p>{{article.publishDate}}</p>
+=======
+    <p>{{article.publishDate}}</p>
+    <button class='like-button big-like' type='submit' id='like-button'>Like</button>
+  </div>
+>>>>>>> eaf70d6eb51c323681c564ac8c1815d7d4c9c3ed
 
 
 <img src='{{article.urlToImage}}' width='100%'>
@@ -57,17 +63,17 @@
   {{else}}
   <h3><a href='/auth/login'>Login <span class='link'>here</span> to join the discussion.</a></h3>
   {{/if}}
-
+  {{#each article.comments}}
   <div class='article-comment'>
-    <img src='../images/sample-headshot.jpg' height='100px'>
+    <img src='{{this.author.profileImg}}' height='100px'>
     <div class='article-comment-content'>
-      <h3>Anthony King</h3>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis neque consectetur nostrum maiores explicabo labore asperiores voluptate accusamus eligendi quo.</p>
-      <p><em>Rating: </em>4.5</p>
+      <h3>{{this.author.username}}</h3>
+      <p>{{this.content}}</p>
+      <p><em>Rating: </em>{{this.rating}}</p>
       <button class='like-button'>Like</button>
     </div>
   </div>
-
+  {{/each}}
 </div>
 
 </div>
