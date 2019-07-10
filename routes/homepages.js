@@ -29,5 +29,11 @@ router.get('/comments', (req, res, next) => {
   })
 });
 
+router.get('/article/:articleId', (req, res, next) => {
+  console.log(req.params)
+  Article.findById({_id: req.params.articleId}).then(article =>{
+    res.render('homepages/article', { article });
+  }).catch(err=>console.log(err));
+ });
 module.exports = router;
 

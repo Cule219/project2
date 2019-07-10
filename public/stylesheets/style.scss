@@ -290,6 +290,17 @@ nav h1 {
   hr {
     margin: 50px 0;
   }
+
+  .first-story-container {
+    .first-story-content {
+      h2 {
+        a {
+          text-decoration: none;
+          color: black;
+        }
+      }
+    }
+  }
 }
 
 .stories-container {
@@ -302,6 +313,13 @@ nav h1 {
   hr {
     margin: 0;
     border-color:#f5f4f4;
+  }
+
+  h3 {
+    a {
+      text-decoration: none;
+      color: black;
+    }
   }
 
   .stories-img-container {
@@ -398,4 +416,25 @@ nav h1 {
   padding-top: 40px;
   font-size: 1.2em;
   color: black;
+}
+
+
+// Source profile img
+
+.contributed-reviews {
+  display: flex;
+  align-items: center;
+}
+
+.recent-articles-img-container {
+  float: right;
+  object-fit: cover;
+  margin-left: 20px;
+  width: 200px;
+  height: 180px;
+}
+
+.recent-articles-img-container img {
+  width: 100%;
+  height: auto;
 }

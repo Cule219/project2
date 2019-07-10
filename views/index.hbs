@@ -3,9 +3,13 @@
 <div class='homepage-container'>
 
   <div class='first-story-container'>
-    <img src='{{first.urlToImage}}' width='100%'>
+    <a href='/article/{{this._id}}'><img src='{{first.urlToImage}}' width='100%'></a>
     <div class='first-story-content'>
+<<<<<<< HEAD
       <h2>{{title first.title}}</h2>
+=======
+      <h2><a href='/article/{{this._id}}'>{{first.title}}</a></h2>
+>>>>>>> cca77ab8ad356783a46936aee30f183c9e826cac
       <p>{{first.publishedAt}}</p>
     </div>
 
@@ -27,7 +31,8 @@
       <a href='/article/{{this._id}}'><img src='{{this.urlToImage}}' alt='news-image'></a>
     </div>
     <div class='stories-content'>
-      <h3>{{this.title}}</h3>
+      <h3><a href='/article/{{this._id}}'>{{this.title}}</a></h3>
+      <p><a href='/source/{{this.source.id}}'>{{this.source.name}}</a></p>
       <h6>{{this.publishedAt}}</h6>
     </div>
     <hr />
