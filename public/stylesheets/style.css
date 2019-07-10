@@ -21,16 +21,7 @@ h3 {
   font-size: 1.5em;
   font-weight: 300; }
 
-nav {
-  display: flex;
-  justify-content: space-between;
-  padding-bottom: 20px; }
-
-nav span {
-  font-size: 30px;
-  cursor: pointer;
-  padding: 15px 15px 0 0; }
-
+/* Like button */
 .like-button {
   color: #2d63ff;
   border: 2px solid #2d63ff;
@@ -48,54 +39,18 @@ nav span {
   background-color: black; }
 
 /* Navigation */
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px; }
+
+nav span {
+  font-size: 30px;
+  cursor: pointer;
+  padding: 10px 15px 0 0; }
+
 nav h1 {
   margin: 0; }
-
-.collapsible {
-  display: flex;
-  flex-direction: column;
-  cursor: pointer;
-  border: none;
-  margin-left: auto;
-  padding-top: 10px;
-  outline: none; }
-
-.menu-icon {
-  border-bottom: 4px solid darkgray;
-  width: 32px;
-  padding: 4px; }
-
-/* Profile Page */
-.profile-container h2 {
-  margin-top: 60px; }
-
-.profile-container .profile-header {
-  display: flex;
-  margin: 40px 10px 5px; }
-
-.profile-container .profile-header img {
-  border-radius: 3px; }
-
-.profile-container .profile-header-content {
-  margin: 0 30px; }
-
-.profile-container .company-properties {
-  display: flex;
-  justify-content: space-around;
-  color: darkgray;
-  margin: 0px 10px;
-  font-size: 0.95m; }
-
-.profile-container .contributed-reviews {
-  padding: 20px;
-  display: flex; }
-  .profile-container .contributed-reviews * {
-    margin: auto 0; }
-  .profile-container .contributed-reviews .profile-content {
-    display: flex;
-    flex-direction: column;
-    margin-left: 10px;
-    max-width: 200px; }
 
 /* Menu */
 .overlay {
@@ -147,6 +102,38 @@ nav h1 {
     top: 15px;
     right: 35px; } }
 
+/* Profile Page */
+.profile-container h2 {
+  margin-top: 60px; }
+
+.profile-container .profile-header {
+  display: flex;
+  margin: 40px 10px 5px; }
+
+.profile-container .profile-header img {
+  border-radius: 3px; }
+
+.profile-container .profile-header-content {
+  margin: 0 30px; }
+
+.profile-container .company-properties {
+  display: flex;
+  justify-content: space-around;
+  color: darkgray;
+  margin: 0px 10px;
+  font-size: 0.95m; }
+
+.profile-container .contributed-reviews {
+  padding: 20px;
+  display: flex; }
+  .profile-container .contributed-reviews * {
+    margin: auto 0; }
+  .profile-container .contributed-reviews .profile-content {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    max-width: 200px; }
+
 .sources-container {
   display: flex;
   flex-flow: row wrap;
@@ -157,9 +144,8 @@ nav h1 {
   align-items: center;
   flex-direction: column;
   width: 200px; }
-
-.source-item h3 {
-  margin: 10px; }
+  .source-item h3 {
+    margin: 10px; }
 
 .article-content h1 {
   margin-bottom: 0; }
@@ -239,9 +225,9 @@ nav h1 {
     margin-left: 20px;
     width: 200px;
     height: 180px; }
-  .stories-container .stories-img-container img {
-    width: 100%;
-    height: auto; }
+    .stories-container .stories-img-container img {
+      width: 100%;
+      height: auto; }
 
 /* Signin & Login pages */
 .auth-container {
@@ -251,6 +237,10 @@ nav h1 {
   padding-top: 60px; }
   .auth-container h1 {
     margin-top: 0; }
+  .auth-container a {
+    text-decoration: none;
+    padding-top: 20px;
+    font-size: 1.2em; }
 
 .auth-button {
   display: block;
@@ -258,12 +248,9 @@ nav h1 {
   padding: 10px;
   border: 3px solid black;
   border-radius: 50px;
-  margin: 10px;
+  margin: 0px;
   font-size: 1.1em;
   font-weight: 500; }
-
-.auth-button a {
-  text-decoration: none; }
 
 .FB-auth {
   border: 3px solid #3f60b8; }
@@ -300,11 +287,6 @@ nav h1 {
 
 .auth-separator + p {
   font-size: 0.9em; }
-
-.auth-container a {
-  padding-top: 40px;
-  font-size: 1.2em;
-  color: black; }
 
 .contributed-reviews {
   display: flex;
