@@ -16,8 +16,10 @@ router.get('/source/:id', (req, res) => {
 
 router.get('/source/:id/edit', (req, res) => {
   Source.findOne({ 'id': req.params.id }).then(data => {
-    Articles.findOne({'source.id': req.params.id}).then(articles => {
-      // articles = articles.splice(0, 2)
+    Articles.find({'source.id': req.params.id}).then(articles => {
+      console.log('Before: ' + articles)
+      articles = articles.splice(0, 2)
+      console.log('After : ' + articles)
       res.render('profile/editSource', { data, articles, user: req.user });
     });
   }).catch(err => console.log(err))
@@ -59,6 +61,8 @@ router.get('/user/:id/edit', (req, res) => {
 })
 
 router.post('/user/:id', (req, res) => {
+
+  if ((req.body.profileImg).trim() === 'Image URL' || '') req.body.profileImg = 'https://www.americanaircraftsales.com/wp-content/uploads/2016/09/no-profile-img.jpg'
 
   User.updateOne({ '_id': req.params.id}, {
     'username': req.body.username,
