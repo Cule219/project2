@@ -1,6 +1,5 @@
 const express     = require('express');
 const router      = express.Router();
-const mongoose    = require('mongoose');
 const Article     = require('../models/Article');
 
 /* GET home page */
@@ -14,7 +13,5 @@ router.get('/', (req, res, next) => {
     res.render('index', {data, first, user: req.user});
   }).catch(err=>console.log(err));
  });
-
-
 
 module.exports = router;

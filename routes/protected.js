@@ -26,10 +26,14 @@ const loginCheck = () => {
 router.use(loginCheck());
 
 
+router.patch('/comment', (req, res, next)=>{
+  console.log(req.body);
+  Comment.find({})
+});
+
 
 router.post('/comment', (req, res, next) => {
   let articleId = req.headers.referer.match(/[^\/]\w*$/)[0];
-  console.log(req.headers.referer);
   let userId = req.session.passport.user
   Comment.create({
     content: req.body.comment,
@@ -52,31 +56,22 @@ router.post('/comment', (req, res, next) => {
 router.patch('/article', (req, res, next)=>{
   let articleId = req.headers.referer.match(/[^\/]\w*$/)[0];
   let userId    = req.session.passport.user;
-  Article.findById(articleId).then(data => {
-      let rating = data.rating + 1;
-      let ratings = data.ratings;
-      if(ratings.indexOf(userId) === -1){
-        Article.updateMany(
-          {_id: mongoose.Types.ObjectId(articleId)}, {
-            rating: rating, 
-            $push: {'ratings': userId},
-            new: true
-          }).then(data=>{
-            res.status(200).send(data);
-        });
-      }
+  Article.findOne({'_id': articleId}, (err, doc)=>{
+    if(userId,doc.ratings.indexOf(userId) === -1)
+    {
+      doc.ratings.push(userId);
+      doc.rating++;
+    }else{
+      doc.ratings.pull(mongoose.Types.ObjectId(userId));
+      doc.rating--;
+    }
+      doc.save(doc);
+      if(err)console.log(err);
+  }).then(data => {
+      res.send({rating: data.rating, liked: data.ratings.includes(req.session.passport.user)});
   })
 });
 
+
 module.exports = router;
 
-// router.patch('/article', (req, res, next)=>{
-//   let articleId = req.headers.referer.match(/[^\/]\w*$/)[0];
-//   let userId    = req.session.passport.user;
-//   Article.findByIdAndUpdate(mongoose.Types.ObjectId(articleId),
-//     {$set:{ratings: mongoose.Types.ObjectId(userId)}}//, $set:{rating: 1}
-//     ).then(data => {
-      
-//       res.status(200).send(data);
-//   })
-// });
