@@ -113,29 +113,13 @@ let sources = [
       country: "us",
       reputation: 4.2,
       comments: [],
-      profileImg: `https://www.usglc.org/media/2019/05/thomson-reuters-logo.jpg`,
+      profileImg: `https://www.nlgja.org/wp-content/uploads/2018/01/Reuters-logo-square-2017.png`,
       politicalBias: "Reuters is one of America's leading media corporations and, as such, is suspecible to the ever pervading influence, and push and pull, of mainstream American politics. Traditionally, Reuters holds a centre political stance with a left leaning and liberal view on many convtroversial topics. The broadcasting network's host of hosts and representatives deliberately reinforces this left leaning political stance to appease the viewing audience.",
       fundingSources: [
         'Private Investment: $30 million - Source: ABC Inc Income Report 2018',
         'Advertising Revenue: $29 million - Source: ABC Inc Income Report 2018',
         'National Broadcasting Grant: $15 million - Source: ABC Inc Income Report 2018',
     ]},
-    {
-      id: "cnn",
-      name: "CNN",
-      description: "CNN, the Cable News Network, is one of the most prominent names in the American national broadcasting sphere and is known around the global. CNN is owned by Turner Broadcasting which is in turn owned by Time Warner. Other holdings of Time Warner include HBO and Warner Brothers.",
-      url: "www.cnn.com",
-      category: "general",
-      language: "en",
-      country: "us",
-      reputation: 4.2,
-      comments: [],
-      profileImg: `https://s.abcnews.com/assets/beta/assets/abcn_images/abcnews_pearl_stacked.png`,
-      politicalBias: "CNN is one of America's leading media corporations and, as such, is suspecible to the ever pervading influence, and push and pull, of mainstream American politics. Traditionally, CNN holds a right of centre political stance. The broadcasting network's host of hosts and representatives deliberately reinforces this left leaning political stance to appease the viewing audience.",
-      fundingSources: [
-        'Advertising Revenue: $89 million - Source: CNN Income Report 2018',
-        'Cable Company Subscriptions: $75 million - Source: CNN Income Report 2018'
-      ]},
       {
         id: "cnn",
         name: "CNN",

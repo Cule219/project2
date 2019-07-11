@@ -15,8 +15,9 @@ router.get('/source/:id', (req, res) => {
 });
 
 router.get('/source/:id/edit', (req, res) => {
-  Source.find({ 'id': req.params.id }).then(data => {
-    Articles.findOne({'source.id': req.params.id}).then(articles =>{
+  Source.findOne({ 'id': req.params.id }).then(data => {
+    Articles.findOne({'source.id': req.params.id}).then(articles => {
+      // articles = articles.splice(0, 2)
       res.render('profile/editSource', { data, articles, user: req.user });
     });
   }).catch(err => console.log(err))
@@ -42,9 +43,10 @@ router.post('/source/:id', (req, res) => {
 
 
 router.get('/user/:id',(req, res) => {
+  console.log('ID: ' + req.params.id)
   User.findById({_id: req.params.id}).then(data => {
     let user = false; if(req.params.id == req.user._id) user = true;
-    res.render('profile/user', {data, user});
+    res.render('profile/user', {data, user: req.user});
   });
 })
 
@@ -52,7 +54,7 @@ router.get('/user/:id/edit', (req, res) => {
   User.findById({_id: req.params.id}).then(data => {
     let user = false; if(req.params.id == req.user._id) user = true;
     data.username = data.username.trim()
-    res.render('profile/editUser', {data, user});
+    res.render('profile/editUser', {data, user: req.user});
   });
 })
 
@@ -63,9 +65,7 @@ router.post('/user/:id', (req, res) => {
     'description': req.body.description,
     'profileImg': req.body.profileImg
   }).then(data => {
-    User.find({ '_id': req.params.id}).then(data => {
-        data = data[0]
-  
+    User.findOne({ '_id': req.params.id}).then(data => {  
         res.render('profile/user', { data, user: req.user });
     })
   }).catch(err => console.log(err))

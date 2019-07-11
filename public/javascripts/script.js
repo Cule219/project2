@@ -9,7 +9,7 @@ function closeNav() {
 }
 
 const getUrl = window.location;
-const baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
+const baseUrl = getUrl .protocol + "//" + getUrl.host + '/';
 
 let com = document.getElementById('new-comment');
 
