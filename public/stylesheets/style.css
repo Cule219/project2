@@ -200,6 +200,7 @@ nav h1 {
     max-width: 200px; }
 
 textarea {
+  overflow: hidden;
   border-radius: 5px;
   border: none;
   background-color: #efefef;

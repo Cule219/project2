@@ -10,7 +10,6 @@ const User = require("../models/User");
 const axios       = require('axios');
 const Article     = require('../models/Article');
 const Source      = require('../models/Source');
-const Review      = require('../models/Review');
 const Comment     = require('../models/Comment');
 
 const bcryptSalt = 10;
@@ -100,27 +99,76 @@ let sources = [
     profileImg: `https://amp.businessinsider.com/images/597a0306b50ab126008b4b46-750-342.png`,
     politicalBias: 'Business Insider is a privately held corporation and, as such, is more susceptible to the political leanings of it\'s leaders. Therefore readers should be aware that the company owners, Brian Anthony and Chris Gunning, are staunchly left-wing and liberal thinkers. This can be conveyed through the leanings of the content that is present in both the print and online editions of Business Insider.',
     fundingSources: [
-      'Private Investmnet: $70 million - Source: Business Insider Annual Report 2018',
+      'Private Investment: $70 million - Source: Business Insider Annual Report 2018',
       'Advertising Revenue: $26 million - Source: Business Insider Annual Report 2018',
       'Anonymous Sources: $1.7 million - Source: Business Insider Annual Report 2018',
     ]},
     {
-      id: "abc-news",
-      name: "ABC News",
-      description: "ABC, the American Broadcasting Corporation, is one of the most prominent names in the American national broadcasting sphere and is known around the global. It is also present in the Australian continent under the alias Australian Broadcasting Corporation. It is known across the country and as a host for famous shows such as the Jimmy Kimmel show. ",
-      url: "www.abcnews.go.com",
+      id: "reuters",
+      name: "Reuters",
+      description: "Reuters is one of the most prominent names in the American national broadcasting sphere and is known around the global. It is also present in the Australian continent under the alias Australian Broadcasting Corporation. It is known across the country and is a most notable for its coverage of business and financial news, placing itself as a forerunner in the industry on these topics. ",
+      url: "www.reuters.com",
+      category: "general",
+      language: "en",
+      country: "us",
+      reputation: 4.2,
+      comments: [],
+      profileImg: `https://www.usglc.org/media/2019/05/thomson-reuters-logo.jpg`,
+      politicalBias: "Reuters is one of America's leading media corporations and, as such, is suspecible to the ever pervading influence, and push and pull, of mainstream American politics. Traditionally, Reuters holds a centre political stance with a left leaning and liberal view on many convtroversial topics. The broadcasting network's host of hosts and representatives deliberately reinforces this left leaning political stance to appease the viewing audience.",
+      fundingSources: [
+        'Private Investment: $30 million - Source: ABC Inc Income Report 2018',
+        'Advertising Revenue: $29 million - Source: ABC Inc Income Report 2018',
+        'National Broadcasting Grant: $15 million - Source: ABC Inc Income Report 2018',
+    ]},
+    {
+      id: "cnn",
+      name: "CNN",
+      description: "CNN, the Cable News Network, is one of the most prominent names in the American national broadcasting sphere and is known around the global. CNN is owned by Turner Broadcasting which is in turn owned by Time Warner. Other holdings of Time Warner include HBO and Warner Brothers.",
+      url: "www.cnn.com",
       category: "general",
       language: "en",
       country: "us",
       reputation: 4.2,
       comments: [],
       profileImg: `https://s.abcnews.com/assets/beta/assets/abcn_images/abcnews_pearl_stacked.png`,
-      politicalBias: "ABC is one of America's leading media corporations and, as such, is suspecible to the ever pervading influence, and push and pull, of mainstream American politics. Traditionally, ABC holds a centre left swing with a left leaning and liberal view on many convtroversial topics. The broadcasting network's host of hosts and representatives deliberately reinforces this left leaning political stance to appease the viewing audience.",
+      politicalBias: "CNN is one of America's leading media corporations and, as such, is suspecible to the ever pervading influence, and push and pull, of mainstream American politics. Traditionally, CNN holds a right of centre political stance. The broadcasting network's host of hosts and representatives deliberately reinforces this left leaning political stance to appease the viewing audience.",
       fundingSources: [
-        'Private Investment: $30 million - Source: ABC Inc Income Report 2018',
-        'Advertising Revenue: $29 million - Source: ABC Inc Income Report 2018',
-        'National Broadcasting Grant: $15 million - Source: ABC Inc Income Report 2018',
-    ]}
+        'Advertising Revenue: $89 million - Source: CNN Income Report 2018',
+        'Cable Company Subscriptions: $75 million - Source: CNN Income Report 2018'
+      ]},
+      {
+        id: "cnn",
+        name: "CNN",
+        description: "CNN, the Cable News Network, is one of the most prominent names in the American national broadcasting sphere and is known around the global. CNN is owned by Turner Broadcasting which is in turn owned by Time Warner. Other holdings of Time Warner include HBO and Warner Brothers.",
+        url: "www.cnn.com",
+        category: "general",
+        language: "en",
+        country: "us",
+        reputation: 4.2,
+        comments: [],
+        profileImg: `https://upload.wikimedia.org/wikipedia/commons/b/b1/CNN.svg`,
+        politicalBias: "CNN is one of America's leading media corporations and, as such, is suspecible to the ever pervading influence, and push and pull, of mainstream American politics. Traditionally, CNN holds a right of centre political stance. The broadcasting network's host of hosts and representatives deliberately reinforces this left leaning political stance to appease the viewing audience.",
+        fundingSources: [
+          'Advertising Revenue: $89 million - Source: CNN Income Report 2018',
+          'Cable Company Subscriptions: $75 million - Source: CNN Income Report 2018'
+        ]},
+        {
+          id: "cnbc",
+          name: "CNBC",
+          description: "CNBC, the Cable News Network, is one of the most prominent names in the American national broadcasting sphere relating to the stock market and is known around the global. CNBC is owned by NBC Universal Broadcast which is in turn owned by Comcast.",
+          url: "www.cnn.com",
+          category: "general",
+          language: "en",
+          country: "us",
+          reputation: 4.2,
+          comments: [],
+          profileImg: `https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/CNBC_logo.svg/701px-CNBC_logo.svg.png`,
+          politicalBias: "CNN is one of America's leading media corporations and, as such, is suspecible to the ever pervading influence, and push and pull, of mainstream American politics. Traditionally, CNN holds a right of centre political stance. The broadcasting network's host of hosts and representatives deliberately reinforces this left leaning political stance to appease the viewing audience.",
+          fundingSources: [
+            'Advertising Revenue: $89 million - Source: CNN Income Report 2018',
+            'Cable Company Subscriptions: $75 million - Source: CNN Income Report 2018'
+          ]},
+
 ];
 let userId; User.find({}).then(data => userId = data[0]._id).catch(err=>console.log(err));
 let sourceId; Source.find({}).then(data => sourceId = data[0]._id).catch(err=>console.log(err));
@@ -194,6 +242,7 @@ const seedAPI = () => {
     throw err
   });
 }
+
 
 module.exports;
 
