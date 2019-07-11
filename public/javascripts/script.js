@@ -8,8 +8,8 @@ function closeNav() {
   document.getElementsByClassName('overlay-content')[0].style.display = 'none';
 }
 
-let url = 'http://localhost:3000/article/comment';
-
+const getUrl = window.location;
+const baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
 
 let com = document.getElementById('new-comment');
 
@@ -18,7 +18,7 @@ com.addEventListener('keypress', (e)=>{
   let key = e.which || e.keyCode;
   if (key === 13) {
     let inputComment = document.getElementById('new-comment').value;
-    axios.post(url, {comment: inputComment}).then(data=>{
+    axios.post(`${baseUrl}comment`, {comment: inputComment}).then(data=>{
       newComment(data);
     });
     inputComment.value = '';
@@ -42,11 +42,11 @@ const newComment = (data) => {
   
 
   let h3Name                = document.createElement('h3');
-  h3Name.innerHTML          = data.data.user[0].username; //This too
+  h3Name.innerHTML          = data.data.user[0].username;
   let descriptionUser       = document.createElement('p');
   descriptionUser.innerHTML = data.data.data.content;
   let ratingUser            = document.createElement('p');
-  ratingUser.innerHTML      = `<em>Rating: </em>${data.data.data.rating || 0}`//This 3
+  ratingUser.innerHTML      = `<em>Rating: </em>${data.data.data.rating || 0}`;
   let likeButton            = document.createElement('button');
   likeButton.innerHTML      = 'Like';
   likeButton.classList      = 'like-button';
@@ -62,7 +62,7 @@ const newComment = (data) => {
 let likeButton = document.getElementById('like-button');
 if(likeButton !== undefined){
   likeButton.addEventListener('click', (e) => {
-    axios.patch('http://localhost:3000/article/').then(data => {
+    axios.patch(`${baseUrl}article/`).then(data => {
       console.log(data)
     })
   })
