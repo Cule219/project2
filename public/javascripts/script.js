@@ -8,13 +8,8 @@ function closeNav() {
   document.getElementsByClassName('overlay-content')[0].style.display = 'none';
 }
 
-if(process.env.PORT == undefined){
-  let baseUrl = 'https://basic-wd-141-student.herokuapp.com/';
-}
-else{
-  let baseUrl = 'http://localhost:3000/';
-}
-
+const getUrl = window.location;
+const baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
 
 let com = document.getElementById('new-comment');
 
@@ -68,7 +63,7 @@ let likeButton = document.getElementById('like-button');
 if(likeButton !== undefined){
   likeButton.addEventListener('click', (e) => {
     axios.patch(`${baseUrl}article/`).then(data => {
-      // console.log(data)
+      console.log(data)
     })
   })
 }

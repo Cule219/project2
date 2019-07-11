@@ -55,17 +55,16 @@ router.patch('/article', (req, res, next)=>{
   Article.findById(articleId).then(data => {
       let rating = data.rating + 1;
       let ratings = data.ratings;
-      console.log(ratings.indexOf(userId));
       if(ratings.indexOf(userId) === -1){
         Article.updateMany(
           {_id: mongoose.Types.ObjectId(articleId)}, {
             rating: rating, 
-            $push: {'ratings': userId}
+            $push: {'ratings': userId},
+            new: true
           }).then(data=>{
-          console.log(data.length)
+            res.status(200).send(data);
         });
       }
-      // res.status(200).send(data);
   })
 });
 
