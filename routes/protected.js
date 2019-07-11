@@ -30,6 +30,7 @@ try{
 router.patch('/comment', async (req, res, next)=>{
   let userId    = req.session.passport.user;
   const doc =  await Comment.findOne({'_id': req.body.commentId});
+  console.log(doc.toObject().ratings)
     if(doc.toObject().ratings.indexOf(userId) === -1){ 
       doc.toObject().ratings.push(userId);
       doc.toObject().rating++;
