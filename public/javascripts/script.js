@@ -77,8 +77,6 @@ if(commentBox != undefined){
       let username = e.target.parentNode.getElementsByTagName('h3')[0].innerHTML;
       let commentId = e.target.value;
       axios.patch(`${baseUrl}/comment`, {data: username, commentId: commentId}).then(data => {
-        //h3Name is username get this via dom and queue db with that
-        console.log(data);
         document.getElementById('comment-rating').innerHTML = `<em>Rating: </em>${data.data.rating}`;
         if(data.data.liked)e.target.innerHTML="unlike";
         else{e.target.innerHTML="like"}

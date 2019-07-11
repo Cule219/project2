@@ -26,23 +26,21 @@ const loginCheck = () => {
 };
 router.use(loginCheck());
 
-
-router.patch('/comment', (req, res, next)=>{
+try{
+router.patch('/comment', async (req, res, next)=>{
   let userId    = req.session.passport.user;
-  Comment.findOne({'_id': req.body.commentId}, (err, doc)=>{
-    console.log(doc)
-    if(err)console.log(err);
-    if(doc.ratings.indexOf(userId) === -1){
-      doc.ratings.push(userId);
-      doc.rating++;
+  const doc =  await Comment.findOne({'_id': req.body.commentId});
+    if(doc.toObject().ratings.indexOf(userId) === -1){ 
+      doc.toObject().ratings.push(userId);
+      doc.toObject().rating++;
     }else{
-      doc.ratings.pull(mongoose.Types.ObjectId(userId));
-      doc.rating--;
+      doc.toObject().ratings.pull(mongoose.Types.ObjectId(userId));
+      doc.toObject().rating--;
     }
-      doc.save(doc).then(data => {res.send({rating: data.rating, liked: data.ratings.includes(req.session.passport.user)});
+      doc.save(doc).then(data => {res.send({rating: data.rating, liked: data.toObject().ratings.includes(req.session.passport.user)});
   })
-  })
-});
+  });
+}catch(err){console.log(err)}
 
 //use /\w+/ regex match here
 router.patch('/article', (req, res, next)=>{

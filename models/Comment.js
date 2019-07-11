@@ -29,14 +29,12 @@ const commentSchema = Schema({
   },
   rating: {
     type: Number,
-    default: 0,
-    require: true
+    default: 0
   },
   ratings: [{
     type: Schema.Types.ObjectId,
-    ref: "User",
-    default: []
-  }],
+    ref: "User"
+  }]
 });
 
 module.exports = mongoose.model('Comment', commentSchema);
