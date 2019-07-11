@@ -15,7 +15,7 @@ const flash      = require("connect-flash");
 const axios      = require('axios');
 
 mongoose
-  .connect('mongodb://localhost/project2', {useNewUrlParser: true})
+  .connect(process.env.MONGODB_URI || 'mongodb://localhost/project2', {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })

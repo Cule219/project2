@@ -41,6 +41,6 @@ server.on('error', error => {
   }
 });
 
-server.listen(process.env.PORT || 'https://basic-wd-141-student.herokuapp.com/', () => {
+server.listen(process.env.PORT || 'https://opinion-news.herokuapp.com/', () => {
   console.log(`Listening on http://localhost:${process.env.PORT}`);
 });

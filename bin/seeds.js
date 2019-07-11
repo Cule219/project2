@@ -219,7 +219,7 @@ const seedAPI = () => {
   })
   .then(() => {
     // Close properly the connection to Mongoose
-    mongoose.disconnect()
+    // mongoose.disconnect()
   })
   .catch(err => {
     mongoose.disconnect()
@@ -227,6 +227,7 @@ const seedAPI = () => {
   });
 }
 
+seedAPI();
 
 module.exports;
 
