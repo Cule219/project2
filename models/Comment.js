@@ -29,7 +29,8 @@ const commentSchema = Schema({
   },
   rating: {
     type: Number,
-    default: 0
+    default: 0,
+    require: true
   },
   ratings: [{
     type: Schema.Types.ObjectId,

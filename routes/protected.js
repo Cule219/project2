@@ -31,17 +31,17 @@ router.patch('/comment', (req, res, next)=>{
   let userId    = req.session.passport.user;
   Comment.findOne({'_id': req.body.commentId}, (err, doc)=>{
     console.log(doc)
-    // if(doc.ratings.indexOf(userId) === -1){
-    //   doc.ratings.push(userId);
-    //   doc.rating++;
-    // }else{
-    //   doc.ratings.pull(mongoose.Types.ObjectId(userId));
-    //   doc.rating--;
-    // }
-    //   doc.save(doc);
-    //   if(err)console.log(err);
-  })//.then(data => {res.send({rating: data.rating, liked: data.ratings.includes(req.session.passport.user)});
-  // })
+    if(err)console.log(err);
+    if(doc.ratings.indexOf(userId) === -1){
+      doc.ratings.push(userId);
+      doc.rating++;
+    }else{
+      doc.ratings.pull(mongoose.Types.ObjectId(userId));
+      doc.rating--;
+    }
+      doc.save(doc).then(data => {res.send({rating: data.rating, liked: data.ratings.includes(req.session.passport.user)});
+  })
+  })
 });
 
 //use /\w+/ regex match here
@@ -83,7 +83,9 @@ router.post('/comment', (req, res, next) => {
   Comment.create({
     content: req.body.comment,
     author: userId,
-    article: mongoose.Types.ObjectId(articleId)
+    article: mongoose.Types.ObjectId(articleId),
+    ratings: [],
+    rating: 0
   }).then(data => {
     //this needs to be done with post middleware
     Article.findByIdAndUpdate(
