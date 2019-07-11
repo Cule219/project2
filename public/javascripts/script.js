@@ -62,7 +62,7 @@ const newComment = (data) => {
 let likeButton = document.getElementById('like-button');
 if(likeButton !== undefined){
   likeButton.addEventListener('click', (e) => {
-    axios.get('http://localhost:3000/article/').then(data => {
+    axios.patch('http://localhost:3000/article/').then(data => {
       // console.log(data)
     })
   })

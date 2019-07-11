@@ -49,14 +49,35 @@ router.post('/comment', (req, res, next) => {
 });
 
 //use /\w+/ regex match here
-router.get('/article', (req, res, next)=>{
+router.patch('/article', (req, res, next)=>{
   let articleId = req.headers.referer.match(/[^\/]\w*$/)[0];
   let userId    = req.session.passport.user;
-  Article.findById(mongoose.Types.ObjectId(articleId),
-    ).then(data => {
-      console.log(data);
+  Article.findById(articleId).then(data => {
+      let rating = data.rating + 1;
+      let ratings = data.ratings;
+      console.log(ratings.indexOf(userId));
+      if(ratings.indexOf(userId) === -1){
+        Article.updateMany(
+          {_id: mongoose.Types.ObjectId(articleId)}, {
+            rating: rating, 
+            $push: {'ratings': userId}
+          }).then(data=>{
+          console.log(data.length)
+        });
+      }
       // res.status(200).send(data);
   })
 });
 
 module.exports = router;
+
+// router.patch('/article', (req, res, next)=>{
+//   let articleId = req.headers.referer.match(/[^\/]\w*$/)[0];
+//   let userId    = req.session.passport.user;
+//   Article.findByIdAndUpdate(mongoose.Types.ObjectId(articleId),
+//     {$set:{ratings: mongoose.Types.ObjectId(userId)}}//, $set:{rating: 1}
+//     ).then(data => {
+      
+//       res.status(200).send(data);
+//   })
+// });
