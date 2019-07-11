@@ -15,7 +15,7 @@ const flash      = require("connect-flash");
 const axios      = require('axios');
 
 mongoose
-  .connect(process.env.MONGODB_URI || 'mongodb://localhost/project2', {useNewUrlParser: true})
+  .connect(process.env.MONGO_URI || 'mongodb://localhost/project2', {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -56,7 +56,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 hbs.registerHelper('title', data => {
-  console.log(data[0]);
   return data
   // return title.replace(/ \- [\w\s]*/, '');
 })
@@ -77,7 +76,7 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 // Enable authentication using session + passport
 app.use(session({
-  secret: 'irongenerator',
+  secret: process.env.SESSION_SECRET,
   resave: true,
   saveUninitialized: true,
   store: new MongoStore( { mongooseConnection: mongoose.connection })
