@@ -3,8 +3,8 @@ const passport        = require('passport');
 const User            = require('../models/User');
 
 passport.use(new GoogleStrategy({
-  clientID: '26157116953-jkcslqp72d4s97oprl94i19dd2uv82te.apps.googleusercontent.com',//GOOGLE_CLIENT_ID,
-  clientSecret: 'S6GF7bIH9OzZgRSmzI-2zIFz',//GOOGLE_CLIENT_SECRET,
+  clientID: process.env.GOOGLE_CLIENT_ID,
+  clientSecret: process.env.GOOGLE_CLIENT_SECRET,
   callbackURL: "http://localhost:3000/auth/google/callback"
 },
 function(accessToken, refreshToken, profile, cb) {
