@@ -75,7 +75,7 @@ router.get('/google/callback',
 
 //fb auth
 router.get('/facebook',
-passport.authenticate('facebook'));
+  passport.authenticate('facebook'));
 
 router.get('/facebook/callback',
   passport.authenticate('facebook', { failureRedirect: '/login' }),
@@ -90,6 +90,7 @@ router.get('/github',
 router.get('/github/callback', 
   passport.authenticate('github', { failureRedirect: '/login' }),
   function(req, res) {
+    console.log('working')
     res.redirect('/');
 });
 

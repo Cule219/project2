@@ -15,7 +15,7 @@ const articleSchema = new Schema({
   publishDate: String,
   content: String,
   rating: {
-    type:Number,
+    type: Number,
     default: 0
   },//this needs to be changed prior to Friday
   ratings: [{

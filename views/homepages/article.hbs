@@ -3,14 +3,11 @@
   <a href='/source/{{article.source.id}}'><h3>{{article.source.name}}</h3></a>
   
     <div class='article-title-content'>
-    <p>{{article.publishDate}}</p>
-    <p id="ratingA">Rating: {{article.rating}}</p>{{!this is just for testing}}
-    
+      <p><em>Source reputation: </em>{{source.reputation}}</p>
+      <button class='like-button big-like' type='submit' id='like-button'>Like</button>
+    </div>
 
-    
-    <button class='like-button big-like' id='like-button'>{{#if liked}}Unlike{{else}}Like{{/if}}</button>
-    
-  </div>
+    <p>{{article.publishDate}}</p>
 
 
 <img src='{{article.urlToImage}}' width='100%'>

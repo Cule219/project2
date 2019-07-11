@@ -3,25 +3,25 @@ const passport          = require('passport');
 const User              = require('../models/User');
 
 passport.use(new GitHubStrategy({
-  clientID: 'Iv1.8a5c9b2c57e1734e',//GITHUB_CLIENT_ID,
-  clientSecret: 'fb2629852475cf7606a89a2376de89ddc0beb860',//GITHUB_CLIENT_SECRET,
+  clientID: 'Iv1.101f6f13e50dd875',//GITHUB_CLIENT_ID,
+  clientSecret: 'ebe697685da28457ee2eecae31f41a6b7eab6119',//GITHUB_CLIENT_SECRET,
   callbackURL: "http://localhost:3000/auth/github/callback"
 },
 function(accessToken, refreshToken, profile, cb) {
   User.findOne({ githubId: profile.id })
-  .then(user => {
-    console.log(profile);
-    if (user) return cb(null, user);
-    return User.create(
-      { 
-        githubId: profile.id,
-        username: profile.login,
-        profileImg: profile.avatar_url,
-        
-      }).then(newUser => {
-      return cb(null, newUser);
-    });
-  })
+    .then(user => {
+      console.log(profile);
+      if (user) return cb(null, user);
+      return User.create(
+        { 
+          githubId: profile.id,
+          username: profile.login,
+          profileImg: profile.avatar_url,
+          
+        }).then(newUser => {
+        return cb(null, newUser);
+      });
+    })
   .catch(err => {
     cb(err);
   });

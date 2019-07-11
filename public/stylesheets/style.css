@@ -22,7 +22,8 @@ h3 {
   font-weight: 300; }
 
 h4 {
-  font-size: 1.1em; }
+  font-size: 1.1em;
+  font-family: 'DM Serif Display', serif; }
 
 a {
   text-decoration: none;
@@ -66,6 +67,17 @@ nav span {
 
 nav h1 {
   margin: 0; }
+
+/* Welcome page */
+.underline {
+  text-decoration: underline; }
+
+.welcome-container h3 {
+  margin: 40px 0; }
+
+.welcome-container .welcome-button {
+  display: flex;
+  justify-content: center; }
 
 /* Menu */
 .overlay {
@@ -116,6 +128,15 @@ nav h1 {
     font-size: 40px;
     top: 15px;
     right: 35px; } }
+
+.menu-underline {
+  margin: 70px auto;
+  width: 200px;
+  border-bottom: 2px solid #c2c2c2; }
+
+.social-icons {
+  display: flex;
+  justify-content: center; }
 
 .homepage-container hr {
   margin: 50px 0; }
@@ -172,12 +193,25 @@ nav h1 {
   display: flex;
   margin: 40px 10px 5px; }
 
+.profile-container .user-title-content {
+  margin-left: 30px; }
+
+@media screen and (max-width: 490px) {
+  .profile-container .profile-header {
+    display: block; }
+    .profile-container .profile-header h2 {
+      margin: 0;
+      font-size: 2em; }
+    .profile-container .profile-header h3 {
+      font-size: 1.2em; }
+    .profile-container .profile-header .user-title-content {
+      margin: 0; } }
+
 .profile-container .profile-header img {
   border-radius: 3px; }
 
 .profile-container .profile-header-content {
-  padding-left: 20px;
-  margin: 0 30px; }
+  margin-left: 30px; }
   .profile-container .profile-header-content .edit-button {
     color: #2d63ff;
     border: 2px solid #2d63ff;
@@ -200,6 +234,7 @@ nav h1 {
     max-width: 200px; }
 
 textarea {
+  overflow: hidden;
   border-radius: 5px;
   border: none;
   background-color: #efefef;
@@ -219,8 +254,29 @@ textarea {
 .source-item {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   flex-direction: column;
-  width: 200px; }
+  width: 150px;
+  height: 200px;
+  background-color: #efefef;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 10px; }
+  .source-item h4 {
+    margin: 0;
+    padding-top: 60px;
+    font-size: 1.2em; }
+  .source-item p {
+    margin: 0; }
+  .source-item .source-item-img {
+    width: 120px;
+    height: 60px;
+    display: flex;
+    align-items: center; }
+    .source-item .source-item-img a img {
+      padding-top: 70px;
+      width: 100%;
+      height: auto; }
   .source-item h3 {
     margin: 10px; }
 
@@ -252,7 +308,8 @@ textarea {
     display: flex;
     justify-content: space-between; }
     .article-source-info .source-description-title .edit-source-button {
-      padding: 8px 15px; }
+      padding: 8px 15px;
+      height: 20px; }
 
 .article-redirect {
   margin: 0 auto;
@@ -288,6 +345,12 @@ textarea {
   margin: 15px;
   border-radius: 2px; }
 
+@media screen and (max-width: 450px) {
+  .comment-container .article-comment img {
+    margin: 5px;
+    width: 70px;
+    height: auto; } }
+
 .comment-container p {
   margin: 2px; }
 
@@ -301,6 +364,17 @@ textarea {
   border: none;
   outline: none;
   font-size: 0.95em; }
+
+@media screen and (max-width: 380px) {
+  .article-content h1 {
+    font-size: 2.6em; }
+  .article-content h2 {
+    font-size: 2em; }
+  .article-content h3 {
+    font-size: 1.3em; }
+  .article-content .big-like {
+    font-size: 1em;
+    padding: 0 5px; } }
 
 /* Signin & Login pages */
 .auth-container {
@@ -326,6 +400,26 @@ textarea {
   font-size: 1.1em;
   font-weight: 500; }
 
+.auth-separator {
+  margin: 50px;
+  width: 250px;
+  border-bottom: 1px solid #999999; }
+
+.auth-separator + p {
+  font-size: 0.9em; }
+
+@media screen and (max-width: 450px) {
+  .auth-button {
+    width: 200px;
+    font-size: 0.8em; }
+  .auth-separator {
+    width: 100%;
+    margin: 50px 0; } }
+
+@media screen and (max-width: 415px) {
+  .auth-container {
+    align-items: flex-start; } }
+
 .FB-auth {
   border: 3px solid #3f60b8; }
 
@@ -333,12 +427,12 @@ textarea {
   color: white;
   background-color: #3f60b8; }
 
-.LI-auth {
-  border: 3px solid #0074bb; }
+.GI-auth {
+  border: 3px solid #23282e; }
 
-.LI-auth:hover {
+.GI-auth:hover {
   color: white;
-  background-color: #0074bb; }
+  background-color: #23282e; }
 
 .GO-auth {
   border: 3px solid #ffbe00; }
@@ -348,19 +442,11 @@ textarea {
   background-color: #ffbe00; }
 
 .EM-auth {
-  border: 3px solid #12203e; }
+  border: 3px solid #742121; }
 
 .EM-auth:hover {
   color: white;
-  background-color: #12203e; }
-
-.auth-separator {
-  margin: 50px;
-  width: 250px;
-  border-bottom: 1px solid #999999; }
-
-.auth-separator + p {
-  font-size: 0.9em; }
+  background-color: #742121; }
 
 .contributed-reviews {
   display: flex;
@@ -376,10 +462,5 @@ textarea {
 .recent-articles-img-container img {
   width: 100%;
   height: auto; }
-
-.menu-underline {
-  margin: 50px auto;
-  width: 200px;
-  border-bottom: 2px solid #c2c2c2; }
 
 /*# sourceMappingURL=style.css.map */

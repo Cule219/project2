@@ -28,9 +28,40 @@ router.use(loginCheck());
 
 router.patch('/comment', (req, res, next)=>{
   console.log(req.body);
-  Comment.find({})
+  let userId    = req.session.passport.user;
+  Comment.findOne({'_id': req.body.commentId}, (err, dat)=>{
+    if(doc.ratings.indexOf(userId) === -1){
+      doc.ratings.push(userId);
+      doc.rating++;
+    }else{
+      doc.ratings.pull(mongoose.Types.ObjectId(userId));
+      doc.rating--;
+    }
+      doc.save(doc);
+      if(err)console.log(err);
+  }).then(data => {res.send({rating: data.rating, liked: data.ratings.includes(req.session.passport.user)});
+  })
 });
 
+//use /\w+/ regex match here
+router.patch('/article', (req, res, next)=>{
+  let articleId = req.headers.referer.match(/[^\/]\w*$/)[0];
+  let userId    = req.session.passport.user;
+  Article.findOne({'_id': articleId}, (err, doc)=>{
+    if(doc.ratings.indexOf(userId) === -1)
+    {
+      doc.ratings.push(userId);
+      doc.rating++;
+    }else{
+      doc.ratings.pull(mongoose.Types.ObjectId(userId));
+      doc.rating--;
+    }
+      doc.save(doc);
+      if(err)console.log(err);
+  }).then(data => {
+      res.send({rating: data.rating, liked: data.ratings.includes(req.session.passport.user)});
+  })
+});
 
 router.post('/comment', (req, res, next) => {
   let articleId = req.headers.referer.match(/[^\/]\w*$/)[0];
@@ -52,25 +83,6 @@ router.post('/comment', (req, res, next) => {
     err =>console.log(err));
 });
 
-//use /\w+/ regex match here
-router.patch('/article', (req, res, next)=>{
-  let articleId = req.headers.referer.match(/[^\/]\w*$/)[0];
-  let userId    = req.session.passport.user;
-  Article.findOne({'_id': articleId}, (err, doc)=>{
-    if(userId,doc.ratings.indexOf(userId) === -1)
-    {
-      doc.ratings.push(userId);
-      doc.rating++;
-    }else{
-      doc.ratings.pull(mongoose.Types.ObjectId(userId));
-      doc.rating--;
-    }
-      doc.save(doc);
-      if(err)console.log(err);
-  }).then(data => {
-      res.send({rating: data.rating, liked: data.ratings.includes(req.session.passport.user)});
-  })
-});
 
 
 module.exports = router;

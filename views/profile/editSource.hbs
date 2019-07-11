@@ -21,7 +21,7 @@
 
 
     <h2>Sources of Funding in 2018</h2>
-    <textarea name='fundingSources' form='source-edit-profile' cols="50" rows ="10">{{data.politicalBias}}</textarea>
+    <textarea name='fundingSources' form='source-edit-profile' cols="50" rows ="10">{{data.fundingSources}}</textarea>
 
 
     <button class='like-button big-like' type='submit'>Submit</button>
@@ -29,8 +29,9 @@
     </form>
  
 
-    <h2>Recent Articles</h2>
+   <h2>Recent Articles</h2>
     <div class='contributed-reviews'>
+    {{#if articles}}
       {{#each articles}}
       <div class='recent-articles-img-container'>
         <img src='{{this.urlToImage}}' height='80px' width='80px'>
@@ -39,6 +40,10 @@
         <p><strong>{{this.title}}</strong></p>
       </div>
       {{/each}}
+
+    {{else}}
+      <h3>No recent articles</h3>
+    {{/if}}
     </div>
 
 </div>

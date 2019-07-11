@@ -4,9 +4,11 @@
 <div class='sources-container'>
 {{#each data}}
   <div class='source-item'>
-    <a href='/source/{{this.id}}'><img src='{{this.profileImg}}' height='120px'></a>
-    <h3><a href="/source/{{this.id}}">{{this.name}}</a></h3>
-    <p><em>Rating: </em>{{this.reputation}}</p>
+    <div class='source-item-img'>
+    <a href='/source/{{this.id}}'><img src='{{this.profileImg}}'></a>
+    </div>
+    <h4><a href="/source/{{this.id}}">{{this.name}}</a></h4>
+    <p><em>Reputation: </em>{{this.reputation}}</p>
   </div>
 {{/each }}
 </div>
