@@ -38,10 +38,11 @@ const sourceSchema = new Schema({
     type: String,
     default: 'https://www.americanaircraftsales.com/wp-content/uploads/2016/09/no-profile-img.jpg'
   },
-  rating: {
-    type: Number,
-    default: 0
-  }
+  ratings: [{
+    type: Schema.Types.ObjectId,
+    ref: "User",
+    default: []
+  }],
 });
 
 module.exports = mongoose.model('Source', sourceSchema);

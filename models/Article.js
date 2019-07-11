@@ -20,7 +20,8 @@ const articleSchema = new Schema({
   },//this needs to be changed prior to Friday
   ratings: [{
     type: Schema.Types.ObjectId,
-    ref: "User"
+    ref: "User",
+    default: []
   }],
   comments: [{
     type: Schema.Types.ObjectId,

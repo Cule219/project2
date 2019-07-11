@@ -14,11 +14,10 @@ router.get('/article/:articleId', (req, res, next) => {
   let liked = false;
   Article.findOne({'_id': req.params.articleId }, (err, doc)=>{
     if(err)console.log(err);
-    if(doc.ratings.indexOf(req.user._id) != -1)liked=true;
+    if(doc.ratings.indexOf(req.user._id) !== -1)liked=true;
   }).populate({path: 'comments', populate: {path: 'author'}}).then(article =>{
     article.title = article.title.substring(0, article.title.lastIndexOf('-'));
     article.publishDate = article.publishedAt.toDateString();
-
     Source.findOne({ 'id': article.source.id }).then(source => {
       res.render('homepages/article', {article, source, user: req.user, liked});
     })
