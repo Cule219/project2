@@ -96,10 +96,11 @@ router.patch('/comment', async (req, res, next)=>{
       docObject.ratings.pull(mongoose.Types.ObjectId(userId));
       docObject.rating--;
     }
-    doc.save(doc).then(data => {
+    Comment.findByIdAndUpdate(docObject._id, {docObject}).then(data => {
       res.send({
         rating: data.rating, liked: data.toObject().ratings.includes(req.session.passport.user)
       });
+    // doc.save(doc).
     })
   }).catch(err => console.log(err));
 });
