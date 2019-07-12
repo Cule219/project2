@@ -29,12 +29,17 @@ const commentSchema = Schema({
   rating: {
     type: Number,
     default: 0
+  },
+    ratings: [{
+      type: Schema.Types.ObjectId,
+      ref: "User"
+    }]
+}, 
+{
+  timestamps: {
+    createdAt: 'created_at',
+    updatedAt: 'updated_at'
   }
-}, {
-  ratings: [{
-    type: Schema.Types.ObjectId,
-    ref: "User"
-  }]
 });
 
 module.exports = mongoose.model('Comment', commentSchema);
