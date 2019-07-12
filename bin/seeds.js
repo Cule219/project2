@@ -177,7 +177,7 @@ let sources = [
                 country: "us",
                 reputation: 174,
                 comments: [],
-                profileImg: `https://upload.wikimedia.org/wikipedia/commons/6/67/Fox_News_Channel_logo.svg`,
+                profileImg: `https://en.wikipedia.org/wiki/USA_Today#/media/File:USA_Today_2012logo.svg`,
                 politicalBias: "USA Today is one of America's leading media corporations and, as such, is suspecible to the ever pervading influence, and push and pull, of mainstream American politics. Traditionally, USA Today holds a right of centre political stance. The broadcasting network's host of hosts and representatives deliberately reinforces this left leaning political stance to appease the viewing audience.",
                 fundingSources: [
                   'Advertising Revenue: $89 million - Source: USA Today Income Report 2018',
