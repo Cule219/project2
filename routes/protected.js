@@ -61,21 +61,27 @@ router.patch('/article', (req, res, next)=>{
 router.post('/comment', (req, res, next) => {
   let articleId = req.headers.referer.match(/[^\/]\w*$/)[0];
   let userId = req.session.passport.user
-  Comment.findOne({'_id': req.body.commentId}, (err, doc)=> {
-    if(err)console.log(err);
-    if(doc.ratings.indexOf(userId) === -1)
-    {
-      doc.ratings.push(userId);
-      doc.rating++;
-    }else{
-      doc.ratings.pull(mongoose.Types.ObjectId(userId));
-      doc.rating--;
-    }
-    doc.save(doc).then(data => {
-      User.findByIdAndUpdate(data.author, {$inc: {reputation: 1}});
+  Comment.create({
+    content: req.body.comment,
+    author: userId,
+    article: mongoose.Types.ObjectId(articleId),
+    ratings: [],
+    rating: 0
+  }).then(data => {
+    //this needs to be done with post middleware
+    User.findByIdAndUpdate(userId,  
+      {$push: {'comments': mongoose.Types.ObjectId(data._id)}})
+      .then(data => console.log(data));
+    Article.findByIdAndUpdate(
+      mongoose.Types.ObjectId(articleId), 
+      {$push: {'comments': mongoose.Types.ObjectId(data._id)}})
+      .then(data => console.log(data.length));
+    User.find({_id: userId}).then(user=>{
+      res.status(200).send({data, user});
     })
-  }).catch(err =>console.log(err));;
-})
+}).catch(
+    err =>console.log(err));
+});
 
 router.patch('/comment', async (req, res, next)=>{
   const userId  = req.session.passport.user;
@@ -89,30 +95,36 @@ router.patch('/comment', async (req, res, next)=>{
       docObject.ratings.pull(mongoose.Types.ObjectId(userId));
       docObject.rating--;
     }
-    Comment.findByIdAndUpdate(docObject._id ,{docObject}).then(data =>{
-      res.send({rating: docObject.rating, liked: docObject.ratings.includes(req.session.passport.user)});
-    });
+    doc.save(doc).then(data => {
+      res.send({
+        rating: data.rating, liked: data.toObject().ratings.includes(req.session.passport.user)
+      });
+    })
   }).catch(err => console.log(err));
 });
-
 module.exports = router;
 
-
-
-// router.patch('/comment', async (req, res, next)=>{
-//   const userId  = req.session.passport.user;
-//   Comment.findOne({'_id': req.body.commentId}, (err, doc)=> {
-//     let docObject = doc._doc;
-//     if(docObject.ratings === undefined) {docObject.ratings = []; docObject.rating = 0}
-//     if(docObject.ratings.indexOf(userId) === -1){ 
-//       docObject.ratings.push(userId);
-//       docObject.rating++;
-//     }else{
-//       docObject.ratings.pull(mongoose.Types.ObjectId(userId));
-//       docObject.rating--;
-//     }
-//     Comment.findByIdAndUpdate(docObject._id ,{docObject}).then(data =>{
-//       res.send({rating: docObject.rating, liked: docObject.ratings.includes(req.session.passport.user)});
-//     });
-//   }).catch(err => console.log(err));
+// router.post('/comment', (req, res, next) => {
+//   let articleId = req.headers.referer.match(/[^\/]\w*$/)[0];
+//   let userId = req.session.passport.user
+//   Comment.create({
+//     content: req.body.comment,
+//     author: userId,
+//     article: mongoose.Types.ObjectId(articleId),
+//     ratings: [],
+//     rating: 0
+//   }).then(data => {
+//     //this needs to be done with post middleware
+//     User.findByIdAndUpdate(userId,  
+//       {$push: {'comments': mongoose.Types.ObjectId(data._id)}})
+//       .then(data => console.log(data));
+//     Article.findByIdAndUpdate(
+//       mongoose.Types.ObjectId(articleId), 
+//       {$push: {'comments': mongoose.Types.ObjectId(data._id)}})
+//       .then(data => console.log(data.length));
+//     User.find({_id: userId}).then(user=>{
+//       res.status(200).send({data, user});
+//     })
+// }).catch(
+//     err =>console.log(err));
 // });
