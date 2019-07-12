@@ -138,8 +138,8 @@ let sources = [
         {
           id: "cnbc",
           name: "CNBC",
-          description: "CNBC, the Cable News Network, is one of the most prominent names in the American national broadcasting sphere relating to the stock market and is known around the global. CNBC is owned by NBC Universal Broadcast which is in turn owned by Comcast.",
-          url: "www.cnn.com",
+          description: "CNBC, the Cable News Network, is one of the most prominent names in the American national broadcasting sphere relating to the stock market and is known around the global. CNBC is owned by NBC Universal Broadcast which is in turn owned by Comcast. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel quam ac odio auctor laoreet sit amet in orci. Duis accumsan sed elit sed dictum. Curabitur convallis semper sapien nec iaculis. ",
+          url: "www.cnbc.com",
           category: "general",
           language: "en",
           country: "us",
@@ -151,7 +151,71 @@ let sources = [
             'Advertising Revenue: $89 million - Source: CNN Income Report 2018',
             'Cable Company Subscriptions: $75 million - Source: CNN Income Report 2018'
           ]},
-
+          {
+            id: "fox-news",
+            name: "Fox News",
+            description: "Fox News is one of the most prominent names in the American national broadcasting sphere relating to the stock market and is known around the global. Fox News is owned by NBC Universal Broadcast which is in turn owned by Comcast. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel quam ac odio auctor laoreet sit amet in orci. Duis accumsan sed elit sed dictum. Curabitur convallis semper sapien nec iaculis. ",
+            url: "www.fox-news.com",
+            category: "general",
+            language: "en",
+            country: "us",
+            reputation: 174,
+            comments: [],
+            profileImg: `https://upload.wikimedia.org/wikipedia/commons/6/67/Fox_News_Channel_logo.svg`,
+            politicalBias: "Fox News is one of America's leading media corporations and, as such, is suspecible to the ever pervading influence, and push and pull, of mainstream American politics. Traditionally, Fox News holds a right of centre political stance. The broadcasting network's host of hosts and representatives deliberately reinforces this left leaning political stance to appease the viewing audience.",
+            fundingSources: [
+              'Advertising Revenue: $89 million - Source: Fox News Income Report 2018',
+              'Cable Company Subscriptions: $75 million - Source: Fox News Income Report 2018'
+            ]},
+              {
+                id: "usa-today",
+                name: "USA Today",
+                description: "USA Today is one of the most prominent names in the American national broadcasting sphere relating to the stock market and is known around the global. USA Today is owned by NBC Universal Broadcast which is in turn owned by Comcast. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel quam ac odio auctor laoreet sit amet in orci. Duis accumsan sed elit sed dictum. Curabitur convallis semper sapien nec iaculis. ",
+                url: "www.usatoday.com",
+                category: "general",
+                language: "en",
+                country: "us",
+                reputation: 174,
+                comments: [],
+                profileImg: `https://www.american.edu/uploads/standard/large/01_Primary_01_FullColor_USATODAY_Logo_Prm_FullClr_RGB_600copy.png`,
+                politicalBias: "USA Today is one of America's leading media corporations and, as such, is suspecible to the ever pervading influence, and push and pull, of mainstream American politics. Traditionally, USA Today holds a right of centre political stance. The broadcasting network's host of hosts and representatives deliberately reinforces this left leaning political stance to appease the viewing audience.",
+                fundingSources: [
+                  'Advertising Revenue: $89 million - Source: USA Today Income Report 2018',
+                  'Cable Company Subscriptions: $75 million - Source: USA Today Income Report 2018'
+                ]},
+                  {
+                    id: "nbc-news",
+                    name: "NBC News",
+                    description: "NBC News is one of the most prominent names in the American national broadcasting sphere relating to the stock market and is known around the global. NBC News is owned by NBC Universal Broadcast which is in turn owned by Comcast. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel quam ac odio auctor laoreet sit amet in orci. Duis accumsan sed elit sed dictum. Curabitur convallis semper sapien nec iaculis. ",
+                    url: "www.nbc-news.com",
+                    category: "general",
+                    language: "en",
+                    country: "us",
+                    reputation: 174,
+                    comments: [],
+                    profileImg: `https://i0.wp.com/www.icingsmiles.org/wp-content/uploads/2015/09/NBC-Logo.png?ssl=1`,
+                    politicalBias: "NBC News is one of America's leading media corporations and, as such, is suspecible to the ever pervading influence, and push and pull, of mainstream American politics. Traditionally, NBC News holds a right of centre political stance. The broadcasting network's host of hosts and representatives deliberately reinforces this left leaning political stance to appease the viewing audience.",
+                    fundingSources: [
+                      'Advertising Revenue: $89 million - Source: NBC News Income Report 2018',
+                      'Cable Company Subscriptions: $75 million - Source: NBC News Income Report 2018'
+                    ]},
+                    {
+                      id: "politico",
+                      name: "Politico",
+                      description: "Politico is one of the most prominent names in the American national broadcasting sphere relating to the stock market and is known around the global. Politico is owned by NBC Universal Broadcast which is in turn owned by Comcast. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel quam ac odio auctor laoreet sit amet in orci. Duis accumsan sed elit sed dictum. Curabitur convallis semper sapien nec iaculis. ",
+                      url: "www.politico.com",
+                      category: "general",
+                      language: "en",
+                      country: "us",
+                      reputation: 174,
+                      comments: [],
+                      profileImg: `https://pmcvariety.files.wordpress.com/2016/05/politico-logo.jpg?w=913&h=513&crop=1`,
+                      politicalBias: "Politico is one of America's leading media corporations and, as such, is suspecible to the ever pervading influence, and push and pull, of mainstream American politics. Traditionally, Politico holds a right of centre political stance. The broadcasting network's host of hosts and representatives deliberately reinforces this left leaning political stance to appease the viewing audience.",
+                      fundingSources: [
+                        'Advertising Revenue: $89 million - Source: Politico Income Report 2018',
+                        'Cable Company Subscriptions: $75 million - Source: Politico Income Report 2018'
+                      ]}
+                  
 ];
 
 User.deleteMany()
@@ -190,6 +254,7 @@ const seedAPI = () => {
     .then(data => console.log(data.length)).catch(err=>console.log(err));
   })
   .then(() => {
+    console.log('sources successfully added')
     // Close properly the connection to Mongoose
     // mongoose.disconnect()
   })
