@@ -5,7 +5,7 @@ const User            = require('../models/User');
 passport.use(new GoogleStrategy({
   clientID: process.env.GOOGLE_CLIENT_ID,
   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-  callbackURL: "http://opinion-news.herokuapp.com/auth/google/callback"
+  callbackURL: "http://opinion-news.herokuapp.com/auth/google/callback"//http://localhost:3000
 },
 function(accessToken, refreshToken, profile, cb) {
   User.findOne({ googleId: profile.id })

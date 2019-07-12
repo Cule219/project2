@@ -75,13 +75,16 @@ if(commentBox != undefined){
   commentBox.addEventListener('click', (e)=>{
     if(e.target.className == 'like-button'){
       let username = e.target.parentNode.getElementsByTagName('h3')[0].innerHTML;
+      let ratingElement = e.target.parentNode.getElementsByTagName('p')[1];
+      console.log(ratingElement)
       let commentId = e.target.value;
       axios.patch(`${baseUrl}/comment`, {data: username, commentId: commentId}).then(data => {
-        document.getElementsByClassName('username').forEach(element => {
-          element.innerHTML = `<em>Rating: </em>${data.data.rating}`;
-        });
-        if(data.data.liked)e.target.innerHTML="unlike";
-        else{e.target.innerHTML="like"}
+        // document.getElementsByClassName('username').forEach(element => {
+        //   element.innerHTML = `<em>Rating: </em>${data.data.rating}`;
+        // });
+        ratingElement.innerHTML = `<em>Rating: </em>${data.data.rating}`;
+        if(data.data.liked)e.target.innerHTML="Unlike";
+        else{e.target.innerHTML="Like"}
       })
     }
   });
