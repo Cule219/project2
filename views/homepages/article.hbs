@@ -4,7 +4,11 @@
   
     <div class='article-title-content'>
       <p><em>Source reputation: </em>{{source.reputation}}</p>
+      {{#if user}}
       <button class='like-button big-like' type='submit' id='like-button'>Like</button>
+      {{else}}
+      <a href='/auth/login'><button class='like-button big-like'>Login to like</button></a>
+      {{/if}}
     </div>
 
     <p>{{article.publishDate}}</p>

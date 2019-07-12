@@ -147,11 +147,60 @@ let sources = [
           reputation: 112,
           comments: [],
           profileImg: `https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/CNBC_logo.svg/701px-CNBC_logo.svg.png`,
-          politicalBias: "CNN is one of America's leading media corporations and, as such, is suspecible to the ever pervading influence, and push and pull, of mainstream American politics. Traditionally, CNN holds a right of centre political stance. The broadcasting network's host of hosts and representatives deliberately reinforces this left leaning political stance to appease the viewing audience.",
+          politicalBias: "CNBC is one of America's leading media corporations and, as such, is suspecible to the ever pervading influence, and push and pull, of mainstream American politics. Traditionally, CNN holds a right of centre political stance. The broadcasting network's host of hosts and representatives deliberately reinforces this left leaning political stance to appease the viewing audience.",
           fundingSources: [
             'Advertising Revenue: $89 million - Source: CNN Income Report 2018',
             'Cable Company Subscriptions: $75 million - Source: CNN Income Report 2018'
           ]},
+          {
+          id: "nbc",
+          name: "NBC",
+          description: "NBC, the National Broadcasting Company, is one of the most prominent names in the American national broadcasting sphere relating to the stock market and is known around the global. NBC is owned by NBC Universal Broadcast which is in turn owned by Comcast. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non enim vehicula, suscipit neque et, viverra mi. Vivamus at justo urna. Praesent vitae justo at ipsum rutrum cursus. Mauris auctor a odio nec ullamcorper.",
+          url: "www.cnbc.com",
+          category: "general",
+          language: "en",
+          country: "us",
+          reputation: 112,
+          comments: [],
+          profileImg: `https://i0.wp.com/www.icingsmiles.org/wp-content/uploads/2015/09/NBC-Logo.png?ssl=1`,
+          politicalBias: "NBC is one of America's leading media corporations and, as such, is suspecible to the ever pervading influence, and push and pull, of mainstream American politics. Traditionally, CNN holds a right of centre political stance. The broadcasting network's host of hosts and representatives deliberately reinforces this left leaning political stance to appease the viewing audience. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non enim vehicula, suscipit neque et, viverra mi. Vivamus at justo urna. Praesent vitae justo at ipsum rutrum cursus. Mauris auctor a odio nec ullamcorper.",
+          fundingSources: [
+            'Advertising Revenue: $89 million - Source: CNN Income Report 2018',
+            'Cable Company Subscriptions: $75 million - Source: CNN Income Report 2018'
+          ]},
+          {
+            id: "fox-news",
+            name: "Fox News",
+            description: "Fox News is one of the most prominent names in the American national broadcasting sphere relating to the stock market and is known around the global. Fox News is owned by NBC Universal Broadcast which is in turn owned by Comcast. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non enim vehicula, suscipit neque et, viverra mi. Vivamus at justo urna. Praesent vitae justo at ipsum rutrum cursus. Mauris auctor a odio nec ullamcorper.",
+            url: "www.fox-news.com",
+            category: "general",
+            language: "en",
+            country: "us",
+            reputation: 112,
+            comments: [],
+            profileImg: `https://en.wikipedia.org/wiki/Fox_News#/media/File:Fox_News_Channel_logo.svg`,
+            politicalBias: "Fox News is one of America's leading media corporations and, as such, is suspecible to the ever pervading influence, and push and pull, of mainstream American politics. Traditionally, CNN holds a right of centre political stance. The broadcasting network's host of hosts and representatives deliberately reinforces this left leaning political stance to appease the viewing audience. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non enim vehicula, suscipit neque et, viverra mi. Vivamus at justo urna.",
+            fundingSources: [
+              'Advertising Revenue: $89 million - Source: CNN Income Report 2018',
+              'Cable Company Subscriptions: $75 million - Source: CNN Income Report 2018'
+            ]},
+          {
+            id: "wired",
+            name: "Wired",
+            description: "Wired is one of the most prominent names in the American national broadcasting sphere relating to the stock market and is known around the global. Wired is owned by NBC Universal Broadcast which is in turn owned by Comcast. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non enim vehicula, suscipit neque et, viverra mi. Vivamus at justo urna.",
+            url: "www.wired.com",
+            category: "general",
+            language: "en",
+            country: "us",
+            reputation: 112,
+            comments: [],
+            profileImg: `https://www.nowsecure.com/wp-content/uploads/2017/02/wired-uk-logo.png`,
+            politicalBias: "Wired is one of America's leading media corporations and, as such, is suspecible to the ever pervading influence, and push and pull, of mainstream American politics. Traditionally, CNN holds a right of centre political stance. The broadcasting network's host of hosts and representatives deliberately reinforces this left leaning political stance to appease the viewing audience. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non enim vehicula, suscipit neque et, viverra mi. Vivamus at justo urna. Praesent vitae justo at ipsum rutrum cursus. Mauris auctor a odio nec ullamcorper. Proin hendrerit scelerisque condimentum.",
+            fundingSources: [
+              'Advertising Revenue: $89 million - Source: CNN Income Report 2018',
+              'Cable Company Subscriptions: $75 million - Source: CNN Income Report 2018'
+            ]}
+          
 
 ];
 let userId; User.find({}).then(data => userId = data[0]._id).catch(err=>console.log(err));
@@ -218,6 +267,7 @@ const seedAPI = () => {
     .then(data => console.log(data.length)).catch(err=>console.log(err));
   })
   .then(() => {
+      console.log('Successful DB seed')
     // Close properly the connection to Mongoose
     // mongoose.disconnect()
   })
