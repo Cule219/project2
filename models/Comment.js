@@ -21,20 +21,21 @@ const commentSchema = Schema({
   user: {
     type: Schema.Types.ObjectId,
     ref: "User"
-  }
-}, {
-  timestamps: {
-    createdAt: 'created_at',
-    updatedAt: 'updated_at'
   },
   rating: {
     type: Number,
     default: 0
   },
-  ratings: [{
-    type: Schema.Types.ObjectId,
-    ref: "User"
-  }]
+    ratings: [{
+      type: Schema.Types.ObjectId,
+      ref: "User"
+    }]
+}, 
+{
+  timestamps: {
+    createdAt: 'created_at',
+    updatedAt: 'updated_at'
+  }
 });
 
 module.exports = mongoose.model('Comment', commentSchema);
