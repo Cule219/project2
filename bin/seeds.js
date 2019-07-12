@@ -199,7 +199,10 @@ const seedAPI = () => {
   });
 }
 
-seedAPI();
+seedAPI()
+setTimeout(() => {
+  mongoose.disconnect()
+}, 5000)
 
 module.exports;
 
