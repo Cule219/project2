@@ -10,11 +10,10 @@ router.get('/homepages/sources', (req, res) => {
 })
 
 router.get('/article/:articleId', (req, res, next) => {
-  let liked = false;
-  Article.findOne({'_id': req.params.articleId }, (err, doc)=>{
-    if(err)console.log(err);
-    if(req.user._id && doc.ratings.indexOf(req.user._id) != -1)liked=true;
-  }).populate({path: 'comments', populate: {path: 'author'}}).then(article =>{
+  Article.findOne({'_id': req.params.articleId }).populate({
+    path: 'comments', populate: {path: 'author'}}).then(article =>{
+    let liked;
+    if(req.user !== undefined)liked = article.ratings.indexOf(req.user._id) !== -1;
     article.title = article.title.substring(0, article.title.lastIndexOf('-'));
     article.publishDate = article.publishedAt.toDateString();
     Source.findOne({ 'id': article.source.id }).then(source => {
