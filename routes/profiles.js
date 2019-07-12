@@ -17,9 +17,7 @@ router.get('/source/:id', (req, res) => {
 router.get('/source/:id/edit', (req, res) => {
   Source.findOne({ 'id': req.params.id }).then(data => {
     Articles.find({'source.id': req.params.id}).then(articles => {
-      console.log('Before: ' + articles)
       articles = articles.splice(0, 2)
-      console.log('After : ' + articles)
       res.render('profile/editSource', { data, articles, user: req.user });
     });
   }).catch(err => console.log(err))
@@ -43,20 +41,22 @@ router.post('/source/:id', (req, res) => {
   }).catch(err => console.log(err))
 })
 
-
 router.get('/user/:id',(req, res) => {
-  console.log('ID: ' + req.params.id)
-  User.findById({_id: req.params.id}).then(data => {
-    let user = false; if(req.params.id == req.user._id) user = true;
-    res.render('profile/user', {data, user: req.user});
+  User.findById({_id: req.params.id})
+  .populate({path: "comments", populate: {path: 'author'}}).then(
+    data => {
+    userComments = data.comments.slice(0,2);
+    res.render('profile/user', {data,userComments, user: req.user});
   });
 })
 
 router.get('/user/:id/edit', (req, res) => {
-  User.findById({_id: req.params.id}).then(data => {
-    let user = false; if(req.params.id == req.user._id) user = true;
+  User.findById({_id: req.params.id})
+  .populate({path: "comments", populate: {path: 'author'}}).then(
+    data => {
     data.username = data.username.trim()
-    res.render('profile/editUser', {data, user: req.user});
+    userComments = data.comments.slice(0,2);
+    res.render('profile/editUser', {data,userComments, user: req.user});
   });
 })
 

@@ -17,10 +17,11 @@ const articleSchema = new Schema({
   rating: {
     type: Number,
     default: 0
-  },//this needs to be changed prior to Friday
+  },
   ratings: [{
     type: Schema.Types.ObjectId,
-    ref: "User"
+    ref: "User",
+    default: []
   }],
   comments: [{
     type: Schema.Types.ObjectId,

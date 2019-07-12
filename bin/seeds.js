@@ -10,13 +10,12 @@ const User = require("../models/User");
 const axios       = require('axios');
 const Article     = require('../models/Article');
 const Source      = require('../models/Source');
-const Comment     = require('../models/Comment');
 
 const bcryptSalt = 10;
 
 
 mongoose
-  .connect('mongodb://localhost/project2', {useNewUrlParser: true})
+  .connect('mongodb://heroku_37hfp4s6:di6paaqe1apbgljkf8q3a83kta@ds249967.mlab.com:49967/heroku_37hfp4s6', {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -203,25 +202,7 @@ let sources = [
           
 
 ];
-let userId; User.find({}).then(data => userId = data[0]._id).catch(err=>console.log(err));
-let sourceId; Source.find({}).then(data => sourceId = data[0]._id).catch(err=>console.log(err));
-const reviews = [
-  {
-    title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit!',
-    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-    Mauris porta, eros non rutrum ornare, nulla augue ullamcorper orci, eget 
-    facilisis felis dui vitae erat. Nullam bibendum enim ut ipsum luctus pretium. 
-    In tincidunt ligula vitae justo mattis, eu volutpat lectus venenatis. Proin vulputate 
-    orci non dui lobortis tristique. Mauris scelerisque vestibulum nisl, sit amet luctus elit 
-    commodo id. Morbi at viverra justo. Proin ullamcorper nunc at nisl faucibus, feugiat suscipit 
-    risus vehicula. Sed non risus faucibus, pretium velit at, suscipit tellus. Suspendisse dictum 
-    mollis diam. Proin tortor turpis, eleifend convallis rutrum in, efficitur a ante. `,
-    rating: 5,
-    user: userId,
-    source: sourceId,
-    type: 'mainDescription'
-  }
-]
+
 User.deleteMany()
 .then(() => {
   return User.create(users)
@@ -241,15 +222,6 @@ Source.deleteMany()
   console.log(`${data.length} source created with the following id:`);
   console.log(data.map(u => u._id));
 })
-
-// Review.deleteMany()
-// .then(() => {
-//   return Review.create(reviews)
-// })
-// .then(data => {
-//   console.log(`${data.length} review created with the following id:`);
-//   console.log(data.map(u => u._id));
-// })
 
 //seed with API data
 const seedAPI = () => {

@@ -62,11 +62,10 @@ let likeButton = document.getElementById('like-button');
 if(likeButton != undefined){
   likeButton.addEventListener('click', (e) => {
     axios.patch(`${baseUrl}/article`).then(data => {
-      document.getElementById('ratingA').innerHTML = `Rating: ${data.data.rating}`;
-      if(data.data.liked)likeButton.innerHTML="unlike";
-      else{ likeButton.innerHTML="like"}
+      document.getElementById('ratingA').innerHTML = `<em>Source reputation: </em>${data.data.rating}`;
+      if(data.data.liked)likeButton.innerHTML="Unlike";
+      else{likeButton.innerHTML="Like"}
     })
-  // location.reload();
   })
 }
 
@@ -77,9 +76,9 @@ if(commentBox != undefined){
       let username = e.target.parentNode.getElementsByTagName('h3')[0].innerHTML;
       let commentId = e.target.value;
       axios.patch(`${baseUrl}/comment`, {data: username, commentId: commentId}).then(data => {
-        //h3Name is username get this via dom and queue db with that
-        document.getElementById('ratingA').innerHTML = `Rating: `;
-
+        document.getElementById('comment-rating').innerHTML = `<em>Rating: </em>${data.data.rating}`;
+        if(data.data.liked)e.target.innerHTML="unlike";
+        else{e.target.innerHTML="like"}
       })
     }
   });

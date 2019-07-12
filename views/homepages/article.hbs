@@ -3,11 +3,9 @@
   <a href='/source/{{article.source.id}}'><h3>{{article.source.name}}</h3></a>
   
     <div class='article-title-content'>
-      <p><em>Source reputation: </em>{{source.reputation}}</p>
+      <p id="ratingA"><em>Source reputation: </em>{{source.reputation}}</p>
       {{#if user}}
-      <button class='like-button big-like' type='submit' id='like-button'>Like</button>
-      {{else}}
-      <a href='/auth/login'><button class='like-button big-like'>Login to like</button></a>
+      <button class='like-button big-like' type='submit' id='like-button'>{{#if liked}}Unlike{{else}}Like{{/if}}</button>
       {{/if}}
     </div>
 
@@ -67,8 +65,10 @@
     <div class='article-comment-content'>
       <h3>{{this.author.username}}</h3>
       <p>{{this.content}}</p>
-      <p><em>Rating: </em>{{this.rating}}</p>
+      <p id="comment-rating"><em>Rating: </em>{{this.rating}}</p>
+      {{#if user}}
       <button class='like-button' value={{this._id}}>Like</button>
+      {{/if}}
     </div>
   </div>
   {{/each}}
