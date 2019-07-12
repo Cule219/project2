@@ -87,17 +87,21 @@ router.patch('/comment', async (req, res, next)=>{
   const userId  = req.session.passport.user;
   Comment.findOne({'_id': req.body.commentId}, (err, doc)=> {
     let docObject = doc._doc;
+    let incdec;
     if(docObject.ratings === undefined) {docObject.ratings = []; docObject.rating = 0}
     if(docObject.ratings.indexOf(userId) === -1){ 
       docObject.ratings.push(userId);
-      docObject.rating++;
+      incdec=1;
     }else{
       docObject.ratings.pull(mongoose.Types.ObjectId(userId));
-      docObject.rating--;
+      incdec=-1;
     }
+    User.findByIdAndUpdate(docObject.author, {
+      $inc: {reputation: incdec}
+    },{ new: true }).then(data => console.log(data))
     Comment.findByIdAndUpdate(docObject._id, {
       ratings: docObject.ratings, 
-      rating: docObject.rating
+      rating: docObject.rating + incdec
     }, { new: true }).then(data => {
       console.log(docObject.ratings.includes(req.session.passport.user));
       res.send({
@@ -109,27 +113,3 @@ router.patch('/comment', async (req, res, next)=>{
 });
 module.exports = router;
 
-// router.post('/comment', (req, res, next) => {
-//   let articleId = req.headers.referer.match(/[^\/]\w*$/)[0];
-//   let userId = req.session.passport.user
-//   Comment.create({
-//     content: req.body.comment,
-//     author: userId,
-//     article: mongoose.Types.ObjectId(articleId),
-//     ratings: [],
-//     rating: 0
-//   }).then(data => {
-//     //this needs to be done with post middleware
-//     User.findByIdAndUpdate(userId,  
-//       {$push: {'comments': mongoose.Types.ObjectId(data._id)}})
-//       .then(data => console.log(data));
-//     Article.findByIdAndUpdate(
-//       mongoose.Types.ObjectId(articleId), 
-//       {$push: {'comments': mongoose.Types.ObjectId(data._id)}})
-//       .then(data => console.log(data.length));
-//     User.find({_id: userId}).then(user=>{
-//       res.status(200).send({data, user});
-//     })
-// }).catch(
-//     err =>console.log(err));
-// });

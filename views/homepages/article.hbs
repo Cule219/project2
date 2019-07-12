@@ -67,7 +67,7 @@
       <p>{{this.content}}</p>
       <p id="comment-rating"><em>Rating: </em>{{this.rating}}</p>
       {{!-- {{#if user}} --}}
-      <button class='like-button' value={{this._id}}>Like</button>
+      <button class='like-button' value={{this._id}}>{{#if this.liked}}Unlike{{else}}Like{{/if}}</button>
       {{!-- {{/if}} --}}
     </div>
   </div>
