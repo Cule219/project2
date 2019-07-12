@@ -58,6 +58,8 @@
   >
   {{else}}
   <h3><a href='/auth/login'>Login <span class='link'>here</span> to join the discussion.</a></h3>
+  
+  {{/if}}
   {{#each article.comments}}
   <div class='article-comment'>
     <img src='{{this.author.profileImg}}' height='100px'>
@@ -71,7 +73,6 @@
     </div>
   </div>
   {{/each}}
-  {{/if}}
 </div>
 
 </div>
