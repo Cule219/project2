@@ -41,7 +41,6 @@ router.post('/source/:id', (req, res) => {
   }).catch(err => console.log(err))
 })
 
-
 router.get('/user/:id',(req, res) => {
   User.findById({_id: req.params.id})
   .populate({path: "comments", populate: {path: 'author'}}).then(

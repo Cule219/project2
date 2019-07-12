@@ -13,7 +13,11 @@ router.get('/article/:articleId', (req, res, next) => {
   let liked = false;
   Article.findOne({'_id': req.params.articleId }).populate({
     path: 'comments', populate: {path: 'author'}}).then(article =>{
+<<<<<<< HEAD
     if(req.user !== undefined)if(article.ratings.indexOf(req.user._id) !== -1)liked=true
+=======
+    if(req.user != undefined)if(article.ratings.indexOf(req.user._id) !== -1)liked=true;
+>>>>>>> master
     article.title = article.title.substring(0, article.title.lastIndexOf('-'));
     article.publishDate = article.publishedAt.toDateString();
     Source.findOne({ 'id': article.source.id }).then(source => {

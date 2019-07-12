@@ -3,10 +3,15 @@
   <a href='/source/{{article.source.id}}'><h3>{{article.source.name}}</h3></a>
   
     <div class='article-title-content'>
+<<<<<<< HEAD
       <p id="ratingA"><em>Source reputation: </em>{{source.reputation}}</p>
       {{#if user}}
       <button class='like-button big-like' type='submit' id='like-button'>{{#if liked}}Unlike{{else}}Like{{/if}}</button>
       {{/if}}
+=======
+      <p><em>Source reputation: </em>{{source.reputation}}</p>
+      <button class='like-button big-like' type='submit' id='like-button'>Like</button>
+>>>>>>> master
     </div>
 
     <p>{{article.publishDate}}</p>
@@ -66,9 +71,15 @@
       <h3>{{this.author.username}}</h3>
       <p>{{this.content}}</p>
       <p id="comment-rating"><em>Rating: </em>{{this.rating}}</p>
+<<<<<<< HEAD
       {{!-- {{#if user}} --}}
       <button class='like-button' value={{this._id}}>Like</button>
       {{!-- {{/if}} --}}
+=======
+      {{#if user}}
+      <button class='like-button' value={{this._id}}>Like</button>
+      {{/if}}
+>>>>>>> master
     </div>
   </div>
   {{/each}}

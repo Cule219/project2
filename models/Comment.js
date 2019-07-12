@@ -26,11 +26,12 @@ const commentSchema = Schema({
     type: Number,
     default: 0
   },
-  ratings: [{
-    type: Schema.Types.ObjectId,
-    ref: "User"
-  }]
-}, {
+    ratings: [{
+      type: Schema.Types.ObjectId,
+      ref: "User"
+    }]
+}, 
+{
   timestamps: {
     createdAt: 'created_at',
     updatedAt: 'updated_at'
