@@ -5,7 +5,7 @@ const User            = require('../models/User');
 passport.use(new GoogleStrategy({
   clientID: process.env.GOOGLE_CLIENT_ID,
   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-  callbackURL: "http://opinion-news.herokuapp.com/auth/google/callback"
+  callbackURL: "http://opinion-news.herokuapp.com/auth/google/callback"//http://localhost:3000
 },
 function(accessToken, refreshToken, profile, cb) {
   User.findOne({ googleId: profile.id })
@@ -25,23 +25,3 @@ function(accessToken, refreshToken, profile, cb) {
         });
     }
 ));
-
-//Google profile examp:
-
-// { id: '112678934251205388903',
-//   displayName: 'Stefan Culafic',
-//   name: { familyName: 'Culafic', givenName: 'Stefan' },
-//   photos:
-//    [ { value:
-//         'https://lh3.googleusercontent.com/-vN2r6OL7IHg/AAAAAAAAAAI/AAAAAAAAHcs/e27OZ_SW810/photo.jpg' } ],
-//   provider: 'google',
-//   _raw:
-//    '{\n  "sub": "112678934251205388903",\n  "name": "Stefan Culafic",\n  "given_name": "Stefan",\n  "family_name": "Culafic",\n  "picture": "https://lh3.googleusercontent.com/-vN2r6OL7IHg/AAAAAAAAAAI/AAAAAAAAHcs/e27OZ_SW810/photo.jpg",\n  "locale": "en"\n}',
-//   _json:
-//    { sub: '112678934251205388903',
-//      name: 'Stefan Culafic',
-//      given_name: 'Stefan',
-//      family_name: 'Culafic',
-//      picture:
-//       'https://lh3.googleusercontent.com/-vN2r6OL7IHg/AAAAAAAAAAI/AAAAAAAAHcs/e27OZ_SW810/photo.jpg',
-//      locale: 'en' } }

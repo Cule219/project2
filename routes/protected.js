@@ -50,7 +50,6 @@ router.patch('/article', (req, res, next)=>{
             doc.reputation--;
           }
           doc.save(doc).then(cont => {
-            console.log(data.ratings.includes(req.session.passport.user), req.session.passport.user)
             res.send({rating: cont.reputation, liked: data.ratings.includes(req.session.passport.user)});
           })  
           if(err)console.log(err);
@@ -88,6 +87,7 @@ router.patch('/comment', async (req, res, next)=>{
   const userId  = req.session.passport.user;
   Comment.findOne({'_id': req.body.commentId}, (err, doc)=> {
     let docObject = doc._doc;
+<<<<<<< HEAD
     if(docObject.ratings === undefined) {docObject.ratings = []; docObject.rating = 0}
     if(docObject.ratings.indexOf(userId) === -1){ 
       docObject.ratings.push(userId);
@@ -103,5 +103,32 @@ router.patch('/comment', async (req, res, next)=>{
     })
   }).catch(err => console.log(err));
 });
+=======
+    let incdec;
+    if(docObject.ratings === undefined) {docObject.ratings = []; docObject.rating = 0}
+    if(docObject.ratings.indexOf(userId) === -1){ 
+      docObject.ratings.push(userId);
+      incdec=1;
+    }else{
+      docObject.ratings.pull(mongoose.Types.ObjectId(userId));
+      incdec=-1;
+    }
+    User.findByIdAndUpdate(docObject.author, {
+      $inc: {reputation: incdec}
+    },{ new: true }).then(data => console.log(data))
+    Comment.findByIdAndUpdate(docObject._id, {
+      ratings: docObject.ratings, 
+      rating: docObject.rating + incdec
+    }, { new: true }).then(data => {
+      console.log(docObject.ratings.includes(req.session.passport.user));
+      res.send({
+        rating: data.rating, liked: docObject.ratings.includes(req.session.passport.user)
+      });
+    // doc.save(doc).
+    })
+  }).catch(err => console.log(err));
+});
+module.exports = router;
+>>>>>>> testB
 
 module.exports = router;

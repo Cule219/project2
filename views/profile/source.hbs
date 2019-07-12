@@ -6,7 +6,7 @@
       <img src='{{data.profileImg}}' height='200px'>
       <div class="profile-header-content">
         <h2>{{data.name}}</h2>
-        <h3>Rating: 4.8</h3>
+        <h3>Rating: {{data.reputation}}</h3>
         <a href='{{data.url}}'>{{data.url}}</a>
         {{#if user}}
         <a href='/source/{{data.id}}/edit' class='edit-button' style='display:block;'>Edit profile</a>

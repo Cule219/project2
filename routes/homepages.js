@@ -11,12 +11,20 @@ router.get('/homepages/sources', (req, res) => {
 
 router.get('/article/:articleId', (req, res, next) => {
   let liked = false;
+  
   Article.findOne({'_id': req.params.articleId }).populate({
     path: 'comments', populate: {path: 'author'}}).then(article =>{
-    if(req.user != undefined)if(article.ratings.indexOf(req.user._id) !== -1)liked=true;
+    if(req.user != undefined){
+      if(article.ratings.indexOf(req.user._id) !== -1)liked=true;
+    }
     article.title = article.title.substring(0, article.title.lastIndexOf('-'));
     article.publishDate = article.publishedAt.toDateString();
     Source.findOne({ 'id': article.source.id }).then(source => {
+      if(req.user._id !== -1) {
+        article.comments.forEach(element => {
+          element.liked = element.ratings.includes(req.user._id);
+        });
+      }
       res.render('homepages/article', {article, source, user: req.user, liked});
     })
   }).catch(err=>console.log(err));

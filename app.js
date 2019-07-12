@@ -12,7 +12,6 @@ const path         = require('path');
 const session    = require("express-session");
 const MongoStore = require('connect-mongo')(session);
 const flash      = require("connect-flash");
-const axios      = require('axios');
 
 mongoose
   .connect(process.env.MONGO_URI || 'mongodb://localhost/project2', {useNewUrlParser: true})
@@ -69,10 +68,8 @@ hbs.registerHelper('ifUndefined', (value, options) => {
   }
 });
   
-
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';
-
 
 // Enable authentication using session + passport
 app.use(session({
@@ -83,7 +80,6 @@ app.use(session({
 }))
 app.use(flash());
 require('./passport')(app);
-    
 
 app.use('/', require('./routes/index'));
 app.use('/', require('./routes/homepages'));
