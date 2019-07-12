@@ -177,7 +177,7 @@ let sources = [
                 country: "us",
                 reputation: 174,
                 comments: [],
-                profileImg: `https://en.wikipedia.org/wiki/USA_Today#/media/File:USA_Today_2012logo.svg`,
+                profileImg: `https://www.american.edu/uploads/standard/large/01_Primary_01_FullColor_USATODAY_Logo_Prm_FullClr_RGB_600copy.png`,
                 politicalBias: "USA Today is one of America's leading media corporations and, as such, is suspecible to the ever pervading influence, and push and pull, of mainstream American politics. Traditionally, USA Today holds a right of centre political stance. The broadcasting network's host of hosts and representatives deliberately reinforces this left leaning political stance to appease the viewing audience.",
                 fundingSources: [
                   'Advertising Revenue: $89 million - Source: USA Today Income Report 2018',
@@ -214,23 +214,7 @@ let sources = [
                       fundingSources: [
                         'Advertising Revenue: $89 million - Source: Politico Income Report 2018',
                         'Cable Company Subscriptions: $75 million - Source: Politico Income Report 2018'
-                      ]},
-                      {
-                        id: "politico",
-                        name: "Politico",
-                        description: "Politico is one of the most prominent names in the American national broadcasting sphere relating to the stock market and is known around the global. Politico is owned by NBC Universal Broadcast which is in turn owned by Comcast. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel quam ac odio auctor laoreet sit amet in orci. Duis accumsan sed elit sed dictum. Curabitur convallis semper sapien nec iaculis. ",
-                        url: "www.politico.com",
-                        category: "general",
-                        language: "en",
-                        country: "us",
-                        reputation: 174,
-                        comments: [],
-                        profileImg: `https://pmcvariety.files.wordpress.com/2016/05/politico-logo.jpg?w=913&h=513&crop=1`,
-                        politicalBias: "Politico is one of America's leading media corporations and, as such, is suspecible to the ever pervading influence, and push and pull, of mainstream American politics. Traditionally, Politico holds a right of centre political stance. The broadcasting network's host of hosts and representatives deliberately reinforces this left leaning political stance to appease the viewing audience.",
-                        fundingSources: [
-                          'Advertising Revenue: $89 million - Source: Politico Income Report 2018',
-                          'Cable Company Subscriptions: $75 million - Source: Politico Income Report 2018'
-                        ]},
+                      ]}
                   
 ];
 
