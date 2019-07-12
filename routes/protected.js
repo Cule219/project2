@@ -1,5 +1,4 @@
 const express     = require("express");
-const passport    = require('passport');
 const router      = express.Router();
 const User        = require("../models/User");
 const Comment     = require('../models/Comment');
@@ -87,18 +86,19 @@ router.post('/comment', (req, res, next) => {
     rating: 0
   }).then(data => {
     //this needs to be done with post middleware
+    User.findByIdAndUpdate(userId,  
+      {$push: {'comments': mongoose.Types.ObjectId(data._id)}})
+      .then(data => console.log(data));
     Article.findByIdAndUpdate(
       mongoose.Types.ObjectId(articleId), 
-      {$push: {'comments': mongoose.Types.ObjectId(data._id)}
-    }).then(data => console.log(data.length));
+      {$push: {'comments': mongoose.Types.ObjectId(data._id)}})
+      .then(data => console.log(data.length));
     User.find({_id: userId}).then(user=>{
       res.status(200).send({data, user});
-    });
+    })
 }).catch(
     err =>console.log(err));
 });
-
-
 
 module.exports = router;
 

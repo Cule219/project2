@@ -4,7 +4,9 @@
   
     <div class='article-title-content'>
       <p id="ratingA"><em>Source reputation: </em>{{source.reputation}}</p>
+      {{#if user}}
       <button class='like-button big-like' type='submit' id='like-button'>{{#if liked}}Unlike{{else}}Like{{/if}}</button>
+      {{/if}}
     </div>
 
     <p>{{article.publishDate}}</p>
@@ -64,7 +66,9 @@
       <h3>{{this.author.username}}</h3>
       <p>{{this.content}}</p>
       <p id="comment-rating"><em>Rating: </em>{{this.rating}}</p>
+      {{#if user}}
       <button class='like-button' value={{this._id}}>Like</button>
+      {{/if}}
     </div>
   </div>
   {{/each}}
