@@ -66,7 +66,6 @@ if(likeButton != undefined){
       if(data.data.liked)likeButton.innerHTML="Unlike";
       else{likeButton.innerHTML="Like"}
     })
-  // location.reload();
   })
 }
 

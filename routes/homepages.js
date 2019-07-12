@@ -13,7 +13,9 @@ router.get('/homepages/sources', (req, res) => {
 router.get('/article/:articleId', (req, res, next) => {
   Article.findOne({'_id': req.params.articleId }).populate({
     path: 'comments', populate: {path: 'author'}}).then(article =>{
-    if(req.user !== undefined)let liked = article.ratings.indexOf(req.user._id) !== -1;
+    if(req.user !== undefined) {
+      let liked = article.ratings.indexOf(req.user._id) !== -1
+    }
     article.title = article.title.substring(0, article.title.lastIndexOf('-'));
     article.publishDate = article.publishedAt.toDateString();
     Source.findOne({ 'id': article.source.id }).then(source => {
