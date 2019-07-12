@@ -50,7 +50,6 @@ router.patch('/article', (req, res, next)=>{
             doc.reputation--;
           }
           doc.save(doc).then(cont => {
-            console.log(data.ratings.includes(req.session.passport.user), req.session.passport.user)
             res.send({rating: cont.reputation, liked: data.ratings.includes(req.session.passport.user)});
           })  
           if(err)console.log(err);
@@ -96,7 +95,12 @@ router.patch('/comment', async (req, res, next)=>{
       docObject.ratings.pull(mongoose.Types.ObjectId(userId));
       docObject.rating--;
     }
-    Comment.findByIdAndUpdate(docObject._id, {docObject}).then(data => {
+    console.log(docObject);
+    Comment.findByIdAndUpdate(docObject._id, {
+      ratings: docObject.ratings, 
+      rating: docObject.rating
+    }, { new: true }).then(data => {
+      console.log(data)
       res.send({
         rating: data.rating, liked: data.toObject().ratings.includes(req.session.passport.user)
       });

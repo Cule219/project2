@@ -44,6 +44,7 @@ const newComment = (data) => {
   let descriptionUser       = document.createElement('p');
   descriptionUser.innerHTML = data.data.data.content;
   let ratingUser            = document.createElement('p');
+  ratingUser.classList      = data.data.user[0].username;
   ratingUser.innerHTML      = `<em>Rating: </em>${data.data.data.rating || 0}`;
   let likeButton            = document.createElement('button');
   likeButton.innerHTML      = 'Like';
@@ -76,7 +77,9 @@ if(commentBox != undefined){
       let username = e.target.parentNode.getElementsByTagName('h3')[0].innerHTML;
       let commentId = e.target.value;
       axios.patch(`${baseUrl}/comment`, {data: username, commentId: commentId}).then(data => {
-        document.getElementById('comment-rating').innerHTML = `<em>Rating: </em>${data.data.rating}`;
+        document.getElementsByClassName('username').forEach(element => {
+          element.innerHTML = `<em>Rating: </em>${data.data.rating}`;
+        });
         if(data.data.liked)e.target.innerHTML="unlike";
         else{e.target.innerHTML="like"}
       })
