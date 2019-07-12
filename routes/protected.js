@@ -87,23 +87,6 @@ router.patch('/comment', async (req, res, next)=>{
   const userId  = req.session.passport.user;
   Comment.findOne({'_id': req.body.commentId}, (err, doc)=> {
     let docObject = doc._doc;
-<<<<<<< HEAD
-    if(docObject.ratings === undefined) {docObject.ratings = []; docObject.rating = 0}
-    if(docObject.ratings.indexOf(userId) === -1){ 
-      docObject.ratings.push(userId);
-      docObject.rating++;
-    }else{
-      docObject.ratings.pull(mongoose.Types.ObjectId(userId));
-      docObject.rating--;
-    }
-    doc.save(doc).then(data => {
-      res.send({
-        rating: data.rating, liked: data.toObject().ratings.includes(req.session.passport.user)
-      });
-    })
-  }).catch(err => console.log(err));
-});
-=======
     let incdec;
     if(docObject.ratings === undefined) {docObject.ratings = []; docObject.rating = 0}
     if(docObject.ratings.indexOf(userId) === -1){ 
@@ -120,15 +103,11 @@ router.patch('/comment', async (req, res, next)=>{
       ratings: docObject.ratings, 
       rating: docObject.rating + incdec
     }, { new: true }).then(data => {
-      console.log(docObject.ratings.includes(req.session.passport.user));
       res.send({
         rating: data.rating, liked: docObject.ratings.includes(req.session.passport.user)
       });
-    // doc.save(doc).
     })
   }).catch(err => console.log(err));
 });
-module.exports = router;
->>>>>>> testB
 
 module.exports = router;
