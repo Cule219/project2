@@ -84,7 +84,6 @@ router.post('/comment', (req, res, next) => {
     err =>console.log(err));
 });
 
-<<<<<<< HEAD
 router.patch('/comment', async (req, res, next)=>{
   const userId  = req.session.passport.user;
   Comment.findOne({'_id': req.body.commentId}, (err, doc)=> {
@@ -104,8 +103,6 @@ router.patch('/comment', async (req, res, next)=>{
     })
   }).catch(err => console.log(err));
 });
-=======
->>>>>>> master
 module.exports = router;
 
 // router.post('/comment', (req, res, next) => {
