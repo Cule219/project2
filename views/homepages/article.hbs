@@ -3,10 +3,8 @@
   <a href='/source/{{article.source.id}}'><h3>{{article.source.name}}</h3></a>
   
     <div class='article-title-content'>
-      <p id="ratingA"><em>Source reputation: </em>{{source.reputation}}</p>
-      {{#if user}}
-      <button class='like-button big-like' type='submit' id='like-button'>{{#if liked}}Unlike{{else}}Like{{/if}}</button>
-      {{/if}}
+      <p><em>Source reputation: </em>{{source.reputation}}</p>
+      <button class='like-button big-like' type='submit' id='like-button'>Like</button>
     </div>
 
     <p>{{article.publishDate}}</p>
