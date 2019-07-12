@@ -2,7 +2,6 @@ const express   = require('express');
 const router    = express.Router();
 const Source    = require('../models/Source');
 const Article   = require('../models/Article');
-const User = require('../models/User')
 
 router.get('/homepages/sources', (req, res) => {
   Source.find({}).then(data => {
