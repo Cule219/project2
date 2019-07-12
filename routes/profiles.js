@@ -17,9 +17,7 @@ router.get('/source/:id', (req, res) => {
 router.get('/source/:id/edit', (req, res) => {
   Source.findOne({ 'id': req.params.id }).then(data => {
     Articles.find({'source.id': req.params.id}).then(articles => {
-      console.log('Before: ' + articles)
       articles = articles.splice(0, 2)
-      console.log('After : ' + articles)
       res.render('profile/editSource', { data, articles, user: req.user });
     });
   }).catch(err => console.log(err))
@@ -45,8 +43,7 @@ router.post('/source/:id', (req, res) => {
 
 
 router.get('/user/:id',(req, res) => {
-  console.log('ID: ' + req.params.id)
-  User.findById({_id: req.params.id}).then(data => {
+  User.findById({_id: req.params.id}).populate("comments").then(data => {
     let user = false; if(req.params.id == req.user._id) user = true;
     res.render('profile/user', {data, user: req.user});
   });
