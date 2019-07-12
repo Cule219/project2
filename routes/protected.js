@@ -67,6 +67,7 @@ router.patch('/article', (req, res, next)=>{
             doc.reputation--;
           }
           doc.save(doc).then(cont => {
+            console.log(data.ratings.includes(req.session.passport.user), req.session.passport.user)
             res.send({rating: cont.reputation, liked: data.ratings.includes(req.session.passport.user)});
           })  
           if(err)console.log(err);
