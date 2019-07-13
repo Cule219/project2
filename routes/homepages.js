@@ -23,6 +23,7 @@ router.get('/article/:articleId', (req, res, next) => {
       if(req.user != undefined) {
         article.comments.forEach(element => {
           element.liked = element.ratings.includes(req.user._id);
+          element.user  = req.user._id;
         });
       }
       res.render('homepages/article', {article, source, user: req.user, liked});
