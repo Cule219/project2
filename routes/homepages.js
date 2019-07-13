@@ -20,7 +20,7 @@ router.get('/article/:articleId', (req, res, next) => {
     article.title = article.title.substring(0, article.title.lastIndexOf('-'));
     article.publishDate = article.publishedAt.toDateString();
     Source.findOne({ 'id': article.source.id }).then(source => {
-      if(req.user._id !== -1) {
+      if(req.user != undefined) {
         article.comments.forEach(element => {
           element.liked = element.ratings.includes(req.user._id);
         });
