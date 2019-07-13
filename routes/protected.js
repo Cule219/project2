@@ -31,6 +31,7 @@ router.patch('/article', (req, res, next)=>{
   let userId    = req.session.passport.user;
   Article.findOne({'_id': articleId}, (err, doc)=>{
     if(err)console.log(err);
+    if(doc.ratings === null)doc.ratings=[];
     if(doc.ratings.indexOf(userId) === -1)
     {
       doc.ratings.push(userId);
