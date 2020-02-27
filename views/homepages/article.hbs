@@ -58,7 +58,6 @@
   >
   {{else}}
   <h3><a href='/auth/login'>Login <span class='link'>here</span> to join the discussion.</a></h3>
-  
   {{/if}}
   {{#each article.comments}}
   <div class='article-comment'>
@@ -67,9 +66,9 @@
       <h3>{{this.author.username}}</h3>
       <p>{{this.content}}</p>
       <p id="comment-rating"><em>Rating: </em>{{this.rating}}</p>
-      {{!-- {{#if user}} --}}
+      {{#if ../user}}
       <button class='like-button' value={{this._id}}>Like</button>
-      {{!-- {{/if}} --}}
+      {{/if}}
     </div>
   </div>
   {{/each}}

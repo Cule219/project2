@@ -1,26 +1,27 @@
-const express     = require("express");
-const passport    = require('passport');
-const router      = express.Router();
-const User        = require("../models/User");
-const Source      = require('../models/Source');
-const Article     = require('../models/Article');
-
+const express = require("express");
+const passport = require("passport");
+const router = express.Router();
+const User = require("../models/User");
+const Source = require("../models/Source");
+const Article = require("../models/Article");
 
 // Bcrypt to encrypt passwords
-const bcrypt      = require("bcrypt");
-const bcryptSalt  = 10;
-
+const bcrypt = require("bcrypt");
+const bcryptSalt = 10;
 
 router.get("/login", (req, res, next) => {
-  res.render("auth/login", { "message": req.flash("error") });
+  res.render("auth/login", { message: req.flash("error") });
 });
 
-router.post("/login", passport.authenticate("local", {
-  successRedirect: "/",
-  failureRedirect: "/auth/login",
-  failureFlash: true,
-  passReqToCallback: true
-}));
+router.post(
+  "/login",
+  passport.authenticate("local", {
+    successRedirect: "/",
+    failureRedirect: "/auth/login",
+    failureFlash: true,
+    passReqToCallback: true
+  })
+);
 
 router.get("/signup", (req, res, next) => {
   res.render("auth/signup");
@@ -48,13 +49,14 @@ router.post("/signup", (req, res, next) => {
       password: hashPass
     });
 
-    newUser.save()
-    .then(() => {
-      res.redirect("/");
-    })
-    .catch(err => {
-      res.render("auth/signup", { message: "Something went wrong" });
-    })
+    newUser
+      .save()
+      .then(() => {
+        res.redirect("/");
+      })
+      .catch(err => {
+        res.render("auth/signup", { message: "Something went wrong" });
+      });
   });
 });
 
@@ -64,34 +66,42 @@ router.get("/logout", (req, res) => {
 });
 
 //google auth
-router.get('/google',
-  passport.authenticate('google', { scope: ['profile'] }));
+router.get(
+  "/google",
+  passport.authenticate("google", {
+    scope: "https://www.googleapis.com/userinfo/email?alt=json"
+  })
+);
 
-router.get('/google/callback', 
-  passport.authenticate('google', { failureRedirect: '/login' }),
+router.get(
+  "/google/callback",
+  passport.authenticate("google", { failureRedirect: "/login" }),
   function(req, res) {
-    res.redirect('/');
-});
+    res.redirect("/");
+  }
+);
 
 //fb auth
-router.get('/facebook',
-  passport.authenticate('facebook'));
+router.get("/facebook", passport.authenticate("facebook"));
 
-router.get('/facebook/callback',
-  passport.authenticate('facebook', { failureRedirect: '/login' }),
+router.get(
+  "/facebook/callback",
+  passport.authenticate("facebook", { failureRedirect: "/login" }),
   function(req, res) {
-    res.redirect('/');
-});
+    res.redirect("/");
+  }
+);
 
 //github auth
-router.get('/github',
-  passport.authenticate('github'));
+router.get("/github", passport.authenticate("github"));
 
-router.get('/github/callback', 
-  passport.authenticate('github', { failureRedirect: '/login' }),
+router.get(
+  "/github/callback",
+  passport.authenticate("github", { failureRedirect: "/login" }),
   function(req, res) {
-    console.log('working')
-    res.redirect('/');
-});
+    console.log("working");
+    res.redirect("/");
+  }
+);
 
 module.exports = router;
